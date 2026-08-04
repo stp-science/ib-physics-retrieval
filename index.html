@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="IB Physics retrieval practice aligned to the course for first assessment 2025."
+    />
+    <meta name="theme-color" content="#07284f" />
+    <title>IB Physics Retrieval Practice</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./questions.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="school-badge" aria-hidden="true">SP</div>
+        <div class="brand">
+          <p class="school-name">St Peter's School</p>
+          <h1>IB Physics Retrieval Practice</h1>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Use dark theme">
+          <span aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-heading">
+        <div>
+          <p class="eyebrow">Build durable knowledge</p>
+          <h2 id="hero-heading">Retrieve it before you see it.</h2>
+          <p class="hero-copy">
+            Choose one topic or mix several. Answer from memory, reveal the model answer,
+            then mark honestly so difficult questions return more often.
+          </p>
+        </div>
+        <span class="course-pill">IB Physics • First assessment 2025</span>
+      </section>
+
+      <div class="app-layout">
+        <aside class="control-panel" aria-label="Quiz controls">
+          <section class="control-block">
+            <h3>Course level</h3>
+            <div class="select-grid level-grid">
+              <label><span class="sr-only">Course level</span><select id="course-level"><option value="SL">SL</option><option value="HL">HL</option></select></label>
+            </div>
+            <p class="settings-note" id="level-note">SL questions and common SL content only.</p>
+          </section>
+          <section class="control-block">
+            <div class="label-row">
+              <h3>Topics</h3>
+              <button class="text-button" id="select-toggle" type="button">Clear all</button>
+            </div>
+            <div class="topic-list" id="topic-list"></div>
+            <p class="selection-note" id="selection-note"></p>
+          </section>
+
+          <section class="control-block">
+            <h3>Quiz settings</h3>
+            <div class="select-grid">
+              <label>
+                <span class="sr-only">Number of questions</span>
+                <select id="question-count">
+                  <option value="5">5 questions</option>
+                  <option value="10" selected>10 questions</option>
+                  <option value="15">15 questions</option>
+                  <option value="20">20 questions</option>
+                  <option value="30">30 questions</option>
+                  <option value="50">50 questions</option>
+                </select>
+              </label>
+              <label>
+                <span class="sr-only">Quiz selection mode</span>
+                <select id="selection-mode">
+                  <option value="random">Random set</option>
+                  <option value="daily">Daily set</option>
+                </select>
+              </label>
+            </div>
+            <p class="settings-note">
+              Daily mode stays consistent for the day. Random mode creates a fresh selection.
+              Your self-marking is saved on this device and shapes future quizzes.
+            </p>
+          </section>
+
+          <section class="control-block action-block">
+            <button class="primary-button" id="start-button" type="button">Start quiz</button>
+            <button class="secondary-button" id="another-button" type="button">Create another quiz</button>
+          </section>
+        </aside>
+
+        <section class="quiz-card" id="quiz-card" aria-live="polite"></section>
+      </div>
+    </main>
+
+    <footer>
+      Retrieve first <span>•</span> Check carefully <span>•</span> Revisit what was difficult
+    </footer>
+  </body>
+</html>
