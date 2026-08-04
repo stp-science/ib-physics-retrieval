@@ -71,6 +71,202 @@
   const sig = (value, figures = 3) => Number(value.toPrecision(figures)).toString();
   const pct = (value) => `${sig(value, 3)}%`;
 
+  const exponentDigits = {
+    "-": "⁻", "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴",
+    "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹",
+  };
+
+  const formatScientificNotation = (text) => text.replace(
+    /(-?\d+(?:\.\d+)?)[eE]([+-]?\d+)/g,
+    (_, coefficient, exponent) => {
+      const superscript = exponent
+        .replace(/^\+/, "")
+        .split("")
+        .map((character) => exponentDigits[character] || character)
+        .join("");
+      return `${coefficient} × 10${superscript}`;
+    },
+  );
+
+  const formatSmallDecimals = (text) => text.replace(/\b0\.(0{3,}\d+)\b/g, (value) =>
+    Number(value).toExponential(2).replace(/\.0+e/, "e").replace(/(\.\d*?)0+e/, "$1e"));
+
+  const groupLargeIntegers = (text) => text.replace(/\b\d{5,}\b/g, (value) =>
+    value.replace(/\B(?=(\d{3})+(?!\d))/g, " "));
+
+  const polishExamStyle = (entry) => {
+    let question = entry.question;
+    let answer = entry.answer;
+
+    const exactRewrites = new Map([
+      [
+        "State the power relation for a force parallel to velocity.",
+        "A vehicle moves with velocity v. Its engine exerts a driving force F parallel to its velocity. Write down an expression for the useful power developed by the engine.",
+      ],
+      [
+        "What is the position of a body?",
+        "State what is meant by the position of an object relative to a reference frame.",
+      ],
+      [
+        "At the highest point of a projectile, what are its vertical velocity and acceleration?",
+        "A ball is projected at an angle above the horizontal. State its vertical velocity and vertical acceleration at the highest point of its path.",
+      ],
+      [
+        "On what does moment of inertia depend?",
+        "State the two features of a rigid body that determine its moment of inertia about a chosen axis.",
+      ],
+      [
+        "What is the force between parallel wires carrying current in the same direction?",
+        "State whether the force between two parallel wires carrying current in the same direction is attractive or repulsive.",
+      ],
+      [
+        "What is the force between parallel wires carrying current in opposite directions?",
+        "State whether the force between two parallel wires carrying current in opposite directions is attractive or repulsive.",
+      ],
+      [
+        "Two pucks collide on frictionless ice. Initial total momentum is 5.0 kg m s⁻¹ east and 12 kg m s⁻¹ north. What is the final total momentum?",
+        "Two pucks collide on frictionless ice. Before the collision, their total momentum is 5.0 kg m s⁻¹ east and 12 kg m s⁻¹ north. State the total momentum of the pucks after the collision.",
+      ],
+      [
+        "What is distance of closest approach in head-on scattering?",
+        "Define the distance of closest approach for an alpha particle undergoing head-on scattering by a nucleus.",
+      ],
+      [
+        "What is the undeflected-speed condition in crossed perpendicular E and B fields?",
+        "A charged particle passes undeflected through perpendicular electric and magnetic fields. Write down an expression for its speed in terms of E and B.",
+      ],
+      [
+        "What is required for an emf to be induced in a circuit?",
+        "State the condition required for an emf to be induced in a circuit.",
+      ],
+      [
+        "What should a free-body diagram show?",
+        "State the information that should be included in a free-body diagram for an object.",
+      ],
+      [
+        "What is the separation of adjacent nodes?",
+        "State the separation between two adjacent nodes in a standing wave of wavelength λ.",
+      ],
+      [
+        "What is the separation from a node to an adjacent antinode?",
+        "State the separation between a node and an adjacent antinode in a standing wave of wavelength λ.",
+      ],
+      [
+        "What approximation is used for quantitative orbital problems in this topic?",
+        "State the shape of orbit assumed for quantitative orbital calculations in D.1.",
+      ],
+      [
+        "What is the shape of gravitational field lines around an isolated spherical mass?",
+        "Describe the shape and direction of the gravitational field lines around an isolated spherical mass.",
+      ],
+      [
+        "What is electric potential inside a charged conducting sphere in electrostatic equilibrium?",
+        "State how electric potential varies inside a charged conducting sphere in electrostatic equilibrium.",
+      ],
+      [
+        "What is the electric field inside a hollow conducting sphere in electrostatic equilibrium?",
+        "State the electric field inside a hollow conducting sphere in electrostatic equilibrium.",
+      ],
+      [
+        "What is the purpose of a risk assessment?",
+        "State the purpose of a risk assessment in a physics investigation.",
+      ],
+    ]);
+    question = exactRewrites.get(question) || question;
+    question = question.replace(/\s*=\s*/g, " = ");
+
+    const contextualRewrites = [
+      [/^A body travels (.+?) in (.+?)\. Calculate its average speed\.$/, "A cyclist travels $1 along a straight road in $2. Calculate the cyclist's average speed."],
+      [/^Velocity changes from (.+?) to (.+?) in (.+?)\. Calculate the average acceleration\.$/, "A trolley moves along a straight track. Its velocity changes from $1 to $2 in $3. Calculate its average acceleration."],
+      [/^An object starts at (.+?) and accelerates at (.+?) for (.+?)\. Calculate its final velocity\.$/, "A trolley moves along a straight track with initial velocity $1. It has constant acceleration $2 for $3. Calculate its final velocity."],
+      [/^Velocity changes uniformly from (.+?) to (.+?) in (.+?)\. Calculate displacement\.$/, "A trolley moves along a straight track. Its velocity changes uniformly from $1 to $2 in $3. Calculate its displacement."],
+      [/^A projectile has horizontal velocity (.+?) and is airborne for (.+?)\. Neglect drag\. Calculate its horizontal range\.$/, "A ball is projected horizontally with velocity $1 and lands after $2. Air resistance is negligible. Calculate its horizontal range."],
+      [/^A ([\d.-]+) kg body has acceleration (.+?)\. Calculate the resultant force\.$/, "A trolley of mass $1 kg has acceleration $2. Calculate the resultant force on the trolley."],
+      [/^Calculate the momentum of a ([\d.-]+) kg body moving at (.+?)\.$/, "A trolley of mass $1 kg moves with velocity $2. Calculate its momentum."],
+      [/^A constant resultant force of (.+?) acts for (.+?)\. Calculate the impulse\.$/, "A constant resultant force of $1 acts on a trolley for $2. Calculate the impulse delivered to the trolley."],
+      [/^A spring has k = (.+?) and displacement (.+?)\. Calculate the restoring force, including its sign\.$/, "For a horizontal spring, displacement x is measured positive to the right. The spring constant is $1 and x = $2. Calculate the restoring force, including its sign."],
+      [/^A sliding body has μd = (.+?) and normal force (.+?)\. Calculate dynamic friction\.$/, "A crate slides across a horizontal floor. The coefficient of dynamic friction is $1 and the normal force is $2. Calculate the magnitude of the frictional force."],
+      [/^A body displaces (.+?) of fluid of density (.+?)\. Use g = (.+?)\. Calculate buoyancy\.$/, "A fully immersed object displaces $1 of a fluid whose density is $2. Use g = $3. Calculate the buoyant force on the object."],
+      [/^A body moves in a circle at (.+?) with radius (.+?)\. Calculate centripetal acceleration\.$/, "A small car moves at constant speed $1 around a circular track of radius $2. Calculate its centripetal acceleration."],
+      [/^Calculate the kinetic energy of a ([\d.-]+) kg body moving at (.+?)\.$/, "A trolley of mass $1 kg moves at $2. Calculate its kinetic energy."],
+      [/^A (.+?) force acts through (.+?) at (.+?) to the displacement\. Calculate the work done\.$/, "A force of magnitude $1 acts on a crate as it moves through $2. The angle between the force and the displacement is $3. Calculate the work done by the force."],
+      [/^A device transfers (.+?) in (.+?)\. Calculate its power\.$/, "An electric motor transfers $1 of energy in $2. Calculate the average power developed by the motor."],
+      [/^A system receives (.+?) and transfers (.+?) usefully\. Calculate its efficiency\.$/, "An electric motor receives $1 of energy and transfers $2 to useful mechanical energy. Calculate its efficiency."],
+      [/^A ([\d.-]+) kg mass rises (.+?) near Earth\. Use g = (.+?)\. Calculate ΔEp\.$/, "A load of mass $1 kg is lifted vertically through $2 near Earth's surface. Use g = $3. Calculate the increase in gravitational potential energy of the load."],
+      [/^A force of (.+?) acts (.+?) from an axis at (.+?) to the radius\. Calculate torque magnitude\.$/, "A force of magnitude $1 acts on a wheel at a point $2 from its axis. The angle between the force and the radius is $3. Calculate the magnitude of the torque about the axis."],
+      [/^A body starts from rest with angular acceleration (.+?) for (.+?)\. Calculate final angular speed\.$/, "A flywheel starts from rest and has constant angular acceleration $1 for $2. Calculate its final angular speed."],
+      [/^Point masses (.+?) rotate about an axis\. Calculate their total moment of inertia\.$/, "Two small masses are attached to a light rigid frame at the stated distances from its axis: $1. Calculate the total moment of inertia."],
+      [/^A body has I = (.+?) and ω = (.+?)\. Calculate rotational kinetic energy\.$/, "A flywheel has moment of inertia I = $1 and angular speed ω = $2. Calculate its rotational kinetic energy."],
+      [/^A body has I = (.+?) and ω = (.+?)\. Calculate angular momentum\.$/, "A flywheel has moment of inertia I = $1 and angular speed ω = $2. Calculate its angular momentum."],
+      [/^A moving clock measures a proper interval of (.+?) at (.+?)\. Calculate the interval in the laboratory frame\.$/, "A clock on a spacecraft measures a proper time interval of $1. The spacecraft moves at $2 relative to a laboratory. Calculate the time interval measured in the laboratory frame."],
+      [/^A body's proper length is (.+?)\. Calculate its length when moving at (.+?)\.$/, "A spacecraft has proper length $1. It moves parallel to its length at $2 relative to Earth. Calculate its length measured in the Earth frame."],
+      [/^Calculate γ for a speed of (.+?)\.$/, "A spacecraft moves at $1 relative to Earth. Calculate the Lorentz factor γ for the spacecraft."],
+      [/^In Galilean frames, x = (.+?), v = (.+?) and t = (.+?)\. Calculate x′\.$/, "Frames S and S′ are in Galilean relative motion at velocity v = $2. An event has coordinates x = $1 and t = $3 in S. Calculate its position coordinate x′ in S′."],
+      [/^An object moves at (.+?) in frame S while S′ moves at (.+?) in the same direction\. Calculate u′\/c\.$/, "A spacecraft moves at $1 in frame S. Frame S′ moves at $2 relative to S along the same axis. Calculate the spacecraft's velocity u′ in S′ as a fraction of c."],
+      [/^A substance has density (.+?) and volume (.+?)\. Calculate its mass\.$/, "A material sample has density $1 and volume $2. Calculate the mass of the sample."],
+      [/^Calculate the energy needed to heat (.+?) of material with c = (.+?) through (.+?)\.$/, "A material sample of mass $1 has specific heat capacity $2. Its temperature increases by $3. Calculate the thermal energy transferred to the sample."],
+      [/^A ([\d.-]+) kg sample changes phase with L = (.+?)\. Calculate the energy transferred\.$/, "A $1 kg sample undergoes a complete change of phase. Its specific latent heat is $2. Calculate the energy transferred."],
+      [/^A body scatters (.+?) from (.+?) incident power\. Calculate its albedo\.$/, "A planet scatters $1 of the $2 of radiation incident on it. Calculate the planet's albedo."],
+      [/^Mean incident intensity is (.+?) and albedo is (.+?)\. Calculate absorbed intensity\.$/, "The mean radiation intensity incident on a planet is $1 and its albedo is $2. Calculate the mean intensity absorbed by the planet."],
+      [/^A normal force of (.+?) acts over (.+?)\. Calculate pressure\.$/, "Gas in a cylinder exerts a normal force of $1 on a piston of area $2. Calculate the pressure of the gas."],
+      [/^A sample contains (.+?) molecules\. Use NA = (.+?)\. Calculate amount in moles\.$/, "A gas sample contains $1 molecules. Use NA = $2. Calculate the amount of gas in moles."],
+      [/^A fixed gas changes from (.+?)\. Calculate P₂\.$/, "A fixed mass of gas is sealed in a cylinder. It changes from $1. Calculate the final pressure P₂."],
+      [/^(.+?) mol of ideal gas has P = (.+?) and V = (.+?)\. Calculate T using R = (.+?)\.$/, "A sealed gas sample contains $1 mol of ideal gas at pressure $2 and volume $3. Calculate its temperature using R = $4."],
+      [/^A gas receives Q = (.+?) and does W = (.+?)\. Calculate ΔU\.$/, "For a gas in a cylinder, Q = $1 and W = $2, where W is the work done by the gas. Calculate the change ΔU in its internal energy."],
+      [/^A gas changes volume by (.+?) at constant pressure (.+?)\. Calculate work done by the gas\.$/, "Gas in a cylinder expands or is compressed by a volume change $1 at constant pressure $2. Calculate the work done by the gas, including its sign."],
+      [/^Gas in a cylinder expands or is compressed by a volume change (.+?) at constant pressure (.+?)\. Calculate the work done by the gas, including its sign\.$/, "The volume of a gas in a cylinder changes by ΔV = $1 at constant pressure $2. Calculate the work done by the gas, including its sign."],
+      [/^(.+?) mol of monatomic ideal gas changes temperature by (.+?)\. Calculate ΔU using R = (.+?)\.$/, "A sealed sample contains $1 mol of monatomic ideal gas. Its temperature changes by $2. Calculate the change in internal energy using R = $3."],
+      [/^A reversible transfer of (.+?) occurs at (.+?)\. Calculate the entropy change of the receiving system\.$/, "For a system at constant temperature $2, the reversible thermal energy transfer into the system is Q = $1. Calculate the entropy change of the system."],
+      [/^(.+?) C passes a point in (.+?)\. Calculate current\.$/, "A charge of $1 C passes a point in a wire in $2. Calculate the current in the wire."],
+      [/^(.+?) J is transferred when (.+?) moves between two points\. Calculate potential difference\.$/, "A power supply transfers $1 J of energy as charge $2 moves between two points. Calculate the potential difference between the points."],
+      [/^A wave travels at (.+?) with frequency (.+?)\. Calculate wavelength\.$/, "A travelling wave has speed $1 and frequency $2. Calculate its wavelength."],
+      [/^A wave has wavelength (.+?) and frequency (.+?)\. Calculate wave speed\.$/, "A travelling wave has wavelength $1 and frequency $2. Calculate its speed."],
+      [/^Calculate electrical power for V = (.+?) and I = (.+?)\.$/, "The potential difference across a resistor is $1 and the current in it is $2. Calculate the power dissipated by the resistor."],
+      [/^Calculate the critical angle for light travelling from refractive index (.+?) into air\.$/, "A ray of light travels from a transparent material of refractive index $1 towards a boundary with air. Calculate the critical angle at the boundary."],
+      [/^A source of (.+?) approaches a stationary observer at (.+?)\. Sound speed is (.+?)\. Calculate observed frequency\.$/, "An ambulance siren of frequency $1 approaches a stationary observer at $2. The speed of sound is $3. Calculate the frequency heard by the observer."],
+      [/^An observer moves toward a stationary source of (.+?) at (.+?)\. Sound speed is (.+?)\. Calculate observed frequency\.$/, "An observer moves at $2 towards a stationary loudspeaker emitting frequency $1. The speed of sound is $3. Calculate the frequency heard by the observer."],
+      [/^A charge of magnitude (.+?) moves at (.+?) through B = (.+?) at (.+?)\. Calculate magnetic force magnitude\.$/, "A charged particle of charge magnitude $1 moves at $2 through a uniform magnetic field of magnitude B = $3. The angle between its velocity and the field is $4. Calculate the magnitude of the magnetic force."],
+      [/^A charge of magnitude (.+?) is accelerated from rest through (.+?)\. Calculate kinetic energy gained\.$/, "A charged particle of charge magnitude $1 is accelerated from rest through a potential difference $2. Calculate the kinetic energy gained by the particle."],
+      [/^A particle has m = (.+?), speed (.+?), \|q\| = (.+?) and moves perpendicular to B = (.+?)\. Calculate orbit radius\.$/, "A charged particle of mass $1 and charge magnitude $3 moves at $2 perpendicular to a uniform magnetic field B = $4. Calculate the radius of its circular path."],
+      [/^A loop of area (.+?) is in B = (.+?) with field at (.+?) to its normal\. Calculate magnetic flux\.$/, "A single flat loop of area $1 is placed in a uniform magnetic field B = $2. The field makes an angle $3 with the normal to the loop. Calculate the magnetic flux through the loop."],
+      [/^A rod of length (.+?) moves perpendicular to B = (.+?) at (.+?)\. Calculate motional emf\.$/, "A conducting rod of length $1 moves at $3 perpendicular to a uniform magnetic field B = $2. Calculate the induced emf across the rod."],
+      [/^Calculate photon energy for frequency (.+?) using h = (.+?)\.$/, "A photon in an atomic emission line has frequency $1. Use h = $2. Calculate the energy of the photon."],
+      [/^A nucleus has A = (.+?) and Z = (.+?)\. Calculate its neutron number\.$/, "A nucleus has nucleon number A = $1 and proton number Z = $2. Calculate its neutron number."],
+      [/^A particle has de Broglie wavelength (.+?)\. Calculate its momentum\.$/, "A beam of particles has de Broglie wavelength $1. Calculate the momentum of each particle."],
+      [/^Particles have de Broglie wavelength (.+?) and encounter slit\/lattice spacing (.+?)\. Explain whether appreciable diffraction is expected\.$/, "A beam of particles with de Broglie wavelength $1 is incident on a crystal whose lattice spacing is $2. Explain whether appreciable diffraction is expected."],
+      [/^Calculate gravitational field strength at r = (.+?) from mass (.+?)\. Use G = (.+?)\.$/, "A spherical planet has mass $2. Calculate the gravitational field strength at a point $1 from its centre. Use G = $3."],
+      [/^Calculate gravitational potential at r = (.+?) from mass (.+?)\. Use G = (.+?)\.$/, "A spherical body has mass $2. Calculate the gravitational potential at a point $1 from its centre. Use G = $3 and take zero potential at infinity."],
+      [/^Calculate circular orbital speed at r = (.+?) around mass (.+?)\.$/, "A satellite moves in a circular orbit of radius $1 around a spherical body of mass $2. Calculate the orbital speed of the satellite."],
+      [/^Calculate escape speed from r = (.+?) around mass (.+?)\.$/, "An object is launched from a point $1 from the centre of a spherical body of mass $2. Calculate the escape speed from this point."],
+      [/^Calculate electric potential (.+?) from charge (.+?) using k = (.+?)\.$/, "An isolated point charge has charge $2. Calculate the electric potential at a point $1 from the charge. Use k = $3 and take zero potential at infinity."],
+      [/^Estimate nuclear radius for A = (.+?) using R₀ = (.+?)\.$/, "A nucleus has nucleon number A = $1. Use R₀ = $2 to estimate the radius of the nucleus."],
+      [/^Calculate the Compton wavelength shift for scattering angle (.+?) using me = (.+?)\.$/, "An X-ray photon undergoes Compton scattering through an angle $1. Use me = $2 to calculate the change in the photon's wavelength."],
+      [/^A sample starts with N₀ = (.+?) and λ = (.+?)\. Calculate N after (.+?)\.$/, "A radioactive sample initially contains N₀ = $1 undecayed nuclei and has decay constant λ = $2. Calculate the number N remaining after $3."],
+      [/^A sample has N = (.+?) nuclei and λ = (.+?)\. Calculate activity\.$/, "A radioactive sample contains N = $1 undecayed nuclei and has decay constant λ = $2. Calculate its activity."],
+      [/^Initial activity is (.+?) and half-life is (.+?)\. Find activity after (.+?)\.$/, "A radioactive source has initial activity $1 and half-life $2. Calculate its activity after $3."],
+      [/^Measured count rate is (.+?) and background is (.+?)\. Calculate corrected count rate\.$/, "A detector near a radioactive source records a count rate of $1. The background count rate is $2. Calculate the corrected count rate due to the source."],
+      [/^A measurement is (.+?) ± (.+?)\. Calculate percentage uncertainty\.$/, "A student records a time as $1 ± $2 s. Calculate the percentage uncertainty in the time."],
+      [/^Calculate the mean of (.+?)\.$/, "A student obtains repeated measurements with values $1. Calculate the mean value."],
+      [/^The readings are (.+?)\. Treat (.+?) as an anomaly and calculate the mean of the remaining readings\.$/, "A student obtains repeated measurements with values $1. The value $2 is identified as an anomaly. Calculate the mean of the remaining values."],
+      [/^Calculate z = a\s*\+\s*b and its absolute uncertainty for a = (.+?) and b = (.+?)\.$/, "Two measured lengths are a = $1 and b = $2. The total length is z = a + b. Calculate z and its absolute uncertainty."],
+      [/^For z = ab, find percentage uncertainty when a = (.+?) and b = (.+?)\.$/, "A rectangle has measured sides a = $1 and b = $2. Its area is z = ab. Calculate the percentage uncertainty in z."],
+      [/^A best-fit line passes through \((.+?), (.+?)\) and \((.+?), (.+?)\)\. Calculate its gradient\.$/, "On a velocity–time graph, a best-fit line passes through (t = $1 s, v = $2 m s⁻¹) and (t = $3 s, v = $4 m s⁻¹). Calculate the acceleration represented by the gradient."],
+    ];
+    for (const [pattern, replacement] of contextualRewrites) {
+      question = question.replace(pattern, replacement);
+    }
+
+    question = groupLargeIntegers(formatScientificNotation(formatSmallDecimals(question)))
+      .replace(/\s*=\s*/g, " = ")
+      .replace(/(\d)×10/g, "$1 × 10")
+      .replace(/\s*±\s*/g, " ± ");
+    answer = groupLargeIntegers(formatScientificNotation(formatSmallDecimals(answer)))
+      .replace(/\s*=\s*/g, " = ")
+      .replace(/(\d)×10/g, "$1 × 10")
+      .replace(/\s*±\s*/g, " ± ");
+    return { ...entry, question, answer };
+  };
+
   // A. Space, time and motion
   many("A.1 Kinematics", "SL", [
     ["Distinguish distance from displacement.", "Distance is total path length; displacement is the directed change in position."],
@@ -248,8 +444,15 @@
   });
   [[80, 12, 4], [150, 20, 5], [10, -3, 2], [300, 25, 8]].forEach(([x, v, time]) =>
     add("A.5 Galilean and special relativity", "HL", `In Galilean frames, x = ${x} m, v = ${v} m s⁻¹ and t = ${time} s. Calculate x′.`, `x′ = x-vt = ${sig(x - v * time)} m.`));
-  [[0.8, 0.5], [0.9, 0.6], [0.7, -0.4], [0.95, 0.8]].forEach(([uBeta, vBeta]) =>
-    add("A.5 Galilean and special relativity", "HL", `An object moves at ${uBeta}c in frame S while S′ moves at ${vBeta}c in the same direction. Calculate u′/c.`, `u′/c = (${uBeta}-${vBeta})/(1-${uBeta}×${vBeta}) = ${sig((uBeta - vBeta) / (1 - uBeta * vBeta))}.`));
+  [[0.8, 0.5], [0.9, 0.6], [0.7, -0.4], [0.95, 0.8]].forEach(([uBeta, vBeta]) => {
+    const displayedV = vBeta < 0 ? `(${vBeta})` : `${vBeta}`;
+    add(
+      "A.5 Galilean and special relativity",
+      "HL",
+      `A spacecraft moves at ${uBeta}c in the positive x-direction in frame S. Frame S′ moves at ${vBeta}c relative to S along the x-axis. Calculate u′/c.`,
+      `u′/c = (${uBeta} - ${displayedV})/(1 - ${uBeta}×${displayedV}) = ${sig((uBeta - vBeta) / (1 - uBeta * vBeta))}.`,
+    );
+  });
 
   // B. The particulate nature of matter
   many("B.1 Thermal energy transfers", "SL", [
@@ -980,24 +1183,24 @@
     add("Skills in physics", "SL", `A measurement is ${value} ± ${uncertainty}. Calculate percentage uncertainty.`, `Percentage uncertainty = (${uncertainty}/${value})×100 = ${pct(100 * uncertainty / value)}.`));
   [[[2, 3, 4]], [[5.1, 5.3, 5.2]], [[12, 13, 11, 12]], [[0.8, 0.9, 0.7, 0.8]]].forEach(([values]) => {
     const mean = values.reduce((sum, value) => sum + value, 0) / values.length;
-    add("Skills in physics", "SL", `Calculate the mean of ${values.join(", ")}.`, `Mean = ${sig(mean)}.`);
+    add("Skills in physics", "SL", `The measured times, in seconds, are ${values.join(", ")}. Calculate the mean time.`, `Mean time = ${sig(mean)} s.`);
   });
   [[[10, 11, 9, 30], 30], [[5.0, 5.1, 4.9, 8.2], 8.2], [[100, 102, 99, 101, 60], 60]].forEach(([values, anomaly]) => {
     const kept = values.filter((value) => value !== anomaly);
     const mean = kept.reduce((sum, value) => sum + value, 0) / kept.length;
-    add("Skills in physics", "SL", `The readings are ${values.join(", ")}. Treat ${anomaly} as an anomaly and calculate the mean of the remaining readings.`, `Mean = ${sig(mean)}.`);
+    add("Skills in physics", "SL", `The measured times, in seconds, are ${values.join(", ")}. The value ${anomaly} is identified as an anomaly. Calculate the mean of the remaining values.`, `Mean time = ${sig(mean)} s.`);
   });
   [[2, 0.1, 5, 0.2], [12, 0.5, 3, 0.1], [0.8, 0.04, 4, 0.2]].forEach(([a, da, b, db]) =>
-    add("Skills in physics", "SL", `Calculate z=a+b and its absolute uncertainty for a=${a}±${da} and b=${b}±${db}.`, `z=${sig(a + b)} and Δz=${sig(da + db)}, so z=${sig(a + b)}±${sig(da + db)}.`));
+    add("Skills in physics", "SL", `Two lengths are a=${a}±${da} cm and b=${b}±${db} cm. Calculate their total length z = a + b and its absolute uncertainty.`, `z=${sig(a + b)} cm and Δz=${sig(da + db)} cm, so z=${sig(a + b)}±${sig(da + db)} cm.`));
   [[2, 0.1, 5, 0.2], [12, 0.5, 3, 0.1], [0.8, 0.04, 4, 0.2]].forEach(([a, da, b, db]) => {
     const result = a * b;
     const fractional = da / a + db / b;
-    add("Skills in physics", "SL", `For z=ab, find percentage uncertainty when a=${a}±${da} and b=${b}±${db}.`, `Add fractional uncertainties: Δz/z=${sig(fractional)}, so percentage uncertainty=${pct(100 * fractional)}.`);
+    add("Skills in physics", "SL", `A rectangle has sides a=${a}±${da} cm and b=${b}±${db} cm. Its area is z=ab. Calculate the percentage uncertainty in z.`, `Add fractional uncertainties: Δz/z=${sig(fractional)}, so percentage uncertainty=${pct(100 * fractional)}.`);
   });
   [[2, 5, 10, 21], [1, 4, 3, 15], [0, 2, 5, 11]].forEach(([x1, x2, y1, y2]) =>
-    add("Skills in physics", "SL", `A best-fit line passes through (${x1}, ${y1}) and (${x2}, ${y2}). Calculate its gradient.`, `Gradient = Δy/Δx = ${sig((y2 - y1) / (x2 - x1))}.`));
-  [[12.4, 12], [0.003456, 2], [9876, 3]].forEach(([value, figures]) =>
-    add("Skills in physics", "SL", `Round ${value} to ${figures} significant figures.`, `${Number(value.toPrecision(figures))}.`));
+    add("Skills in physics", "SL", `A velocity–time best-fit line passes through (${x1} s, ${y1} m s⁻¹) and (${x2} s, ${y2} m s⁻¹). Calculate the acceleration represented by its gradient.`, `Acceleration = Δv/Δt = ${sig((y2 - y1) / (x2 - x1))} m s⁻².`));
+  [[12.4, 2, "m s⁻¹"], [0.003456, 2, "A"], [9876, 3, "Pa"]].forEach(([value, figures, unit]) =>
+    add("Skills in physics", "SL", `A measured value is ${value} ${unit}. Round it to ${figures} significant figures.`, `${Number(value).toPrecision(figures)} ${unit}.`));
 
   // TOPIC_BANKS
 
@@ -1009,7 +1212,7 @@
       if (available.length < target[level]) {
         throw new Error(`${topic.name} has ${available.length} ${level} questions; ${target[level]} required.`);
       }
-      questions.push(...available.slice(0, target[level]));
+      questions.push(...available.slice(0, target[level]).map(polishExamStyle));
     }
   }
 

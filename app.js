@@ -224,12 +224,18 @@
   function renderTopics() {
     elements.topicList.innerHTML = "";
     let previousTheme = "";
+    let options = null;
     topicMeta.forEach((topic) => {
       if (topic.theme !== previousTheme) {
+        const group = document.createElement("section");
+        group.className = "topic-group";
         const heading = document.createElement("p");
         heading.className = "topic-group-heading";
         heading.textContent = topic.theme;
-        elements.topicList.append(heading);
+        options = document.createElement("div");
+        options.className = "topic-group-options";
+        group.append(heading, options);
+        elements.topicList.append(group);
         previousTheme = topic.theme;
       }
       const available = topic.minimumLevel === "SL" || state.courseLevel === "HL";
@@ -248,7 +254,7 @@
         else state.selectedTopics.delete(topic.name);
         updateControls();
       });
-      elements.topicList.append(label);
+      options.append(label);
     });
     updateControls();
   }
