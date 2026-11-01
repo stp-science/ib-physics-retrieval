@@ -18,6 +18,22 @@
 <div><div class="fact"><h3 id="stageTitle"></h3><p id="stageText"></p></div>
 <p class="small"><strong>Focus:</strong> Temperature reflects average translational kinetic energy. During melting and boiling, supplied energy increases intermolecular potential energy instead of temperature.</p>
 <div class="notice"><strong>Model simplification:</strong> Between phase changes, changes in intermolecular potential energy are treated as negligible. During the flat sections, temperature and average kinetic energy remain constant.</div></div></div></div>
+
+<section class="card" id="phase-labels">
+<span class="tag">Label the diagram</span><h2>Identify the six changes of state</h2>
+<p class="muted">Each numbered arrow shows a change from one state to another. Choose the correct scientific term for each arrow, then check your answers.</p>
+<div style="overflow-x:auto">
+<svg viewBox="0 0 800 330" style="width:100%;min-width:520px;max-width:860px;display:block;margin:auto" role="img" aria-label="Solid, liquid, gas phase change diagram with six numbered arrows. Arrows 1 solid to liquid, 2 liquid to solid, 3 liquid to gas, 4 gas to liquid, 5 solid directly to gas, 6 gas directly to solid.">
+<defs><marker id="phArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 Z" fill="#1764bb"/></marker><marker id="phReverse" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 Z" fill="#a04a8c"/></marker></defs>
+<rect x="15" y="112" width="165" height="103" rx="16" fill="#e5f2ff" stroke="#1764bb" stroke-width="2"/><rect x="318" y="112" width="165" height="103" rx="16" fill="#e5f2ff" stroke="#1764bb" stroke-width="2"/><rect x="620" y="112" width="165" height="103" rx="16" fill="#e5f2ff" stroke="#1764bb" stroke-width="2"/>
+<g font-family="system-ui" font-size="24" font-weight="800" fill="#123c73" text-anchor="middle"><text x="97" y="170">SOLID</text><text x="400" y="170">LIQUID</text><text x="702" y="170">GAS</text></g>
+<g fill="none" stroke-width="4" stroke-linecap="round"><path d="M185 143 H308" stroke="#1764bb" marker-end="url(#phArrow)"/><path d="M313 191 H191" stroke="#a04a8c" marker-end="url(#phReverse)"/><path d="M490 143 H610" stroke="#1764bb" marker-end="url(#phArrow)"/><path d="M613 191 H492" stroke="#a04a8c" marker-end="url(#phReverse)"/><path d="M96 105 Q400 -28 702 105" stroke="#1764bb" marker-end="url(#phArrow)"/><path d="M702 224 Q400 353 96 224" stroke="#a04a8c" marker-end="url(#phReverse)"/></g>
+<g font-family="system-ui" font-size="20" font-weight="900" text-anchor="middle" fill="#17304d"><text x="248" y="132">1</text><text x="249" y="221">2</text><text x="549" y="132">3</text><text x="549" y="221">4</text><text x="400" y="48">5</text><text x="400" y="300">6</text></g>
+</svg></div>
+<div id="phaseOptions" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px"></div>
+<div id="phaseFeedback" class="feedback hidden" role="status" aria-live="polite"></div>
+<div class="actions"><button id="phaseCheck" class="primary">Check labels</button><button id="phaseReset" class="outline">Reset labels</button></div>
+</section>
 <section class="card" id="quiz"><div class="qtop"><span class="tag">Check understanding</span><span class="pill" id="counter"></span></div><h2>Answer the questions</h2><div class="bar" aria-label="Quiz progress"><div id="progress"></div></div>
 <div id="questionArea"><p class="question" id="prompt"></p><div class="answers" id="answers"></div><div id="feedback" class="feedback hidden" role="status" aria-live="polite"></div><div class="actions"><button class="primary" id="check" disabled>Check answer</button><button class="outline hidden" id="next">Next question →</button></div></div>
 <div id="result" class="result hidden"><h2>Activity complete!</h2><strong id="score"></strong><p id="summary"></p><button class="primary" id="restart">Try again</button></div></section>
@@ -51,5 +67,38 @@ function renderQ(){checked=false;chosen=null;$("#questionArea").classList.remove
 $("#check").onclick=()=>{if(chosen===null||checked)return;checked=true;const correct=qs[qi][2],good=chosen===correct;if(good)points++;const feedback=$("#feedback");feedback.className="feedback "+(good?"good":"bad");feedback.textContent=(good?"Correct. ":"Not quite. ")+qs[qi][3];[...$("#answers").children].forEach((b,i)=>{b.disabled=true;b.classList.remove("selected");if(i===correct)b.classList.add("correct");else if(i===chosen)b.classList.add("incorrect")});$("#check").classList.add("hidden");$("#next").classList.remove("hidden");$("#next").textContent=qi===qs.length-1?"See my score →":"Next question →"};
 $("#next").onclick=()=>{qi++;if(qi>=qs.length){$("#questionArea").classList.add("hidden");$("#result").classList.remove("hidden");$("#counter").textContent="Completed";$("#progress").style.width="100%";$("#score").textContent=points+" / "+qs.length;$("#summary").textContent=points===qs.length?"Excellent — full marks!":"Review the five heating-curve stages, then try again to improve your score."}else renderQ()};
 $("#restart").onclick=()=>{qi=0;points=0;renderQ();window.scrollTo({top:$("#quiz").getBoundingClientRect().top+window.scrollY-20,behavior:"smooth"})};
+
+const phaseData=[
+["1. Solid → Liquid","Melting"],
+["2. Liquid → Solid","Freezing"],
+["3. Liquid → Gas","Vaporisation"],
+["4. Gas → Liquid","Condensation"],
+["5. Solid → Gas","Sublimation"],
+["6. Gas → Solid","Deposition"]
+];
+const phaseTerms=["Melting","Freezing","Vaporisation","Condensation","Sublimation","Deposition"];
+function buildPhaseLabels(){
+const container=$("#phaseOptions");container.innerHTML="";
+phaseData.forEach(([label],i)=>{
+const wrapper=document.createElement("label");wrapper.style.cssText="display:flex;flex-direction:column;gap:7px;font-weight:700;color:#254666";
+const span=document.createElement("span");span.textContent=label;
+const sel=document.createElement("select");sel.id="phaseSelect"+i;sel.style.cssText="width:100%;padding:11px;border:2px solid #cbdced;border-radius:9px;background:white;color:#17304d;font:inherit";
+sel.innerHTML='<option value="">Choose phase change…</option>'+phaseTerms.map(term=>'<option value="'+term+'">'+term+'</option>').join("");
+wrapper.append(span,sel);container.appendChild(wrapper)
+});
+$("#phaseFeedback").classList.add("hidden");
+}
+$("#phaseCheck").onclick=()=>{
+let score=0,complete=true;
+phaseData.forEach(([,answer],i)=>{
+const sel=$("#phaseSelect"+i);if(!sel.value)complete=false;
+const correct=sel.value===answer;if(correct)score++;
+sel.style.borderColor=correct?"#1b8a68":"#d35454";
+});
+const out=$("#phaseFeedback");out.classList.remove("hidden");out.className="feedback "+(score===6?"good":"bad");
+out.textContent=score+"/6 correct. "+(score===6?"Excellent — all six phase changes correctly labelled!":complete?"Review the red labels and try again.":"Choose an answer for every arrow, then check again.");
+};
+$("#phaseReset").onclick=buildPhaseLabels;
+buildPhaseLabels();
 renderStage();renderQ();
 </script></body></html>
