@@ -305,7 +305,7 @@
           <span style="width: ${((state.currentIndex + 1) / state.quiz.length) * 100}%"></span>
         </div>
         <span class="topic-tag" style="--topic: ${topicColour(question.topic)}">${question.topic}</span>
-        <h3 id="question-heading" tabindex="-1">${question.question}</h3>
+        <h3 id="question-heading" class="${question.question.includes("\n") ? "structured-question" : ""}" tabindex="-1">${question.question}</h3>
         ${
           !state.revealed
             ? '<button class="reveal-button" id="reveal-button" type="button">Reveal answer</button>'
