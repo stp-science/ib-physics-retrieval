@@ -26,12 +26,12 @@
 <h3>How does conduction transfer energy?</h3>
 <p>Conduction is the transfer of thermal energy from a hotter region to a colder region. It is most evident in <strong>solids</strong>. When one end of a solid is heated, its particles gain kinetic energy and <strong>vibrate more strongly</strong>. They transfer energy to neighbouring particles, causing them to vibrate more too. The particles stay in approximately fixed positions; they do not move along the solid.</p>
 <h3>Why are metals good conductors?</h3>
-<p>In metals, <strong>free electrons</strong> move through the material and transfer energy as well. This helps explain why materials that conduct electricity well are often good thermal conductors.</p>
+<p>In metals, <strong>free electrons</strong> move randomly through the material and transfer energy as well. <strong>Glass</strong> does not have mobile free electrons, so thermal energy transfers mainly through vibrations between neighbouring particles. This is generally slower than in metal.</p>
 <p><strong>Examples:</strong> The handle of a metal spoon becomes hot when the other end is placed in hot tea. A chocolate bar melts as energy transfers from your hand into it.</p>
 <div class="reading-note"><strong>Remember:</strong> In conduction, thermal energy moves through the material, but the solid itself does not flow.</div>
-</article><figure class="visual-card"><div class="visual-head"><h3>Animated model: metal rod</h3><button class="small-btn motion-toggle" aria-pressed="false">⏸ Pause</button></div>
-<canvas id="conductionCanvas" class="conduction-canvas" width="1040" height="640" role="img" aria-label="Particle model: hot end of metal on left. The vibration of atoms grows as heat spreads towards the right. Blue free electrons move randomly between atoms.">An animation of heat conduction in a metal rod.</canvas><figcaption>As heat spreads through the rod, the ions vibrate more vigorously about fixed positions. Blue dots represent mobile electrons moving randomly through the metal.</figcaption><div class="legend"><span><i class="dot orange"></i> Orange ions: stronger vibration</span><span><i class="dot"></i> Blue dots: mobile electrons</span><span><i class="dot teal"></i> Thermal energy moves hot → cold</span></div></figure></div>
-<div class="discuss-card"><div class="discuss-top"><h3><span>Discuss</span> · Explain it to your partner</h3><span class="chip">A explains · B challenges</span></div><p class="question">A metal spoon becomes hot at the handle when its other end is placed in hot water. Explain how energy travels through the spoon, and why a wooden spoon behaves differently.</p><p class="pair-prompts">Use the words <em>vibrations</em>, <em>energy</em> and <em>free electrons</em>. Partner B: ask, “Do the metal particles move along the spoon?”</p><textarea aria-label="Pair explanation for conduction" placeholder="Optional: jot down your joint explanation here..."></textarea><div class="actions"><button class="outline-btn answer-toggle" data-answer="0" aria-expanded="false">Check the explanation</button><button class="primary-btn complete-btn" data-complete="0">✓ Mark discussion complete</button></div><div class="model-answer" id="answer0"><strong>A strong explanation should include:</strong> Particles at the hot end vibrate more and transfer energy to neighbouring particles. Free electrons also transfer energy through the metal. The particles do not move along the spoon. Wood is a much poorer thermal conductor, so its handle heats up more slowly.</div></div>
+</article><figure class="visual-card"><div class="visual-head"><h3>Animated model: metal vs glass</h3><button class="small-btn motion-toggle" aria-pressed="false">⏸ Pause</button></div>
+<canvas id="conductionCanvas" class="conduction-canvas" width="1040" height="880" role="img" aria-label="Two animated rods heated from the left: metal at the top conducts thermal energy faster as free electrons move randomly between vibrating atoms; glass at the bottom has no mobile conduction electrons and its particles gain vibrational energy more slowly.">Animated comparison of conduction in metal and glass.</canvas><figcaption>Compare the two rods heated from the left. Particles vibrate more as energy reaches them. Metal transfers energy faster because its free electrons also carry energy; glass has no mobile conduction electrons.</figcaption><div class="legend"><span><i class="dot orange"></i> Orange particles: stronger vibration</span><span><i class="dot"></i> Blue dots: free electrons (metal only)</span><span><i class="dot teal"></i> Thermal energy moves hot → cold</span></div></figure></div>
+<div class="discuss-card"><div class="discuss-top"><h3><span>Discuss</span> · Explain it to your partner</h3><span class="chip">A explains · B challenges</span></div><p class="question">Metal and glass rods are heated at one end. Explain how thermal energy travels through each rod and why the metal heats up faster.</p><p class="pair-prompts">Use the words <em>vibrations</em>, <em>free electrons</em> and <em>glass</em>. Partner B: ask, “Do the particles move along either rod?”</p><textarea aria-label="Pair explanation for conduction" placeholder="Optional: jot down your joint explanation here..."></textarea><div class="actions"><button class="outline-btn answer-toggle" data-answer="0" aria-expanded="false">Check the explanation</button><button class="primary-btn complete-btn" data-complete="0">✓ Mark discussion complete</button></div><div class="model-answer" id="answer0"><strong>A strong explanation should include:</strong> Particles in both rods vibrate more and transfer energy to neighbouring particles. Metals also have mobile free electrons that move randomly and transfer energy rapidly. Glass lacks mobile conduction electrons, so energy is transferred mainly by vibrations and typically travels along it more slowly. Neither solid flows along the rod.</div></div>
 </section>
 
 <section class="section" id="section1" hidden>
@@ -87,54 +87,185 @@ function selectSection(n){section=Math.max(0,Math.min(2,n)); panels.forEach((p,i
 tabs.forEach(t=>t.addEventListener('click',()=>selectSection(Number(t.dataset.tab))));document.getElementById('prevBtn').addEventListener('click',()=>selectSection(section-1));document.getElementById('nextBtn').addEventListener('click',()=>selectSection(section===2?0:section+1));
 document.querySelectorAll('.complete-btn').forEach(b=>b.addEventListener('click',()=>{const n=Number(b.dataset.complete);completed[n]=true;document.getElementById('done'+n).textContent='✓';b.textContent='✓ Completed';b.disabled=true;selectSection(section)}));
 document.querySelectorAll('.answer-toggle').forEach(b=>b.addEventListener('click',()=>{const a=document.getElementById('answer'+b.dataset.answer);const show=a.classList.toggle('visible');b.setAttribute('aria-expanded',String(show));b.textContent=show?'Hide suggested explanation':'Check the explanation'}));
-document.getElementById('reset').addEventListener('click',()=>{completed.fill(false);document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Mark discussion complete';b.disabled=false});for(let i=0;i<3;i++){document.getElementById('done'+i).textContent='';document.getElementById('answer'+i).classList.remove('visible')}document.querySelectorAll('.answer-toggle').forEach(b=>{b.setAttribute('aria-expanded','false');b.textContent='Check the explanation'});document.querySelectorAll('textarea').forEach(t=>t.value='');selectSection(0)});
-
-(function(){
-const c=document.getElementById('conductionCanvas');if(!c)return;
-const x=c.getContext('2d');if(!x)return;x.setTransform(2,0,0,2,0,0);
-let elapsed=0,prev=0,paused=false;
-const ions=[];for(let j=0;j<5;j++)for(let i=0;i<15;i++)ions.push({x:76+26*i,y:119+24*j,seed:i*1.73+j*2.31});
-const electrons=[];for(let i=0;i<24;i++)electrons.push({a:i*2.37,b:i*3.91});
-function clamp(z){return Math.max(0,Math.min(1,z))}
-function rr(X,Y,W,H,R,fill,stroke){x.beginPath();x.roundRect(X,Y,W,H,R);if(fill){x.fillStyle=fill;x.fill()}if(stroke){x.strokeStyle=stroke;x.lineWidth=2;x.stroke()}}
-function draw(t){
-x.fillStyle='#101f31';x.fillRect(0,0,520,320);
-const cycle=t%14,front=76+390*clamp((cycle-.5)/12);
-x.fillStyle='#ffd3a2';x.textAlign='center';x.font='bold 17px system-ui';x.fillText('HOT',52,43);
-x.fillStyle='#b2e0f8';x.fillText('COOL',464,43);
-rr(50,91,420,156,15,'#213345','#7895a6');
-x.save();x.beginPath();x.roundRect(53,94,414,150,12);x.clip();
-const heatfill=x.createLinearGradient(50,0,470,0);
-heatfill.addColorStop(0,'rgba(245,103,43,.50)');
-heatfill.addColorStop(clamp((front-95)/420),'rgba(255,136,67,.33)');
-heatfill.addColorStop(clamp((front+10)/420),'rgba(41,114,149,.08)');
-heatfill.addColorStop(1,'rgba(31,91,132,.10)');
-x.fillStyle=heatfill;x.fillRect(53,94,414,150);
-ions.forEach(p=>{
-const heat=clamp((front-p.x+15)/75),amp=.45+heat*6.7;
-const X=p.x+amp*Math.sin((5+heat*5)*t+p.seed),Y=p.y+amp*Math.cos((6+heat*4)*t+p.seed*1.24);
-if(heat>.12){x.beginPath();x.arc(p.x,p.y,amp+6,0,Math.PI*2);x.strokeStyle='rgba(255,174,88,'+(heat*.45)+')';x.lineWidth=1.4;x.stroke();
-x.beginPath();x.moveTo(p.x-amp-8,p.y);x.lineTo(p.x-amp-2,p.y);x.moveTo(p.x+amp+2,p.y);x.lineTo(p.x+amp+8,p.y);x.strokeStyle='rgba(255,192,101,'+(.35+heat*.5)+')';x.stroke();}
-const fill=x.createRadialGradient(X-2,Y-3,1,X,Y,10);
-fill.addColorStop(0,heat>.4?'#fff2d4':'#faffff');
-fill.addColorStop(1,heat>.01?'rgb('+Math.round(174+81*heat)+','+Math.round(213-98*heat)+','+Math.round(232-179*heat)+')':'#a4cbdc');
-x.fillStyle=fill;x.beginPath();x.arc(X,Y,8.2,0,Math.PI*2);x.fill();
-});
-electrons.forEach(e=>{
-const X=76+((Math.sin(t*1.5+e.a)+1)/2)*374;
-const Y=110+((Math.sin(t*2.3+e.b)+1)/2)*114;
-const OX=76+((Math.sin((t-.04)*1.5+e.a)+1)/2)*374;
-const OY=110+((Math.sin((t-.04)*2.3+e.b)+1)/2)*114;
-x.strokeStyle='rgba(77,214,255,.5)';x.lineWidth=2.2;x.beginPath();x.moveTo(OX,OY);x.lineTo(X,Y);x.stroke();
-x.fillStyle='#3ed9ff';x.beginPath();x.arc(X,Y,3.7,0,Math.PI*2);x.fill();
-});
-x.restore();
-x.fillStyle='#ef873a';x.beginPath();x.moveTo(46,145);x.quadraticCurveTo(10,120,44,89);x.quadraticCurveTo(58,112,64,127);x.quadraticCurveTo(66,145,46,145);x.fill();
-x.fillStyle='#ffe9a4';x.beginPath();x.moveTo(47,142);x.quadraticCurveTo(33,126,48,116);x.quadraticCurveTo(59,134,47,142);x.fill();
-x.strokeStyle='#fbc18a';x.lineWidth=3;x.lineCap='round';x.beginPath();x.moveTo(185,275);x.lineTo(338,275);x.moveTo(338,275);x.lineTo(328,268);x.moveTo(338,275);x.lineTo(328,282);x.stroke();
-x.fillStyle='#d6ebf7';x.font='13px system-ui';x.fillText('net thermal energy transfer',260,301);
-}
-function step(time){if(!prev)prev=time;if(!paused)elapsed+=Math.min(.045,(time-prev)/1000);prev=time;draw(elapsed);requestAnimationFrame(step)}
+document.getElementById('reset').addEventListener('click',()=>{completed.fill(false);document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Mark discussion complete';b.disabled=false});for(let i=0;i<3;i++){document.getElementById('done'+i).textContent='';document.getElementById('answer'+i).classList.remove('visible')}document.querySelectorAll('.answer-toggle').forEach(b=>{b.setAttribute('aria-expanded','false');b.textContent='C(function(){
+  const canvas = document.getElementById('conductionCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  ctx.setTransform(2,0,0,2,0,0);
+  const W=520, H=440, duration=20;
+  let elapsed=0, previousTime=0, paused=false, lastSimulationTime=0;
+  let randomState=1459207;
+  function random(){
+    randomState ^= randomState<<13;
+    randomState ^= randomState>>>17;
+    randomState ^= randomState<<5;
+    return (randomState>>>0)/4294967296;
+  }
+  const clamp=(v,min=0,max=1)=>Math.max(min,Math.min(max,v));
+  // Metal has an ordered lattice. Glass is amorphous, so its particle centres
+  // are deliberately offset rather than drawn as a perfect crystal.
+  const metal=[], glass=[];
+  for(let row=0;row<5;row++){
+    for(let col=0;col<16;col++){
+      const seed=random()*Math.PI*2;
+      metal.push({x:91+col*23,y:111+row*20,seed});
+      glass.push({x:91+col*23+(random()-.5)*8,
+                  y:291+row*20+(random()-.5)*7,seed:random()*Math.PI*2});
+    }
+  }
+  // A seeded random walk rather than circular or orbital trajectories.
+  // Electrons change direction after frequent scattering events.
+  const electrons=Array.from({length:26},()=>{
+    const angle=random()*Math.PI*2;
+    return {x:87+random()*350,y:104+random()*95,
+            vx:Math.cos(angle)*(85+random()*80),
+            vy:Math.sin(angle)*(85+random()*80),
+            remaining:0.06+random()*0.23,
+            trail:[]};
+  });
+  function redrawRounded(x,y,w,h,r,fill,stroke){
+    ctx.beginPath();ctx.roundRect(x,y,w,h,r);
+    if(fill){ctx.fillStyle=fill;ctx.fill();}
+    if(stroke){ctx.lineWidth=1.5;ctx.strokeStyle=stroke;ctx.stroke();}
+  }
+  function advanceElectrons(dt){
+    // Split larger frame steps so collisions still look random and controlled.
+    const n=Math.max(1,Math.ceil(dt/0.013)),h=dt/n;
+    for(let step=0;step<n;step++)for(const e of electrons){
+      e.remaining-=h;
+      if(e.remaining<=0){
+        const angle=random()*Math.PI*2;
+        const speed=90+random()*105;
+        e.vx=Math.cos(angle)*speed;
+        e.vy=Math.sin(angle)*speed;
+        e.remaining=0.045+random()*0.19;
+      }
+      e.x+=e.vx*h;
+      e.y+=e.vy*h;
+      if(e.x<78){e.x=78;e.vx=Math.abs(e.vx);e.remaining*=.45;}
+      if(e.x>448){e.x=448;e.vx=-Math.abs(e.vx);e.remaining*=.45;}
+      if(e.y<103){e.y=103;e.vy=Math.abs(e.vy);e.remaining*=.45;}
+      if(e.y>203){e.y=203;e.vy=-Math.abs(e.vy);e.remaining*=.45;}
+    }
+    for(const e of electrons){
+      e.trail.unshift({x:e.x,y:e.y});
+      if(e.trail.length>5)e.trail.pop();
+    }
+  }
+  function thermalFraction(front,position){
+    return clamp((front-position+35)/82);
+  }
+  function drawRod(y,front,isMetal,t){
+    const rodY=isMetal?92:273, rodHeight=117;
+    redrawRounded(63,rodY,404,rodHeight,12,'#1b3144','#68869b');
+    ctx.save();
+    ctx.beginPath();ctx.roundRect(65,rodY+2,400,rodHeight-4,10);ctx.clip();
+    const bg=ctx.createLinearGradient(65,0,465,0);
+    bg.addColorStop(0,isMetal?'#472c28':'#403735');
+    bg.addColorStop(1,isMetal?'#234055':'#274155');
+    ctx.fillStyle=bg;ctx.fillRect(65,rodY+2,400,rodHeight-4);
+    // A moving warm region makes the different transfer rates visible.
+    const heatGrad=ctx.createLinearGradient(65,0,465,0);
+    const p=clamp((front-65)/400,.001,.999);
+    heatGrad.addColorStop(0,'rgba(250,117,54,.42)');
+    heatGrad.addColorStop(Math.max(0,p-.08),'rgba(240,119,51,.36)');
+    heatGrad.addColorStop(Math.min(1,p+.08),'rgba(240,119,51,.015)');
+    heatGrad.addColorStop(1,'rgba(240,119,51,0)');
+    ctx.fillStyle=heatGrad;ctx.fillRect(65,rodY+2,400,rodHeight-4);
+    const ions=isMetal?metal:glass;
+    // Glass has structural bonds but no free conduction electrons.
+    if(!isMetal){
+      ctx.strokeStyle='rgba(192,212,228,.18)';ctx.lineWidth=1;
+      for(let i=0;i<glass.length-1;i++){
+        if(i%16===15)continue;
+        const a=glass[i],b=glass[i+1];
+        ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+      }
+    }
+    ions.forEach(p=>{
+      const warmth=thermalFraction(front,p.x);
+      // Actual centre of each ion stays fixed, even as vibration grows.
+      const amplitude=.25+warmth*5.8;
+      const dx=amplitude*(.65*Math.sin(t*(13+warmth*6)+p.seed)+
+                          .35*Math.sin(t*(23+warmth*8)+p.seed*1.33));
+      const dy=amplitude*(.65*Math.cos(t*(16+warmth*5)+p.seed*1.91)+
+                          .35*Math.sin(t*(26+warmth*7)+p.seed*.73));
+      if(warmth>.12){
+        ctx.strokeStyle='rgba(255,181,99,'+(warmth*.52)+')';
+        ctx.lineWidth=1.2;
+        ctx.beginPath();ctx.moveTo(p.x-10-amplitude*.55,p.y);
+        ctx.lineTo(p.x-9-amplitude*.2,p.y);
+        ctx.moveTo(p.x+9+amplitude*.2,p.y);
+        ctx.lineTo(p.x+10+amplitude*.55,p.y);
+        ctx.stroke();
+      }
+      const px=p.x+dx,py=p.y+dy;
+      const glow=ctx.createRadialGradient(px-2,py-2,1,px,py,8);
+      glow.addColorStop(0,warmth>.4?'#fff1db':'#f7fcff');
+      glow.addColorStop(1,'rgb('+Math.round(165+86*warmth)+','+
+                  Math.round(203-103*warmth)+','+Math.round(225-163*warmth)+')');
+      ctx.fillStyle=glow;ctx.beginPath();ctx.arc(px,py,6.6,0,2*Math.PI);ctx.fill();
+    });
+    if(isMetal){
+      // Electron trails have abrupt direction changes; no circular motion.
+      electrons.forEach(e=>{
+        for(let i=e.trail.length-1;i>0;i--){
+          ctx.beginPath();ctx.moveTo(e.trail[i].x,e.trail[i].y);
+          ctx.lineTo(e.trail[i-1].x,e.trail[i-1].y);
+          ctx.strokeStyle='rgba(73,223,255,'+(.14+(1-i/6)*.48)+')';
+          ctx.lineWidth=2.1;ctx.stroke();
+        }
+        ctx.fillStyle='#43e6ff';
+        ctx.beginPath();ctx.arc(e.x,e.y,3.4,0,2*Math.PI);ctx.fill();
+      });
+    }
+    ctx.restore();
+    // The same heat source is applied to both rods.
+    const centre=rodY+rodHeight/2;
+    ctx.fillStyle='#f47d35';ctx.beginPath();
+    ctx.moveTo(52,centre+23);ctx.bezierCurveTo(23,centre-4,50,centre-38,52,centre-43);
+    ctx.bezierCurveTo(72,centre-23,73,centre+11,52,centre+23);ctx.fill();
+    ctx.fillStyle='#ffe6a1';ctx.beginPath();
+    ctx.moveTo(52,centre+18);ctx.quadraticCurveTo(39,centre,53,centre-18);
+    ctx.quadraticCurveTo(61,centre+7,52,centre+18);ctx.fill();
+  }
+  function draw(t){
+    ctx.fillStyle='#102538';ctx.fillRect(0,0,W,H);
+    const time=t%duration;
+    const metalFront=83+370*clamp((time+.2)/7.2);
+    const glassFront=83+370*clamp((time+.2)/17.2);
+    ctx.textAlign='left';ctx.font='bold 16px system-ui';
+    ctx.fillStyle='#fff3df';ctx.fillText('METAL',64,57);
+    ctx.font='13px system-ui';ctx.fillStyle='#9edff9';
+    ctx.fillText('mobile free electrons',138,57);
+    ctx.fillStyle='#fff3df';ctx.font='bold 16px system-ui';
+    ctx.fillText('GLASS',64,238);
+    ctx.font='13px system-ui';ctx.fillStyle='#cadbe4';
+    ctx.fillText('no mobile free electrons',142,238);
+    ctx.font='bold 13px system-ui';ctx.textAlign='right';
+    ctx.fillStyle='#95e0ea';ctx.fillText('FASTER',463,57);
+    ctx.fillStyle='#eac49b';ctx.fillText('SLOWER',463,238);
+    drawRod(92,metalFront,true,t);
+    drawRod(273,glassFront,false,t);
+    // Shared direction of net thermal energy flow, not electron flow.
+    ctx.textAlign='center';ctx.fillStyle='#cbdfea';
+    ctx.font='12px system-ui';ctx.fillText('Both heated from the left  •  animation timing is illustrative',260,420);
+  }
+  function frame(now){
+    if(!previousTime)previousTime=now;
+    const dt=Math.min(.045,Math.max(0,(now-previousTime)/1000));
+    previousTime=now;
+    if(!paused){elapsed+=dt;advanceElectrons(dt);}
+    draw(elapsed);
+    requestAnimationFrame(frame);
+  }
+  window.__conductionSetPaused=value=>{paused=!!value;};
+  draw(0);
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+    paused=true;
+  requestAnimationFrame(frame);
+})();ationFrame(step)}
 window.__conductionSetPaused=v=>{paused=!!v};
 draw(0);requestAnimationFrame(step);
 })();
