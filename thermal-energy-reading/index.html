@@ -87,7 +87,9 @@ function selectSection(n){section=Math.max(0,Math.min(2,n)); panels.forEach((p,i
 tabs.forEach(t=>t.addEventListener('click',()=>selectSection(Number(t.dataset.tab))));document.getElementById('prevBtn').addEventListener('click',()=>selectSection(section-1));document.getElementById('nextBtn').addEventListener('click',()=>selectSection(section===2?0:section+1));
 document.querySelectorAll('.complete-btn').forEach(b=>b.addEventListener('click',()=>{const n=Number(b.dataset.complete);completed[n]=true;document.getElementById('done'+n).textContent='✓';b.textContent='✓ Completed';b.disabled=true;selectSection(section)}));
 document.querySelectorAll('.answer-toggle').forEach(b=>b.addEventListener('click',()=>{const a=document.getElementById('answer'+b.dataset.answer);const show=a.classList.toggle('visible');b.setAttribute('aria-expanded',String(show));b.textContent=show?'Hide suggested explanation':'Check the explanation'}));
-document.getElementById('reset').addEventListener('click',()=>{completed.fill(false);document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Mark discussion complete';b.disabled=false});for(let i=0;i<3;i++){document.getElementById('done'+i).textContent='';document.getElementById('answer'+i).classList.remove('visible')}document.querySelectorAll('.answer-toggle').forEach(b=>{b.setAttribute('aria-expanded','false');b.textContent='C(function(){
+document.getElementById('reset').addEventListener('click',()=>{completed.fill(false);document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Mark discussion complete';b.disabled=false});for(let i=0;i<3;i++){document.getElementById('done'+i).textContent='';document.getElementById('answer'+i).classList.remove('visible')}document.querySelectorAll('.answer-toggle').forEach(b=>{b.setAttribute('aria-expanded','false');b.textContent='Check the explanation'});document.querySelectorAll('textarea').forEach(t=>t.value='');selectSection(0)});
+
+(function(){
   const canvas = document.getElementById('conductionCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
@@ -265,9 +267,6 @@ document.getElementById('reset').addEventListener('click',()=>{completed.fill(fa
   if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
     paused=true;
   requestAnimationFrame(frame);
-})();ationFrame(step)}
-window.__conductionSetPaused=v=>{paused=!!v};
-draw(0);requestAnimationFrame(step);
 })();
 
 function setPaused(svg,paused){if(svg.pauseAnimations&&svg.unpauseAnimations){paused?svg.pauseAnimations():svg.unpauseAnimations()}}document.querySelectorAll('.motion-toggle').forEach(b=>b.addEventListener('click',()=>{const card=b.closest('.visual-card'),paused=card.classList.toggle('motion-paused');b.textContent=paused?'▶ Play':'⏸ Pause';b.setAttribute('aria-pressed',String(paused));if(card.querySelector('#conductionCanvas'))window.__conductionSetPaused(paused);else setPaused(card.querySelector('svg'),paused)}));
