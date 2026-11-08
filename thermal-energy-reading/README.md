@@ -4,17 +4,16 @@ A standalone, responsive browser activity for paired reading about conduction, c
 
 ## Student routine
 
-1. Partner A reads the first section aloud while B clarifies terms.
-2. Tap the highlighted terms or use the Clarification Station search to find an IB Physics definition.
+1. Partner A reads the first section aloud while B follows the text.
+2. Explore the animated diagram together. Use Google if you need to check an unfamiliar scientific term.
 3. Discuss the section question before revealing the suggested explanation.
-4. Swap reader and clarifier in the next section.
+4. Swap reader roles in the next section.
 
 ## Features
 
 - Three detailed IB Physics B.1 reading sections
 - Three looping, pausable SVG animations of heat transfer mechanisms
-- Searchable glossary of ~30 IB-specific terms, also accessible inline
-- A/B role prompts, discussion questions and model explanations
+- A/B reader prompts, discussion questions and model explanations
 - Completion tracker and reset
 - Zero external JavaScript dependencies, and a single self-contained HTML file
 
