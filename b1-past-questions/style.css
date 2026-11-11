@@ -11,3 +11,7 @@
 
 /* Clear, correctly typeset comparisons for Question 14. */
 .math-comparison .option-cell{font-family:'Cambria Math',Cambria,Georgia,serif;font-size:24px;line-height:1.6;color:var(--ink);white-space:nowrap}.math-comparison sub,.answer-line sub,.steps sub{font-size:72%;vertical-align:sub;font-style:normal}.math-comparison .comparison-head{font-size:13px;line-height:1.45}.math-comparison .option{min-height:65px}@media(max-width:600px){.math-comparison .option-cell{font-size:21px}.math-comparison .comparison-head{font-size:12px}.math-comparison .option{min-height:60px}}
+
+
+/* Native MathML gives real fraction bars, roots, powers and subscripts. */
+.solution-math{font-size:21px;line-height:1.7;overflow-x:auto;overflow-y:hidden;padding:9px 2px 12px;max-width:100%;color:#174c40}.solution-math math{font-size:1em;margin:0;text-align:left;math-style:normal}.solution-math math[display=block]{display:block;text-align:left}.algebra-steps li{align-items:flex-start;min-width:0}.algebra-steps li:before{flex-shrink:0;margin-top:3px}.step-body{min-width:0;flex:1}.step-body p{margin:0 0 5px}.algebra-steps .solution-math{font-size:21px;background:#ffffffa6;border-radius:5px;margin:6px 0;padding:12px 9px 15px}.formula-item .solution-math+.solution-math{padding-top:3px}.formula-symbols{overflow-wrap:anywhere}@media(max-width:600px){.solution-math,.algebra-steps .solution-math{font-size:19px}.feedback{padding:15px}.steps li{gap:8px}}
