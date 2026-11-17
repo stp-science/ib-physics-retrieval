@@ -1,27 +1,31 @@
 'use strict';
 const explanations = [
-'<strong>1 / Incoming sunlight.</strong> The Sun emits a broad spectrum: ultraviolet, visible and infrared. Much visible light passes through the atmosphere. Radiation absorbed by the ground and oceans transfers energy to them and warms them. Some incoming radiation is also absorbed by the atmosphere.',
-'<strong>2 / Reflection.</strong> Clouds, particles and the surface reflect some incoming sunlight back to space. Albedo is the fraction reflected. Reflection does not turn visible light into infrared; reflected sunlight remains solar radiation.',
-'<strong>3 / Thermal emission.</strong> The warmed surface emits its own radiation, mainly long-wavelength infrared because its temperature is much lower than the Sun’s. Absorption followed by thermal emission is different from reflection.',
-'<strong>4 / Infrared absorption.</strong> Greenhouse gases absorb particular wavelengths of outgoing infrared. A photon must match an allowed molecular energy transition. Infrared can excite molecular vibrations; collisions exchange energy with surrounding molecules.',
-'<strong>5 / Atmospheric emission.</strong> The atmosphere emits infrared in all directions, including down towards the surface and up towards space. This is emission, not mirror reflection. Downward infrared supplies additional energy to the surface.',
-'<strong>6 / Escape and balance.</strong> Some surface infrared escapes directly at wavelengths where the atmosphere absorbs weakly. The atmosphere also emits infrared to space. At equilibrium, total outgoing thermal power equals absorbed solar power. More greenhouse gases initially reduce outgoing power for a given temperature profile, causing warming.'
+'<strong>1 / Incoming sunlight.</strong> Much visible sunlight passes through the atmosphere and is absorbed by the ground and oceans. Absorption transfers energy to the surface and warms it. Some incoming radiation is also absorbed in the atmosphere.',
+'<strong>2 / Reflection from a cloud.</strong> This arrow starts at the cloud shown on the incoming path. Water droplets in the cloud reflect some sunlight back to space. Some sunlight also reaches the surface, where it may be absorbed or reflected. Reflection does not turn visible light into infrared.',
+'<strong>3 / The surface emits infrared.</strong> After absorbing energy, the warm surface emits its own radiation. Because Earth is much cooler than the Sun, this is mainly long-wavelength infrared. This is emission, not sunlight bouncing back.',
+'<strong>4 / What absorption does.</strong> An infrared photon with the right energy is absorbed by a greenhouse-gas molecule. The photon transfers its energy to the molecule: its atoms vibrate more, with bonds stretching or bending. Collisions can then transfer energy to nearby molecules and warm the air. Look at the vibrating molecule below.',
+'<strong>5 / Infrared is emitted again.</strong> Molecules can emit infrared and lose energy. Emission can be in any direction: some infrared goes upwards and some goes back towards the surface, where it can be absorbed. This is not reflection from a mirror.',
+'<strong>6 / Some infrared escapes.</strong> Not all infrared is absorbed. Some surface infrared travels directly to space. Infrared emitted upwards by the atmosphere also carries energy into space. Greenhouse gases make the surface warmer than it would otherwise be.'
 ];
-const buttons = [...document.querySelectorAll('[data-step]')];
-const processes = [...document.querySelectorAll('[data-process]')];
-function selectStep(index) {
- processes.forEach(el => el.classList.toggle('dim', index !== null && Number(el.dataset.process) !== index));
- buttons.forEach(el => el.setAttribute('aria-pressed', String(Number(el.dataset.step) === index)));
- document.getElementById('step-explanation').innerHTML = index === null ? '<strong>All processes shown.</strong> Follow the energy from the Sun to the surface, then follow Earth’s infrared into the atmosphere and out to space. Select a process to read more.' : explanations[index];
+const diagram = document.getElementById('energy-diagram');
+if (diagram) {
+ const buttons = [...document.querySelectorAll('[data-step]')];
+ const processes = [...document.querySelectorAll('[data-process]')];
+ function selectStep(index) {
+  processes.forEach(el => el.classList.toggle('dim', index !== null && Number(el.dataset.process) !== index));
+  buttons.forEach(el => el.setAttribute('aria-pressed', String(Number(el.dataset.step) === index)));
+  diagram.classList.toggle('absorbing', index === 3);
+  document.getElementById('step-explanation').innerHTML = index === null ? '<strong>All processes shown.</strong> Select each process to see where its arrow starts and what happens to the energy.' : explanations[index];
+ }
+ buttons.forEach(button => button.addEventListener('click', () => selectStep(Number(button.dataset.step))));
+ document.getElementById('show-all').addEventListener('click', () => selectStep(null));
+ selectStep(null);
 }
-buttons.forEach(button => button.addEventListener('click', () => selectStep(Number(button.dataset.step))));
-document.getElementById('show-all').addEventListener('click', () => selectStep(null));
-selectStep(null);
-document.getElementById('load-sim').addEventListener('click', function () {
+const loadSim = document.getElementById('load-sim');
+if (loadSim) loadSim.addEventListener('click', function () {
  const iframe = document.createElement('iframe');
  iframe.src = 'https://phet.colorado.edu/sims/html/molecules-and-light/latest/molecules-and-light_all.html';
- iframe.title = 'PhET: Molecules and Light';
- iframe.allowFullscreen = true;
+ iframe.title = 'PhET: Molecules and Light'; iframe.allowFullscreen = true;
  document.getElementById('sim-container').replaceChildren(iframe);
  this.textContent = 'Simulation loaded'; this.disabled = true;
 });
