@@ -19,7 +19,7 @@ if (diagram) {
  }
  buttons.forEach(button => button.addEventListener('click', () => selectStep(Number(button.dataset.step))));
  document.getElementById('show-all').addEventListener('click', () => selectStep(null));
- selectStep(null);
+ selectStep(0);
 }
 const loadSim = document.getElementById('load-sim');
 if (loadSim) loadSim.addEventListener('click', function () {
