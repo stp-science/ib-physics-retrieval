@@ -797,3 +797,23 @@ const PAPERS = [
     ]
   }
 ];
+
+// Full video solutions matched by question content to the greenhouse-effect subtopic.
+Object.assign(MC.find(q=>q.id==='m1'), {"video": "videos/paper1a-q01.mp4", "sourceQuestion": 1, "sourceVideoId": "447912364"});
+Object.assign(MC.find(q=>q.id==='m2'), {"video": "videos/paper1a-q02.mp4", "sourceQuestion": 3, "sourceVideoId": "448059479"});
+Object.assign(MC.find(q=>q.id==='m3'), {"video": "videos/paper1a-q03.mp4", "sourceQuestion": 4, "sourceVideoId": "701295793"});
+Object.assign(MC.find(q=>q.id==='m4'), {"video": "videos/paper1a-q04.mp4", "sourceQuestion": 7, "sourceVideoId": "865069747"});
+Object.assign(MC.find(q=>q.id==='m5'), {"video": "videos/paper1a-q05.mp4", "sourceQuestion": 10, "sourceVideoId": "700932351"});
+Object.assign(MC.find(q=>q.id==='m6'), {"video": "videos/paper1a-q06.mp4", "sourceQuestion": 11, "sourceVideoId": "448245900"});
+Object.assign(MC.find(q=>q.id==='m7'), {"video": "videos/paper1a-q07.mp4", "sourceQuestion": 13, "sourceVideoId": "865077899"});
+Object.assign(MC.find(q=>q.id==='m8'), {"video": "videos/paper1a-q08.mp4", "sourceQuestion": 16, "sourceVideoId": "864571112"});
+Object.assign(MC.find(q=>q.id==='m9'), {"video": "videos/paper1a-q09.mp4", "sourceQuestion": 17, "sourceVideoId": "865085517"});
+Object.assign(PAPERS.flatMap(q=>q.parts).find(p=>p.id==='v-a'), {"video": "videos/paper2-v-a.mp4", "sourceQuestion": 1, "sourceVideoId": "865675371", "sourcePart": "a"});
+Object.assign(PAPERS.flatMap(q=>q.parts).find(p=>p.id==='v-b'), {"video": "videos/paper2-v-b.mp4", "sourceQuestion": 1, "sourceVideoId": "865682362", "sourcePart": "b"});
+Object.assign(PAPERS.flatMap(q=>q.parts).find(p=>p.id==='v-c'), {"video": "videos/paper2-v-c.mp4", "sourceQuestion": 1, "sourceVideoId": "583017528", "sourcePart": "c"});
+Object.assign(PAPERS.flatMap(q=>q.parts).find(p=>p.id==='v-d'), {"video": "videos/paper2-v-d.mp4", "sourceQuestion": 1, "sourceVideoId": "582633180", "sourcePart": "d"});
+Object.assign(PAPERS.flatMap(q=>q.parts).find(p=>p.id==='ma-a'), {"video": "videos/paper2-ma-a.mp4", "sourceQuestion": 5, "sourceVideoId": "582892109", "sourcePart": "a"});
+Object.assign(PAPERS.flatMap(q=>q.parts).find(p=>p.id==='ma-b'), {"video": "videos/paper2-ma-b.mp4", "sourceQuestion": 5, "sourceVideoId": "865696796", "sourcePart": "b"});
+Object.assign(PAPERS.flatMap(q=>q.parts).find(p=>p.id==='ma-c'), {"video": "videos/paper2-ma-c.mp4", "sourceQuestion": 5, "sourceVideoId": "865698806", "sourcePart": "c"});
+Object.assign(PAPERS.flatMap(q=>q.parts).find(p=>p.id==='ma-di'), {"video": "videos/paper2-ma-di.mp4", "sourceQuestion": 5, "sourceVideoId": "865702764", "sourcePart": "d(i)"});
+Object.assign(PAPERS.flatMap(q=>q.parts).find(p=>p.id==='ma-dii'), {"video": "videos/paper2-ma-dii.mp4", "sourceQuestion": 5, "sourceVideoId": "865710240", "sourcePart": "d(ii)"});

@@ -36,3 +36,10 @@ PAPERS.find(q=>q.id==='potassium').parts.find(p=>p.id==='kb').sourceVideoId='562
 PAPERS.find(q=>q.id==='potassium').parts.find(p=>p.id==='kc').sourceVideoId='864448689';
 PAPERS.find(q=>q.id==='potassium').parts.find(p=>p.id==='kd').sourceVideoId='564968062';
 PAPERS.find(q=>q.id==='potassium').parts.find(p=>p.id==='ke').sourceVideoId='564970693';
+
+// Ice cubes in water is PaperPlainz thermal-energy-transfers Paper 2 Q3.
+Object.assign(PAPERS.find(q=>q.id==='ice').parts.find(p=>p.id==='ia'), {"video": "videos/paper2-ice-ia.mp4", "sourceQuestion": 3, "sourcePart": "a", "sourceVideoId": "565358656"});
+Object.assign(PAPERS.find(q=>q.id==='ice').parts.find(p=>p.id==='ib1'), {"video": "videos/paper2-ice-ib1.mp4", "sourceQuestion": 3, "sourcePart": "b(i)", "sourceVideoId": "864461609"});
+Object.assign(PAPERS.find(q=>q.id==='ice').parts.find(p=>p.id==='ib2'), {"video": "videos/paper2-ice-ib2.mp4", "sourceQuestion": 3, "sourcePart": "b(ii)", "sourceVideoId": "568966818"});
+Object.assign(PAPERS.find(q=>q.id==='ice').parts.find(p=>p.id==='ic1'), {"video": "videos/paper2-ice-ic1.mp4", "sourceQuestion": 3, "sourcePart": "c(i)", "sourceVideoId": "568975814"});
+Object.assign(PAPERS.find(q=>q.id==='ice').parts.find(p=>p.id==='ic2'), {"video": "videos/paper2-ice-ic2.mp4", "sourceQuestion": 3, "sourcePart": "c(ii)", "sourceVideoId": "568982321"});
