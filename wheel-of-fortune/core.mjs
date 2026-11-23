@@ -51,3 +51,17 @@ export function pointedSegment(rotation, count = SEGMENTS.length) {
   const angle = ((-rotation % turn) + turn) % turn;
   return Math.floor(angle / (turn / count)) % count;
 }
+
+export function segmentForMode(segment, mode) {
+  if (mode === 'challenge' && segment.value > 0) {
+    const value = segment.value * 2;
+    return {...segment, value, label: '+' + new Intl.NumberFormat('en-NZ').format(value)};
+  }
+  return {...segment};
+}
+export function earnedSpinMode(round) {
+  return round.history?.at(-1)?.mode || round.mode || 'recall';
+}
+export function pendingSpinSegment(round) {
+  return segmentForMode(SEGMENTS[round.pending.index], round.pending.mode || earnedSpinMode(round));
+}

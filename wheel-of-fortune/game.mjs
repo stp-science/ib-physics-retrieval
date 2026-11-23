@@ -3,7 +3,7 @@ import { QUESTIONS as CHALLENGE_QUESTIONS } from './challenge-questions.mjs?v=du
 import { MODE_DETAILS, roundCategory, categoryLabel, changeRoundMode } from './mode-state.mjs?v=dual-modes-1';
 const QUESTION_SETS = { recall: RECALL_QUESTIONS, challenge: CHALLENGE_QUESTIONS };
 const QUESTIONS = [...RECALL_QUESTIONS, ...CHALLENGE_QUESTIONS];
-import { DURATION_MS, SEGMENTS, applySegment, shuffle, balancedDeck, remainingMs, timeLabel, targetRotation, pointedSegment } from './core.mjs?v=negative-scores-1';
+import { DURATION_MS, SEGMENTS, applySegment, shuffle, balancedDeck, remainingMs, timeLabel, targetRotation, pointedSegment, segmentForMode, earnedSpinMode, pendingSpinSegment } from './core.mjs?v=challenge-prizes-1';
 import { createMusicPlayer } from './music.mjs?v=quiet-autoplay-2';
 import { assessAnswerPattern, rapidAnswerLimit, RUSH_PENALTY } from './fair-play.mjs';
 
@@ -71,7 +71,10 @@ function drawWheel(angle = rotation) {
   ctx.beginPath();ctx.arc(0,0,450,0,Math.PI*2);ctx.fillStyle='#29133d';ctx.fill();
   ctx.save();ctx.rotate(angle-Math.PI/2);
   const colors=['#ee458b','#37d8cf','#8956df','#f7bb41','#4c76e6','#d960cb'];
-  SEGMENTS.forEach((s,i)=>{
+  const wheelMode = state && ['spinReady','spinning'].includes(state.phase)
+    ? state.pending?.mode || earnedSpinMode(state)
+    : state?.mode || selectedMode;
+  SEGMENTS.map(s=>segmentForMode(s,wheelMode)).forEach((s,i)=>{
     ctx.beginPath();ctx.moveTo(0,0);ctx.arc(0,0,434,i*step,(i+1)*step);ctx.closePath();
     const color=s.multiplier===3?'#ffe597':s.multiplier?'#39e6a8':s.value<0?'#552039':colors[i%colors.length];
     ctx.fillStyle=color;ctx.fill();ctx.strokeStyle='#221031';ctx.lineWidth=2;ctx.stroke();
@@ -102,16 +105,17 @@ function selectMode(mode) {
   if (!MODE_DETAILS[mode]) return;
   selectedMode = mode;
   $('bank-count').textContent = QUESTION_SETS[mode].length;
+  $('prize-preview').textContent = mode === 'challenge' ? '+3,000' : '+1,500';
   $('mode-help').textContent = mode === 'recall'
     ? 'Recall key ideas from memory. No calculator needed.'
-    : 'Apply your knowledge to exam-style questions. Formula support is included; have a calculator ready.';
+    : 'Exam-style questions with formulas. Double positive wheel prizes; losses and multipliers stay the same. Have a calculator ready.';
 }
 function switchMode() {
   if (!state || remainingMs(state.deadline, Date.now()) <= 0) { if (state) timeout(); return; }
   const target = MODE_DETAILS[state.mode].other;
   if (!changeRoundMode(state, target)) return;
   if (!state.choices) createChoices();
-  renderQuestion(); updateModeUI();
+  renderQuestion(); updateModeUI(); drawWheel();
   $('wheel-result').textContent = MODE_DETAILS[target].label.toUpperCase();
   say(target === 'recall' ? 'Back to the key ideas. Your score and clock carry on!' : 'Ready for a challenge? Your score and clock carry on!');
   storeRound();
@@ -219,7 +223,7 @@ function spin(){
   startAudio();state.phase='spinning';setSpin(false);$('next').hidden=true;
   const index=Math.floor(Math.random()*SEGMENTS.length);
   const end=targetRotation(rotation,index,reducedMotion?1:3);
-  state.pending={index,end};storeRound();
+  state.pending={index,end,mode:earnedSpinMode(state)};storeRound();
   $('wheel-result').textContent='COME ON, BIG POINTS…';say('Round and round… where will it land?');
   const began=performance.now(),from=rotation,duration=5000;
   let lastWedge=-1,lastSound=0;
@@ -234,7 +238,7 @@ function spin(){
 }
 function settleSpin(){
   if(!state?.pending||state.phase!=='spinning')return;
-  const {index,end}=state.pending,s=SEGMENTS[index],before=state.score;
+  const {end}=state.pending,s=pendingSpinSegment(state),before=state.score;
   rotation=end;state.rotation=end;drawWheel();state.score=applySegment(before,s);
   const change=state.score-before;
   state.history[state.history.length-1].spin=s.label;
@@ -268,7 +272,7 @@ function finish(early=false,exhausted=false){
   if(!state||state.phase==='results')return;
   cancelAnimationFrame(spinFrame);clearInterval(timerHandle);
   // Resolve an already-earned spin once before an early finish.
-  if(state.phase==='spinning'&&state.pending){const s=SEGMENTS[state.pending.index];state.score=applySegment(state.score,s);state.history[state.history.length-1].spin=s.label;state.pending=null;}
+  if(state.phase==='spinning'&&state.pending){const s=pendingSpinSegment(state);state.score=applySegment(state.score,s);state.history[state.history.length-1].spin=s.label;state.pending=null;}
   state.phase='results';state.early=early;state.finishedAt=Date.now();
   musicPlayer.finishRound();
   try{sessionStorage.removeItem(ACTIVE_KEY);}catch{}
