@@ -179,7 +179,8 @@ export const QUESTIONS = [
       "Power ×16; peak wavelength ×2"
     ],
     "explanation": "From P = σAT⁴, emitted power increases by a factor of 16. [1] From λmaxT = constant, the peak wavelength halves. [1]",
-    "source": "../questions.js#ib-0231"
+    "source": "../questions.js#ib-0231",
+    "formula": "P = σAT⁴; λₘₐₓT = 2.9 × 10⁻³ m K"
   },
   {
     "id": "ib-0232",
@@ -231,7 +232,8 @@ export const QUESTIONS = [
       "156 kg"
     ],
     "explanation": "m = ρV = 15.6 kg.",
-    "source": "../questions.js#ib-0235"
+    "source": "../questions.js#ib-0235",
+    "formula": "ρ = m/V, so m = ρV"
   },
   {
     "id": "ib-0238",
@@ -244,7 +246,8 @@ export const QUESTIONS = [
       "5463 K"
     ],
     "explanation": "T = θ + 273.15 = 293.15 K.",
-    "source": "../questions.js#ib-0238"
+    "source": "../questions.js#ib-0238",
+    "formula": "T (K) = θ (°C) + 273.15"
   },
   {
     "id": "ib-0240",
@@ -257,7 +260,8 @@ export const QUESTIONS = [
       "105,000 J"
     ],
     "explanation": "(a) Q = mcΔT = 2.10 × 10⁴ J. [2]\n(b) A change of 1 °C equals a change of 1 K, so the numerical temperature rise is the same in both scales. [1]",
-    "source": "../questions.js#ib-0240"
+    "source": "../questions.js#ib-0240",
+    "formula": "Q = mcΔT"
   },
   {
     "id": "ib-0243",
@@ -270,7 +274,8 @@ export const QUESTIONS = [
       "668 J"
     ],
     "explanation": "(a) Q = mL = 6.68 × 10⁴ J. [2]\n(b) Intermolecular potential energy increases as the particle arrangement changes. Mean random kinetic energy remains constant, so temperature remains constant. [2]",
-    "source": "../questions.js#ib-0243"
+    "source": "../questions.js#ib-0243",
+    "formula": "Q = mL"
   },
   {
     "id": "ib-0249",
@@ -283,7 +288,8 @@ export const QUESTIONS = [
       "2.00 × 10⁶ m"
     ],
     "explanation": "λmax = 2.9 × 10⁻³/T = 5.00 × 10⁻⁷ m.",
-    "source": "../questions.js#ib-0249"
+    "source": "../questions.js#ib-0249",
+    "formula": "λₘₐₓT = 2.9 × 10⁻³ m K"
   },
   {
     "id": "ib-0251",
@@ -322,7 +328,8 @@ export const QUESTIONS = [
       "75 W m⁻²"
     ],
     "explanation": "The mean incident intensity over the sphere is S/4 = 300 W m⁻². [1] The absorbed fraction is 1 − 0.25, so the mean absorbed intensity is 225 W m⁻². [1]",
-    "source": "../questions.js#ib-0253"
+    "source": "../questions.js#ib-0253",
+    "formula": "Mean absorbed intensity = S(1 − a)/4, where a is albedo"
   },
   {
     "id": "ib-0254",
@@ -478,7 +485,8 @@ export const QUESTIONS = [
       "100"
     ],
     "explanation": "(a) e = actual/black = 0.800. [2]\n(b) Power per unit area is eσT⁴, so it increases by 2⁴ = 16. [1]",
-    "source": "../questions.js#ib-0266"
+    "source": "../questions.js#ib-0266",
+    "formula": "e = emitted intensity / black-body intensity at the same temperature"
   },
   {
     "id": "ib-0269",
@@ -491,7 +499,8 @@ export const QUESTIONS = [
       "0.40"
     ],
     "explanation": "Albedo = scattered/incident = 0.250.",
-    "source": "../questions.js#ib-0269"
+    "source": "../questions.js#ib-0269",
+    "formula": "Albedo = scattered power / incident power"
   },
   {
     "id": "ib-0272",
@@ -504,7 +513,8 @@ export const QUESTIONS = [
       "5440 W m⁻²"
     ],
     "explanation": "Mean intensity = S/4 = 340 W m⁻².",
-    "source": "../questions.js#ib-0272"
+    "source": "../questions.js#ib-0272",
+    "formula": "Mean incoming intensity = S/4"
   },
   {
     "id": "ib-0279",
@@ -517,6 +527,7 @@ export const QUESTIONS = [
       "1360 W m⁻²"
     ],
     "explanation": "Absorbed intensity = (1-a)I = 255 W m⁻².",
-    "source": "../questions.js#ib-0279"
+    "source": "../questions.js#ib-0279",
+    "formula": "Absorbed intensity = (1 − a)I, where a is albedo and I is mean incident intensity"
   }
 ];
