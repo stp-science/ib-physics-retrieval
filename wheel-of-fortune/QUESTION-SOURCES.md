@@ -1,3 +1,11 @@
+# Current version: knowledge retrieval
+
+Updated 24 November 2026. The current bank has 60 original conceptual multiple-choice questions (36 B.1 and 24 B.2). Questions test definitions, particle explanations, mechanisms, qualitative relationships and equation recognition. None requires arithmetic, substitution, numerical scaling or rearrangement. Formula hints and calculator instructions have been removed.
+
+The Paper 1A review below informed the choice of concepts. Its per-ID mapping and numerical validation describe the previous calculation-based bank, not the current recall-01 to recall-60 bank. They are retained as historical review notes.
+
+---
+
 # Wheel of Fortune: question-source review
 
 Reviewed the B.1/B.2 sections in 11 Paper 1A variants from May 2025, November 2025 and May 2026. SL and HL variants sometimes share questions; these are 11 paper variants, not 11 completely different sets of thermal questions. No mock or predicted papers were counted.

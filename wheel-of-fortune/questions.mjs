@@ -1,883 +1,842 @@
 export const QUESTIONS = [
   {
-    "id": "paper1a-01",
+    "id": "recall-01",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A freezer is at −23 °C. What is its temperature in kelvin, to the nearest kelvin?",
-    "a": "250 K",
+    "q": "Temperature tells us about which particle property?",
+    "a": "Average random kinetic energy",
     "wrong": [
-      "296 K",
-      "−250 K",
-      "23 K"
+      "Total mass",
+      "Total intermolecular potential energy",
+      "Number of particles"
     ],
-    "explanation": "T = −23 + 273.15 = 250.15 K, which rounds to 250 K.",
-    "formula": "T (K) = θ (°C) + 273.15",
-    "source": "../b1-past-questions/#m1",
-    "basis": "Original practice based on B.1 past-question bank m1; rewritten wording and values."
+    "explanation": "Temperature is related to the average random kinetic energy of particles.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-02",
+    "id": "recall-02",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Which quantity describes all the energy a star emits each second?",
-    "a": "Luminosity",
+    "q": "What makes up a substance’s internal energy?",
+    "a": "Random kinetic energy and intermolecular potential energy",
     "wrong": [
-      "Apparent brightness",
-      "Albedo",
-      "Peak wavelength"
+      "Only random kinetic energy",
+      "Only intermolecular potential energy",
+      "Only the energy of the whole object moving"
     ],
-    "explanation": "Luminosity is total emitted power, measured in watts. Apparent brightness is received power per unit area.",
-    "source": "../b1-past-questions/#m2",
-    "basis": "Original practice based on B.1 past-question bank m2; rewritten wording and values."
+    "explanation": "Internal energy includes the particles’ random kinetic energy and their intermolecular potential energy.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-03",
+    "id": "recall-03",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A 0.40 kg solid is already at its melting point. Its latent heat of fusion is 2.5 × 10⁵ J kg⁻¹. How much energy melts it completely?",
-    "a": "1.0 × 10⁵ J",
+    "q": "During melting at constant temperature, what happens to mean random kinetic energy?",
+    "a": "It stays constant",
     "wrong": [
-      "6.25 × 10⁵ J",
-      "1.0 × 10⁶ J",
-      "2.5 × 10⁵ J"
+      "It increases",
+      "It decreases",
+      "It becomes zero"
     ],
-    "explanation": "Q = mL = 0.40 × 2.5 × 10⁵ = 1.0 × 10⁵ J.",
-    "formula": "Q = mL",
-    "source": "../b1-past-questions/#m3",
-    "basis": "Original practice based on B.1 past-question bank m3; rewritten wording and values."
+    "explanation": "Constant temperature means unchanged mean random kinetic energy.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-04",
+    "id": "recall-04",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A warm object hangs in a vacuum without touching anything. How can it transfer thermal energy to its surroundings?",
-    "a": "Thermal radiation",
+    "q": "What happens to intermolecular potential energy during melting?",
+    "a": "It increases",
     "wrong": [
+      "It decreases",
+      "It stays constant",
+      "It becomes kinetic energy of the whole sample"
+    ],
+    "explanation": "Supplied energy increases intermolecular potential energy as the particle arrangement changes.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-05",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "During condensation at constant temperature, what happens to intermolecular potential energy?",
+    "a": "It decreases",
+    "wrong": [
+      "It increases",
+      "It stays constant",
+      "It must become zero"
+    ],
+    "explanation": "Condensation releases energy as particles form a lower-potential-energy arrangement.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-06",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Why does a pure liquid stay at the same temperature while boiling at constant pressure?",
+    "a": "Energy changes the particle arrangement rather than mean kinetic energy",
+    "wrong": [
+      "The liquid stops absorbing energy",
+      "All the particles stop moving",
+      "The heater produces no energy"
+    ],
+    "explanation": "During boiling, supplied energy increases intermolecular potential energy while mean kinetic energy stays constant.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-07",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "What happens to energy when a liquid freezes?",
+    "a": "Energy is transferred to the surroundings",
+    "wrong": [
+      "Energy is created inside the liquid",
+      "Energy must be supplied to the liquid",
+      "No energy transfer is possible"
+    ],
+    "explanation": "Freezing releases energy, even though temperature can remain constant.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-08",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "In which direction does net thermal energy transfer occur naturally?",
+    "a": "From higher to lower temperature",
+    "wrong": [
+      "From greater to smaller mass",
+      "From lower to higher temperature",
+      "Always towards the object with less total internal energy"
+    ],
+    "explanation": "Temperature difference determines the direction of net thermal transfer.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-09",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "What is true when two objects are in thermal equilibrium?",
+    "a": "They have the same temperature",
+    "wrong": [
+      "They have the same mass",
+      "They have the same internal energy",
+      "Their particles have stopped moving"
+    ],
+    "explanation": "At the same temperature there is no net thermal energy transfer between the objects.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-10",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Why can a large cool object have more internal energy than a small hot object?",
+    "a": "Internal energy also depends on the amount and state of matter",
+    "wrong": [
+      "Temperature is unrelated to particle motion",
+      "Cool particles never move",
+      "Hot objects contain no potential energy"
+    ],
+    "explanation": "Temperature concerns average particle energy; internal energy is a total for all the particles.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-11",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "What does heat describe in physics?",
+    "a": "Energy transferred because of a temperature difference",
+    "wrong": [
+      "A substance stored inside hot objects",
+      "The temperature of an object",
+      "The mass of moving particles"
+    ],
+    "explanation": "Heat is energy in transfer due to a temperature difference.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-12",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "What is density?",
+    "a": "Mass per unit volume",
+    "wrong": [
+      "Volume per unit mass",
+      "Force per unit area",
+      "Energy per unit time"
+    ],
+    "explanation": "Density relates the mass of a sample to the volume it occupies.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-13",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Which list contains the three main mechanisms of thermal energy transfer?",
+    "a": "Conduction, convection and radiation",
+    "wrong": [
+      "Conduction, friction and evaporation",
+      "Convection, reflection and compression",
+      "Radiation, gravity and friction"
+    ],
+    "explanation": "Conduction, convection and thermal radiation are the three primary transfer mechanisms.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-14",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Which particles help metals conduct thermal energy particularly well?",
+    "a": "Mobile electrons",
+    "wrong": [
+      "Mobile protons",
+      "Only neutrons",
+      "Only photons trapped in nuclei"
+    ],
+    "explanation": "Mobile electrons transfer energy through a metal, alongside interactions between lattice particles.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-15",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "How does conduction transfer energy through a solid without bulk motion?",
+    "a": "Interactions between neighbouring particles",
+    "wrong": [
+      "The whole solid circulates",
+      "Particles permanently leave the hot end",
+      "The solid must first turn into a liquid"
+    ],
+    "explanation": "Energy passes between neighbouring particles while the solid remains in place.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-16",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "What distinguishes convection from conduction?",
+    "a": "Convection involves bulk movement of a fluid",
+    "wrong": [
+      "Convection needs no matter",
+      "Convection happens only in solids",
+      "Convection transfers no energy"
+    ],
+    "explanation": "Convection carries thermal energy through the bulk motion of liquids or gases.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-17",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Why does warm fluid usually rise during natural convection?",
+    "a": "It expands and becomes less dense",
+    "wrong": [
+      "Its particles become lighter",
+      "It becomes more dense",
+      "Gravity stops acting on it"
+    ],
+    "explanation": "Expansion lowers the fluid’s density, allowing buoyancy to make it rise.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-18",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Which thermal transfer mechanism works across a vacuum?",
+    "a": "Radiation",
+    "wrong": [
+      "Conduction",
       "Convection",
-      "Conduction through the vacuum",
-      "Conduction and convection"
+      "Both conduction and convection"
     ],
-    "explanation": "Radiation travels through a vacuum. Conduction and convection require matter. Mechanical supports are excluded here.",
-    "source": "../b1-past-questions/#m8",
-    "basis": "Original practice based on B.1 past-question bank m8; rewritten wording and values."
+    "explanation": "Electromagnetic radiation can travel through a vacuum.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-05",
+    "id": "recall-19",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A pure liquid freezes at constant temperature. Which change occurs in its particles?",
-    "a": "Potential energy decreases; mean kinetic energy stays constant",
+    "q": "Thermal radiation consists of what?",
+    "a": "Electromagnetic waves",
     "wrong": [
-      "Potential energy increases; mean kinetic energy stays constant",
-      "Potential energy stays constant; mean kinetic energy decreases",
-      "Potential energy and mean kinetic energy both decrease"
+      "A flow of protons",
+      "Bulk movement of air",
+      "Sound waves only"
     ],
-    "explanation": "During freezing, energy is released and intermolecular potential energy falls. Constant temperature means unchanged mean random kinetic energy.",
-    "source": "../b1-past-questions/#m5",
-    "basis": "Original practice based on B.1 past-question bank m5; rewritten wording and values."
+    "explanation": "Bodies emit electromagnetic radiation because of their temperature.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-06",
+    "id": "recall-20",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Object X has mass m and volume V. Object Y has mass 3m and volume V/2. If X has density ρ, what is the density of Y?",
-    "a": "6ρ",
+    "q": "What does a high thermal conductivity indicate?",
+    "a": "Energy is transferred readily through the material",
     "wrong": [
-      "3ρ/2",
-      "2ρ/3",
-      "ρ/6"
+      "The material must be very hot",
+      "The material cannot lose energy",
+      "The material has no moving particles"
     ],
-    "explanation": "ρY = 3m/(V/2) = 6m/V = 6ρ.",
-    "formula": "ρ = m/V",
-    "source": "../b1-past-questions/#m6",
-    "basis": "Original practice based on B.1 past-question bank m6; rewritten wording and values."
+    "explanation": "A high thermal conductivity means a greater conduction rate for the same geometry and temperature difference.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-07",
+    "id": "recall-21",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A sample of gas condenses at constant temperature. What happens to its internal energy?",
-    "a": "It decreases because intermolecular potential energy decreases",
+    "q": "Why can a thicker layer of the same insulation reduce conduction?",
+    "a": "Energy must travel through a greater thickness",
     "wrong": [
-      "It stays constant because temperature stays constant",
-      "It increases because molecules come closer together",
-      "It decreases because mean molecular kinetic energy decreases"
+      "The temperature difference must become zero",
+      "The material’s mass disappears",
+      "Thermal radiation cannot exist inside it"
     ],
-    "explanation": "Condensation releases energy. The mean random kinetic energy remains constant while intermolecular potential energy decreases.",
-    "source": "../b1-past-questions/#m13",
-    "basis": "Original practice based on B.1 past-question bank m13; rewritten wording and values."
+    "explanation": "For the same area, material and face temperatures, greater thickness reduces the conduction rate.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-08",
+    "id": "recall-22",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A liquid absorbs 18,000 J and warms by 15 K. Its specific heat capacity is 2000 J kg⁻¹ K⁻¹. What is its mass?",
-    "a": "0.60 kg",
+    "q": "For the same material, length and end temperatures, a wider rod transfers thermal energy how?",
+    "a": "At a greater rate",
     "wrong": [
-      "0.15 kg",
-      "6.0 kg",
-      "1.7 kg"
+      "At a smaller rate",
+      "Only by convection",
+      "Only after its temperature becomes uniform"
     ],
-    "explanation": "m = Q/(cΔT) = 18,000/(2000 × 15) = 0.60 kg.",
-    "formula": "Q = mcΔT, so m = Q/(cΔT)",
-    "source": "../b1-past-questions/#m9",
-    "basis": "Original practice based on B.1 past-question bank m9; rewritten wording and values."
+    "explanation": "A larger cross-sectional area provides more area through which energy can be conducted.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-09",
+    "id": "recall-23",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A pure solid is at its melting point. While it melts at constant pressure, which graph describes temperature against energy supplied?",
-    "a": "A horizontal line",
+    "q": "What is a temperature gradient?",
+    "a": "Temperature change per unit distance",
     "wrong": [
-      "A straight line rising from the starting temperature",
-      "A straight line falling from the starting temperature",
-      "A curve rising more steeply as energy is supplied"
+      "Temperature change per unit time",
+      "Energy transferred per unit mass",
+      "Total energy stored in an object"
     ],
-    "explanation": "During melting, the energy changes the particle arrangement rather than raising the temperature.",
-    "source": "../b1-past-questions/#m10",
-    "basis": "Original practice based on B.1 past-question bank m10; rewritten wording and values."
+    "explanation": "A temperature gradient describes how temperature changes with position.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-10",
+    "id": "recall-24",
     "topic": "B.1 Thermal energy transfers",
-    "q": "The absolute temperature of a black body increases to three times its original value. What happens to its peak wavelength?",
-    "a": "It becomes one third as large",
+    "q": "What is specific heat capacity?",
+    "a": "Energy needed per kilogram for a unit temperature rise",
     "wrong": [
-      "It becomes three times as large",
-      "It becomes nine times as large",
-      "It stays the same"
+      "Energy needed to melt any sample",
+      "Temperature rise per second",
+      "Energy emitted per square metre"
     ],
-    "explanation": "Wien’s law gives λmax ∝ 1/T. Tripling T divides the peak wavelength by three.",
-    "formula": "λₘₐₓT = 2.9 × 10⁻³ m K",
-    "source": "../b1-past-questions/#m11",
-    "basis": "Original practice based on B.1 past-question bank m11; rewritten wording and values."
+    "explanation": "Specific heat capacity is the energy needed to raise one kilogram by one kelvin without a change of state.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-11",
+    "id": "recall-25",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Which statement applies to an ideal black body?",
+    "q": "What is specific latent heat of fusion?",
+    "a": "Energy needed per kilogram to melt at constant temperature",
+    "wrong": [
+      "Energy needed to raise one kilogram by one kelvin",
+      "Energy emitted by a glowing solid",
+      "Energy needed to vaporise one kilogram"
+    ],
+    "explanation": "Fusion refers to melting. Latent heat is transferred during a change of state at constant temperature.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-26",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Which equation describes heating without a change of state?",
+    "a": "Q = mcΔT",
+    "wrong": [
+      "Q = mL",
+      "ρ = m/V",
+      "b = L/(4πd²)"
+    ],
+    "explanation": "Use Q = mcΔT for a temperature change without a phase change.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-27",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Which equation describes energy transferred during a change of state?",
+    "a": "Q = mL",
+    "wrong": [
+      "Q = mcΔT",
+      "P = F/A",
+      "ρ = m/V"
+    ],
+    "explanation": "Q = mL applies to a phase change at constant temperature.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-28",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "What does a heater’s power tell us?",
+    "a": "Energy transferred each second",
+    "wrong": [
+      "Its total stored energy",
+      "The final temperature it must reach",
+      "The mass it can hold"
+    ],
+    "explanation": "Power is the rate of energy transfer, measured in watts.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-29",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Which statement defines an ideal black body?",
     "a": "It absorbs all incident electromagnetic radiation",
     "wrong": [
       "It reflects all visible light",
-      "It emits radiation only when it glows visibly",
-      "It has an emissivity of zero"
+      "It emits only visible light",
+      "It cannot emit radiation"
     ],
-    "explanation": "A black body absorbs all radiation incident on it and is an ideal thermal emitter. It can emit invisible infrared radiation.",
-    "source": "../b1-past-questions/#m15",
-    "basis": "Original practice based on B.1 past-question bank m15; rewritten wording and values."
+    "explanation": "An ideal black body is a perfect absorber and an ideal thermal emitter.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-12",
+    "id": "recall-30",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A rod conducts thermal energy at 120 W. Its length is 0.20 m, its cross-sectional area is 0.0030 m², and its end temperatures differ by 40 K. What is its thermal conductivity?",
-    "a": "200 W m⁻¹ K⁻¹",
+    "q": "What is a star’s luminosity?",
+    "a": "Its total emitted power",
     "wrong": [
-      "20 W m⁻¹ K⁻¹",
-      "800 W m⁻¹ K⁻¹",
-      "1800 W m⁻¹ K⁻¹"
+      "Its received power per unit area at Earth",
+      "Its peak wavelength",
+      "Its distance from Earth"
     ],
-    "explanation": "k = (ΔQ/Δt)ℓ/(AΔT) = (120 × 0.20)/(0.0030 × 40) = 200 W m⁻¹ K⁻¹. Here ΔT is the positive hot-to-cold difference.",
-    "formula": "Rate magnitude = kAΔT/ℓ, so k = (rate × ℓ)/(AΔT)",
-    "source": "../b1-past-questions/#m16",
-    "basis": "Original practice based on B.1 past-question bank m16; rewritten wording and values."
+    "explanation": "Luminosity is the total energy emitted per second.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-13",
+    "id": "recall-31",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Two spherical stars are modelled as black bodies. They have equal luminosities, but X has twice the surface temperature of Y. What is radius X / radius Y?",
-    "a": "1/4",
+    "q": "What is apparent brightness?",
+    "a": "Received power per unit area",
     "wrong": [
-      "1/2",
-      "2",
-      "4"
+      "Total emitted power",
+      "Total energy stored in a star",
+      "The surface temperature of a star"
     ],
-    "explanation": "L ∝ R²T⁴. Equal luminosities give (RX/RY)² × 2⁴ = 1, so RX/RY = 1/4.",
-    "formula": "L = σAT⁴; A = 4πR²",
-    "source": "../b1-past-questions/#m19",
-    "basis": "Original practice based on B.1 past-question bank m19; rewritten wording and values."
+    "explanation": "Apparent brightness describes the power received per square metre by an observer.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-14",
+    "id": "recall-32",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A black body is at 5000 K. What wavelength is at the peak of its emission spectrum?",
-    "a": "5.8 × 10⁻⁷ m",
+    "q": "Why does a star appear fainter when viewed from farther away?",
+    "a": "Its radiation is spread over a larger area",
     "wrong": [
-      "5.8 × 10⁻⁶ m",
-      "1.45 × 10¹ m",
-      "1.7 × 10⁶ m"
+      "Its luminosity must decrease",
+      "Its surface temperature must decrease",
+      "Light loses all its energy in a vacuum"
     ],
-    "explanation": "λmax = (2.9 × 10⁻³)/5000 = 5.8 × 10⁻⁷ m.",
-    "formula": "λₘₐₓT = 2.9 × 10⁻³ m K",
-    "source": "../b1-past-questions/#m20",
-    "basis": "Original practice based on B.1 past-question bank m20; rewritten wording and values."
+    "explanation": "For an unchanged source, increasing distance spreads the same emitted power over a greater area.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-15",
+    "id": "recall-33",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A 250 W heater warms a 0.50 kg liquid through 20 K. The liquid has c = 3000 J kg⁻¹ K⁻¹. Ignore energy losses and the container. How long does heating take?",
-    "a": "120 s",
+    "q": "As a black body gets hotter, what happens to its peak wavelength?",
+    "a": "It becomes shorter",
     "wrong": [
-      "12 s",
-      "60 s",
-      "240 s"
+      "It becomes longer",
+      "It stays fixed",
+      "It disappears completely"
     ],
-    "explanation": "Q = 0.50 × 3000 × 20 = 30,000 J. Time = Q/P = 30,000/250 = 120 s.",
-    "formula": "Q = mcΔT; Q = Pt",
-    "source": "../b1-past-questions/#m21",
-    "basis": "Original practice based on B.1 past-question bank m21; rewritten wording and values."
+    "explanation": "Wien’s law links higher absolute temperature with a shorter peak wavelength.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-16",
+    "id": "recall-34",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Equal masses of liquids X and Y are cooled by removing energy at the same constant rate. X cools twice as fast as Y. What is cX / cY?",
-    "a": "1/2",
+    "q": "Which star generally has the higher surface temperature?",
+    "a": "A blue star",
     "wrong": [
-      "2",
-      "4",
-      "1"
+      "A red star",
+      "Both must have the same temperature",
+      "Colour gives no information about temperature"
     ],
-    "explanation": "For fixed mass and removal rate, |ΔT/Δt| = P/(mc). Twice the cooling rate means half the specific heat capacity.",
-    "formula": "Rate magnitude = mc × |ΔT/Δt|",
-    "source": "../b1-past-questions/#m14",
-    "basis": "Original practice based on B.1 past-question bank m14; rewritten wording and values."
+    "explanation": "A blue star has a higher surface temperature than a red star.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-17",
+    "id": "recall-35",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Equal masses of two pure substances freeze while losing energy at the same constant rate. X takes three times as long to freeze as Y. What is LX / LY?",
-    "a": "3",
+    "q": "At fixed surface area, how does increasing a black body’s temperature affect emitted power?",
+    "a": "It increases emitted power",
     "wrong": [
-      "1/3",
-      "9",
-      "1"
+      "It decreases emitted power",
+      "It leaves emitted power unchanged",
+      "It prevents infrared emission"
     ],
-    "explanation": "During the phase change, mL = Pt. With the same mass and power, latent heat is proportional to freezing time.",
-    "formula": "Q = mL; Q = Pt",
-    "source": "../b1-past-questions/#m14",
-    "basis": "Original practice based on B.1 past-question bank m14; rewritten wording and values."
+    "explanation": "The Stefan–Boltzmann law links greater absolute temperature with greater emitted power.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-18",
+    "id": "recall-36",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A hot metal block is placed in cooler water. Which statement determines the initial direction of net thermal energy transfer?",
-    "a": "Energy moves from the hotter block to the cooler water",
+    "q": "A cooling curve has a flat section while a pure substance freezes. What is happening?",
+    "a": "Energy is being released while temperature stays constant",
     "wrong": [
-      "Energy moves towards the object with greater mass",
-      "Energy moves towards the object with greater total internal energy",
-      "Energy always moves from water to metal"
+      "Energy transfer has stopped",
+      "All particles have stopped moving",
+      "The substance is gaining random kinetic energy"
     ],
-    "explanation": "Temperature difference determines the direction of net thermal transfer. Mass alone does not determine the direction.",
-    "source": "../b1-past-questions/#m12",
-    "basis": "Original practice based on B.1 past-question bank m12; rewritten wording and values."
+    "explanation": "During freezing, internal energy decreases through a fall in intermolecular potential energy.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-19",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A heater supplies 80 W to a 0.40 kg sample with c = 1000 J kg⁻¹ K⁻¹. Ignore energy losses. How fast does its temperature rise?",
-    "a": "0.20 K s⁻¹",
-    "wrong": [
-      "2.0 K s⁻¹",
-      "5.0 K s⁻¹",
-      "0.020 K s⁻¹"
-    ],
-    "explanation": "ΔT/Δt = P/(mc) = 80/(0.40 × 1000) = 0.20 K s⁻¹.",
-    "formula": "P = mc(ΔT/Δt)",
-    "source": "../b1-past-questions/#m17",
-    "basis": "Original practice based on B.1 past-question bank m17; rewritten wording and values."
-  },
-  {
-    "id": "paper1a-20",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A black body’s surface area stays constant while its absolute temperature doubles. By what factor does its emitted power change?",
-    "a": "16",
-    "wrong": [
-      "2",
-      "4",
-      "8"
-    ],
-    "explanation": "P ∝ T⁴. Doubling the absolute temperature multiplies the emitted power by 2⁴ = 16.",
-    "formula": "P = σAT⁴",
-    "source": "../b1-past-questions/#m19",
-    "basis": "Original practice based on B.1 past-question bank m19; rewritten wording and values."
-  },
-  {
-    "id": "paper1a-21",
+    "id": "recall-37",
     "topic": "B.2 Greenhouse effect",
-    "q": "Which gas is normally excluded from the main greenhouse gases?",
-    "a": "Nitrogen, N₂",
+    "q": "Which list contains only the main greenhouse gases?",
+    "a": "Water vapour, carbon dioxide, methane and nitrous oxide",
     "wrong": [
-      "Water vapour, H₂O",
-      "Methane, CH₄",
-      "Nitrous oxide, N₂O"
+      "Nitrogen, oxygen, argon and helium",
+      "Carbon dioxide, oxygen, nitrogen and helium",
+      "Methane, nitrogen, argon and oxygen"
     ],
-    "explanation": "Nitrogen does not significantly absorb the infrared radiation responsible for the atmospheric greenhouse effect. The other three are greenhouse gases.",
-    "source": "../b2-past-questions/#m2",
-    "basis": "Original practice based on B.2 past-question bank m2; rewritten wording and values."
+    "explanation": "Water vapour, carbon dioxide, methane and nitrous oxide absorb relevant infrared wavelengths.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-22",
+    "id": "recall-38",
     "topic": "B.2 Greenhouse effect",
-    "q": "What does an albedo of 0.60 tell you about a surface?",
-    "a": "It reflects 60% of the incoming radiation",
+    "q": "Which gas is not normally classed as a main greenhouse gas?",
+    "a": "Nitrogen",
     "wrong": [
-      "It emits 60% of a black body’s power",
-      "It absorbs 60% of the incoming radiation",
-      "Its temperature is 60% of the surrounding temperature"
+      "Carbon dioxide",
+      "Methane",
+      "Water vapour"
     ],
-    "explanation": "Albedo measures the fraction of incident radiation that is reflected or scattered.",
-    "source": "../b2-past-questions/#m5",
-    "basis": "Original practice based on B.2 past-question bank m5; rewritten wording and values."
+    "explanation": "Ordinary nitrogen does not significantly absorb the infrared radiation involved in the atmospheric greenhouse effect.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-23",
+    "id": "recall-39",
     "topic": "B.2 Greenhouse effect",
-    "q": "Over a fixed time, 800 J of radiation reaches an opaque surface. It absorbs 200 J and reflects the remainder. What is its albedo?",
-    "a": "0.75",
+    "q": "What type of radiation is mainly emitted by Earth’s surface at its usual temperature?",
+    "a": "Infrared",
     "wrong": [
-      "0.25",
-      "0.40",
-      "4.0"
+      "Ultraviolet",
+      "X-rays",
+      "Gamma rays"
     ],
-    "explanation": "Reflected energy = 800 − 200 = 600 J. Albedo = 600/800 = 0.75.",
-    "formula": "Albedo = reflected energy / incident energy (over the same time)",
-    "source": "../b2-past-questions/#m4",
-    "basis": "Original practice based on B.2 past-question bank m4; rewritten wording and values."
+    "explanation": "Earth’s relatively cool surface emits mainly infrared radiation.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-24",
+    "id": "recall-40",
     "topic": "B.2 Greenhouse effect",
-    "q": "Why can a greenhouse-gas molecule absorb particular infrared photons?",
-    "a": "Their energies match allowed changes in molecular vibrational energy",
+    "q": "Compared with Earth’s thermal emission, sunlight has what general wavelength pattern?",
+    "a": "It is concentrated at shorter wavelengths",
     "wrong": [
-      "All infrared photons have the same energy",
-      "Infrared photons are stopped by the mass of the molecule",
-      "The molecule reflects every wavelength equally"
+      "It is concentrated at longer wavelengths",
+      "It contains only infrared",
+      "It contains no visible light"
     ],
-    "explanation": "Absorption occurs when photon energy matches an allowed molecular energy transition. It is selective, rather than equal at all wavelengths.",
-    "source": "../b2-past-questions/#m6",
-    "basis": "Original practice based on B.2 past-question bank m6; rewritten wording and values."
+    "explanation": "The Sun’s much higher temperature gives it a shorter peak wavelength.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-25",
+    "id": "recall-41",
     "topic": "B.2 Greenhouse effect",
-    "q": "Which change would increase the enhanced greenhouse effect if other factors stay the same?",
-    "a": "Greater use of fossil fuels for electricity generation",
+    "q": "Why do greenhouse gases absorb some infrared wavelengths more strongly than others?",
+    "a": "Only some photon energies match allowed molecular energy transitions",
     "wrong": [
-      "Replacing fossil-fuel generation with wind power",
-      "Expanding growing forests",
-      "Reducing fossil-fuel consumption"
+      "All infrared photons have identical energy",
+      "Greenhouse gases reflect every wavelength equally",
+      "Infrared cannot pass through any gas"
     ],
-    "explanation": "Burning more fossil fuels releases additional CO₂, increasing absorption of outgoing infrared radiation.",
-    "source": "../b2-past-questions/#m1",
-    "basis": "Original practice based on B.2 past-question bank m1; rewritten wording and values."
+    "explanation": "Molecules have particular allowed energy transitions, so infrared absorption is selective.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-26",
+    "id": "recall-42",
     "topic": "B.2 Greenhouse effect",
-    "q": "Surface X emits 360 W m⁻². A black body at the same temperature emits 600 W m⁻². What is the emissivity of X?",
-    "a": "0.60",
+    "q": "How can an excited greenhouse-gas molecule transfer energy to nearby air molecules?",
+    "a": "Through collisions",
     "wrong": [
-      "0.40",
-      "1.67",
-      "240"
+      "By turning into a metal",
+      "By creating additional protons",
+      "By stopping gravity"
     ],
-    "explanation": "e = 360/600 = 0.60. Emissivity compares emission at the same temperature.",
-    "formula": "e = emitted intensity / black-body intensity at the same temperature",
-    "source": "../b2-past-questions/#m8",
-    "basis": "Original practice based on B.2 past-question bank m8; rewritten wording and values."
+    "explanation": "Collisions can transfer energy between molecules after infrared absorption.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-27",
+    "id": "recall-43",
     "topic": "B.2 Greenhouse effect",
-    "q": "Two surfaces have equal areas and temperatures. X has emissivity 0.30 and Y has emissivity 0.90. What is emitted power X / emitted power Y?",
-    "a": "1/3",
+    "q": "In which directions can greenhouse gases emit infrared radiation?",
+    "a": "In all directions, including towards the surface",
     "wrong": [
-      "3",
-      "1/9",
-      "1"
-    ],
-    "explanation": "P = eσAT⁴. Equal areas and temperatures leave PX/PY = eX/eY = 0.30/0.90 = 1/3.",
-    "formula": "P = eσAT⁴",
-    "source": "../b2-past-questions/#m7",
-    "basis": "Original practice based on B.2 past-question bank m7; rewritten wording and values."
-  },
-  {
-    "id": "paper1a-28",
-    "topic": "B.2 Greenhouse effect",
-    "q": "Which pair of properties belongs to an ideal black body?",
-    "a": "Emissivity 1; all incident radiation absorbed",
-    "wrong": [
-      "Emissivity 0; all incident radiation absorbed",
-      "Emissivity 1; all incident radiation reflected",
-      "Emissivity 0; all incident radiation reflected"
-    ],
-    "explanation": "An ideal black body is a perfect absorber and has emissivity 1.",
-    "source": "../b2-past-questions/#m8",
-    "basis": "Original practice based on B.2 past-question bank m8; rewritten wording and values."
-  },
-  {
-    "id": "paper1a-29",
-    "topic": "B.2 Greenhouse effect",
-    "q": "Two spherical emitters have the same temperature and emissivity. The radius of X is three times the radius of Y. What is emitted power X / emitted power Y?",
-    "a": "9",
-    "wrong": [
-      "3",
-      "27",
-      "81"
-    ],
-    "explanation": "P ∝ A and a sphere’s area is proportional to radius squared. The ratio is 3² = 9.",
-    "formula": "P = eσAT⁴; A = 4πR²",
-    "source": "../b2-past-questions/#m7",
-    "basis": "Original practice based on B.2 past-question bank m7; rewritten wording and values."
-  },
-  {
-    "id": "paper1a-30",
-    "topic": "B.2 Greenhouse effect",
-    "q": "After greenhouse gases absorb infrared radiation, in which directions can they emit infrared radiation?",
-    "a": "In all directions, including towards Earth’s surface",
-    "wrong": [
-      "Only away from Earth",
-      "Only towards Earth’s surface",
+      "Only towards space",
+      "Only towards the surface",
       "Only towards the Sun"
     ],
-    "explanation": "Infrared emission can occur in all directions. Downward emission reduces the net thermal energy loss from the surface.",
-    "source": "../b2-past-questions/#m6",
-    "basis": "Original practice based on B.2 past-question bank m6; rewritten wording and values."
+    "explanation": "Infrared emission can occur in all directions.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-31",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A star is observed from distance d with apparent brightness b. What brightness would an observer at distance 3d measure, ignoring absorption?",
-    "a": "b/9",
-    "wrong": [
-      "b/3",
-      "3b",
-      "9b"
-    ],
-    "formula": "b = L/(4πd²)",
-    "explanation": "For the same star, apparent brightness is inversely proportional to distance squared. Tripling the distance divides brightness by nine.",
-    "source": "../b1-past-questions/#m2",
-    "basis": "Original inverse-square application of the luminosity/apparent-brightness distinction in B.1 past-question bank m2."
-  },
-  {
-    "id": "paper1a-32",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "Water releases 4200 J as it cools to 0 °C. All this energy melts ice already at 0 °C. For ice, L = 3.0 × 10⁵ J kg⁻¹. What mass melts?",
-    "a": "0.014 kg",
-    "wrong": [
-      "0.14 kg",
-      "14 kg",
-      "0.0014 kg"
-    ],
-    "explanation": "m = Q/L = 4200/(3.0 × 10⁵) = 0.014 kg.",
-    "formula": "Q = mL",
-    "source": "https://www.scribd.com/document/994186055/Physics-Paper-1A-TZ1-SL-2",
-    "basis": "May 2025 SL TZ1 Paper 1A Q7; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-33",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "Water of mass 0.10 kg cools from 30 °C to 0 °C. What energy can it transfer to ice? Use c = 4200 J kg⁻¹ K⁻¹.",
-    "a": "12,600 J",
-    "wrong": [
-      "1260 J",
-      "42,000 J",
-      "126,000 J"
-    ],
-    "explanation": "Q = mcΔT = 0.10 × 4200 × 30 = 12,600 J.",
-    "formula": "Q = mcΔT",
-    "source": "https://www.scribd.com/document/994186055/Physics-Paper-1A-TZ1-SL-2",
-    "basis": "May 2025 SL TZ1 Paper 1A Q7; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-34",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A metal releases 6000 J while cooling. This melts 0.030 kg of a solid already at its melting point. What is the solid’s latent heat of fusion?",
-    "a": "2.0 × 10⁵ J kg⁻¹",
-    "wrong": [
-      "180 J kg⁻¹",
-      "2.0 × 10³ J kg⁻¹",
-      "5.0 × 10⁻⁶ J kg⁻¹"
-    ],
-    "explanation": "L = Q/m = 6000/0.030 = 2.0 × 10⁵ J kg⁻¹.",
-    "formula": "Q = mL",
-    "source": "https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/subject-guides-documents/hl-sample-exam-paper-1a--physics.pdf",
-    "basis": "May 2025 HL TZ1 Paper 1A Q10; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-35",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "Ice at its melting point receives energy from warm water. Ignoring losses, what connects their energy changes?",
-    "a": "Energy lost by water = energy gained by ice",
-    "wrong": [
-      "Water and ice must have equal masses",
-      "Their temperature changes must be equal",
-      "Ice gains more energy than water loses"
-    ],
-    "explanation": "Energy is conserved: the water’s lost thermal energy supplies the ice’s latent heat.",
-    "source": "https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/subject-guides-documents/hl-sample-exam-paper-1a--physics.pdf",
-    "basis": "May 2025 HL TZ1 Paper 1A Q10; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-36",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "Star Y has 16 times the luminosity and twice the temperature of star X. Both are black bodies. What is RY/RX?",
-    "a": "1",
-    "wrong": [
-      "2",
-      "4",
-      "16"
-    ],
-    "explanation": "R² ∝ L/T⁴, so (RY/RX)² = 16/16 = 1.",
-    "formula": "L = 4πR²σT⁴",
-    "source": "https://www.scribd.com/document/937796602/Paper-1a-May-2025-Questions",
-    "basis": "May 2025 SL TZ2 Paper 1A Q6; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-37",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "Two black-body stars have the same temperature. Y emits nine times as much power as X. What is RY/RX?",
-    "a": "3",
-    "wrong": [
-      "9",
-      "81",
-      "1/3"
-    ],
-    "explanation": "At equal temperature, L ∝ R². The radius ratio is √9 = 3.",
-    "formula": "L = 4πR²σT⁴",
-    "source": "https://www.scribd.com/document/937796602/Paper-1a-May-2025-Questions",
-    "basis": "May 2025 SL TZ2 Paper 1A Q6; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-38",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "Star Y has half the radius and twice the temperature of star X. Both are black bodies. What is LY/LX?",
-    "a": "4",
-    "wrong": [
-      "1",
-      "8",
-      "16"
-    ],
-    "explanation": "LY/LX = (1/2)² × 2⁴ = 4.",
-    "formula": "L = 4πR²σT⁴",
-    "source": "https://www.scribd.com/document/1028850580/Physics-Paper-1A-TZ2-HL",
-    "basis": "May 2025 HL TZ2 Paper 1A Q9; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-39",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A black-body star’s luminosity stays unchanged while its radius doubles. What happens to its temperature?",
-    "a": "It becomes T/√2",
-    "wrong": [
-      "It becomes T/2",
-      "It becomes 2T",
-      "It stays T"
-    ],
-    "explanation": "Fixed L requires R²T⁴ to stay constant. Temperature changes by 4⁻¹/⁴ = 1/√2.",
-    "formula": "L = 4πR²σT⁴",
-    "source": "https://www.scribd.com/document/1028850580/Physics-Paper-1A-TZ2-HL",
-    "basis": "May 2025 HL TZ2 Paper 1A Q9; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-40",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A liquid warms at 0.20 K s⁻¹. The same constant heater then vaporises all of it in 500 s at its boiling point. Ignore losses. What is L/c?",
-    "a": "100 K",
-    "wrong": [
-      "2500 K",
-      "0.0004 K",
-      "2.5 K"
-    ],
-    "explanation": "Equating mc × 0.20 and mL/500 gives L/c = 100 K.",
-    "formula": "P = mc(ΔT/Δt); Pt = mL",
-    "source": "https://www.scribd.com/document/1057770882/Physics-Paper-1A-TZ3-SL",
-    "basis": "May 2025 SL TZ3 Paper 1A Q7; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-41",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A black-body star has twice the radius but the same temperature as another star. What is its luminosity ratio?",
-    "a": "4",
-    "wrong": [
-      "2",
-      "8",
-      "16"
-    ],
-    "explanation": "The surface area, and hence luminosity at fixed temperature, increases by 2² = 4.",
-    "formula": "L = 4πR²σT⁴",
-    "source": "https://www.scribd.com/document/1057770882/Physics-Paper-1A-TZ3-SL",
-    "basis": "May 2025 SL TZ3 Paper 1A Q8; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-42",
+    "id": "recall-44",
     "topic": "B.2 Greenhouse effect",
-    "q": "Which change can alter the fraction of sunlight reflected by a region from one day to the next?",
-    "a": "Changing cloud cover",
+    "q": "What is the enhanced greenhouse effect?",
+    "a": "The increase in the greenhouse effect caused by human activities",
     "wrong": [
-      "Changing the numerical value of σ",
-      "Changing the speed of light",
-      "Changing the definition of a watt"
+      "The complete removal of the atmosphere",
+      "The greenhouse effect before humans existed",
+      "A change in the speed of sunlight"
     ],
-    "explanation": "Cloud cover changes reflection, so albedo need not stay constant.",
-    "source": "https://www.scribd.com/document/1057770882/Physics-Paper-1A-TZ3-SL",
-    "basis": "May 2025 SL TZ3 Paper 1A Q9; original application of the tested idea, with new wording and values."
+    "explanation": "Human activities increase greenhouse-gas concentrations and strengthen the greenhouse effect.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-43",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A heater raises a liquid’s temperature at 0.40 K s⁻¹, then boils away one quarter of it in 200 s. Ignore losses. What is L/c?",
-    "a": "320 K",
-    "wrong": [
-      "80 K",
-      "20 K",
-      "2000 K"
-    ],
-    "explanation": "P = 0.40mc and 200P = mL/4, giving L/c = 320 K.",
-    "formula": "P = mc(ΔT/Δt); Pt = mL",
-    "source": "https://www.scribd.com/document/963367980/Physics-Paper-1A-TZ3-HL",
-    "basis": "May 2025 HL TZ3 Paper 1A Q10; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-44",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "The spectrum of X peaks at 400 nm; Y peaks at 600 nm. What is TX/TY?",
-    "a": "1.5",
-    "wrong": [
-      "2/3",
-      "2.25",
-      "1"
-    ],
-    "explanation": "T ∝ 1/λmax, so TX/TY = 600/400 = 1.5.",
-    "formula": "λₘₐₓT = constant",
-    "source": "https://www.scribd.com/document/963367980/Physics-Paper-1A-TZ3-HL",
-    "basis": "May 2025 HL TZ3 Paper 1A Q12; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-45",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A black body’s emission peak moves from 500 nm to 250 nm. Its area is unchanged. What happens to its total emitted power?",
-    "a": "It increases by a factor of 16",
-    "wrong": [
-      "It increases by a factor of 2",
-      "It increases by a factor of 4",
-      "It halves"
-    ],
-    "explanation": "Halving peak wavelength doubles T. Power then rises by 2⁴ = 16.",
-    "formula": "λₘₐₓT = constant; P = σAT⁴",
-    "source": "https://www.scribd.com/document/963367980/Physics-Paper-1A-TZ3-HL",
-    "basis": "May 2025 HL TZ3 Paper 1A Q12; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-46",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "Equal-mass blocks exchange energy without losses. X warms by 6 K; Y cools by 18 K. What is cX/cY?",
-    "a": "3",
-    "wrong": [
-      "1/3",
-      "9",
-      "1"
-    ],
-    "explanation": "Equal energy changes give cX × 6 = cY × 18, so cX/cY = 3.",
-    "formula": "Q = mcΔT; energy gained = energy lost",
-    "source": "https://www.scribd.com/document/1069624002/N25-Physics-Paper-1A-TZ1-SL",
-    "basis": "November 2025 SL TZ1 Paper 1A Q7; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-47",
+    "id": "recall-45",
     "topic": "B.2 Greenhouse effect",
-    "q": "X and Y are equally hot. Both receive 800 W m⁻². X reflects 200 and emits 300 W m⁻²; Y reflects 320 and emits 250 W m⁻². Which has greater albedo and emissivity?",
-    "a": "Albedo: Y; emissivity: X",
+    "q": "Which activity is a major cause of the enhanced greenhouse effect?",
+    "a": "Burning fossil fuels",
     "wrong": [
-      "Albedo: X; emissivity: X",
-      "Albedo: X; emissivity: Y",
-      "Albedo: Y; emissivity: Y"
+      "Using wind turbines",
+      "Planting growing forests",
+      "Reducing fossil-fuel consumption"
     ],
-    "explanation": "Y reflects a greater fraction. At equal temperature, X’s greater emission means greater emissivity.",
-    "formula": "a = reflected / incident intensity; e = emitted intensity / (σT⁴)",
-    "source": "https://www.scribd.com/document/1069624002/N25-Physics-Paper-1A-TZ1-SL",
-    "basis": "November 2025 SL TZ1 Paper 1A Q8; original application of the tested idea, with new wording and values."
+    "explanation": "Burning fossil fuels adds carbon dioxide to the atmosphere.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-48",
+    "id": "recall-46",
     "topic": "B.2 Greenhouse effect",
-    "q": "Which description best explains the atmospheric greenhouse effect?",
-    "a": "Absorption of Earth’s infrared emission, followed by infrared re-emission",
+    "q": "Which process is a natural source of atmospheric carbon dioxide?",
+    "a": "Respiration",
     "wrong": [
-      "Reflection of all incoming sunlight",
-      "Absorption of all incoming ultraviolet radiation",
-      "Reflection of Earth’s infrared radiation by gas molecules"
+      "Photosynthesis",
+      "Condensation of water",
+      "Freezing water"
     ],
-    "explanation": "Greenhouse gases absorb outgoing infrared radiation and can emit infrared radiation in all directions.",
-    "source": "https://www.scribd.com/document/1069624002/N25-Physics-Paper-1A-TZ1-SL",
-    "basis": "November 2025 SL TZ1 Paper 1A Q9; original application of the tested idea, with new wording and values."
+    "explanation": "Respiration releases carbon dioxide. Photosynthesis removes it from the atmosphere.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-49",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "Two insulated blocks exchange energy and reach the same temperature. No work is done. How do their changes in internal energy compare?",
-    "a": "Equal magnitude, opposite sign",
-    "wrong": [
-      "Both positive",
-      "Both zero",
-      "The hotter block always loses more than the colder block gains"
-    ],
-    "explanation": "With no energy exchange outside the pair, one block gains exactly what the other loses.",
-    "source": "https://www.scribd.com/document/994186055/Physics-Paper-1A-TZ1-SL-2",
-    "basis": "May 2025 SL TZ1 Paper 1A Q7; original application of energy conservation during thermal exchange."
-  },
-  {
-    "id": "paper1a-50",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A wall’s thickness is tripled. Its material, area and face temperatures stay unchanged. What happens to its conduction rate?",
-    "a": "It becomes one third as large",
-    "wrong": [
-      "It triples",
-      "It becomes nine times as large",
-      "It stays unchanged"
-    ],
-    "explanation": "For fixed k, A and ΔT, rate ∝ 1/thickness.",
-    "formula": "Rate magnitude = kAΔT/ℓ",
-    "source": "https://www.scribd.com/document/1031383301/Physics-Paper-1A-TZ1-HL-2",
-    "basis": "November 2025 HL TZ1 Paper 1A Q10; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-51",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A pane initially has a temperature gradient of 300 K m⁻¹. Its thickness is doubled with the same face temperatures. What is the new gradient magnitude?",
-    "a": "150 K m⁻¹",
-    "wrong": [
-      "600 K m⁻¹",
-      "75 K m⁻¹",
-      "300 K m⁻¹"
-    ],
-    "explanation": "Gradient magnitude = ΔT/ℓ. Doubling ℓ halves it.",
-    "formula": "Gradient magnitude = ΔT/ℓ",
-    "source": "https://www.scribd.com/document/1031383301/Physics-Paper-1A-TZ1-HL-2",
-    "basis": "November 2025 HL TZ1 Paper 1A Q10; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-52",
+    "id": "recall-47",
     "topic": "B.2 Greenhouse effect",
-    "q": "Two equally hot surfaces emit the same power per unit area. X reflects 30% of incident sunlight and Y reflects 50%. Which statement is correct?",
-    "a": "Y has greater albedo; their emissivities are equal",
+    "q": "Which human activity is an important source of methane?",
+    "a": "Livestock farming",
     "wrong": [
-      "X has greater albedo; their emissivities are equal",
-      "Y has greater albedo and greater emissivity",
-      "X has greater emissivity"
+      "Generating wind power",
+      "Operating solar panels",
+      "Melting pure ice"
     ],
-    "explanation": "Y reflects a larger fraction. Equal thermal emission at equal temperature means equal emissivity.",
-    "source": "https://www.scribd.com/document/1031383301/Physics-Paper-1A-TZ1-HL-2",
-    "basis": "November 2025 HL TZ1 Paper 1A Q11; original application of the tested idea, with new wording and values."
+    "explanation": "Livestock farming can release methane, a greenhouse gas.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-53",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A 150 W heater warms 0.20 kg of liquid by 30 K in 40 s. Ignore losses. What is its specific heat capacity?",
-    "a": "1000 J kg⁻¹ K⁻¹",
-    "wrong": [
-      "250 J kg⁻¹ K⁻¹",
-      "4000 J kg⁻¹ K⁻¹",
-      "25 J kg⁻¹ K⁻¹"
-    ],
-    "explanation": "c = Pt/(mΔT) = (150 × 40)/(0.20 × 30) = 1000 J kg⁻¹ K⁻¹.",
-    "formula": "Pt = mcΔT",
-    "source": "https://www.scribd.com/document/1042751687/Ib-%E6%9F%A5%E7%9C%8B%E7%89%A9%E7%90%86qp-202510-Physics-p1a-Tz3-Sl-Ib%E9%A2%98%E5%BA%93%E5%A4%A7%E5%85%A8%E5%B0%8F%E7%A8%8B%E5%BA%8F",
-    "basis": "November 2025 SL TZ3 Paper 1A Q7; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-54",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "Two rods have the same material, length and end temperatures. Y’s diameter is three times X’s. What is conduction rate Y / rate X?",
-    "a": "9",
-    "wrong": [
-      "3",
-      "27",
-      "1/9"
-    ],
-    "explanation": "Rate ∝ area ∝ diameter², so the ratio is 3² = 9.",
-    "formula": "Rate magnitude = kAΔT/ℓ; A = πd²/4",
-    "source": "https://www.scribd.com/document/1042751687/Ib-%E6%9F%A5%E7%9C%8B%E7%89%A9%E7%90%86qp-202510-Physics-p1a-Tz3-Sl-Ib%E9%A2%98%E5%BA%93%E5%A4%A7%E5%85%A8%E5%B0%8F%E7%A8%8B%E5%BA%8F",
-    "basis": "November 2025 SL TZ3 Paper 1A Q6; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-55",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A rod’s diameter doubles and its length doubles. Material and end temperatures stay fixed. What happens to the conduction rate?",
-    "a": "It doubles",
-    "wrong": [
-      "It quadruples",
-      "It halves",
-      "It stays unchanged"
-    ],
-    "explanation": "Area increases fourfold; length doubles. The rate changes by 4/2 = 2.",
-    "formula": "Rate magnitude = kAΔT/ℓ; A = πd²/4",
-    "source": "https://www.scribd.com/document/1031383307/Physics-Paper-1A-TZ3-HL-2",
-    "basis": "November 2025 HL TZ3 Paper 1A Q10; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-56",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A liquid receives 9000 J and warms by 25 K. Its mass is 300 g. What is its specific heat capacity?",
-    "a": "1200 J kg⁻¹ K⁻¹",
-    "wrong": [
-      "1.2 J kg⁻¹ K⁻¹",
-      "120 J kg⁻¹ K⁻¹",
-      "12,000 J kg⁻¹ K⁻¹"
-    ],
-    "explanation": "Convert 300 g to 0.300 kg. c = 9000/(0.300 × 25) = 1200.",
-    "formula": "c = Q/(mΔT)",
-    "source": "https://www.scribd.com/document/1031383307/Physics-Paper-1A-TZ3-HL-2",
-    "basis": "November 2025 HL TZ3 Paper 1A Q11; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-57",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A pure liquid freezes at constant temperature. What happens to the total energy stored in its particles?",
-    "a": "It decreases as intermolecular potential energy falls",
-    "wrong": [
-      "It stays constant because temperature is unchanged",
-      "It increases because particles pack closer",
-      "It decreases because mean random kinetic energy falls"
-    ],
-    "explanation": "Freezing releases energy. Constant temperature means unchanged mean random kinetic energy.",
-    "source": "https://www.scribd.com/document/1031383307/Physics-Paper-1A-TZ3-HL-2",
-    "basis": "November 2025 HL TZ3 Paper 1A Q14; original application of the tested idea, with new wording and values."
-  },
-  {
-    "id": "paper1a-58",
+    "id": "recall-48",
     "topic": "B.2 Greenhouse effect",
-    "q": "A black body at temperature T emits power P. Another object has the same area, temperature 2T and emissivity 0.25. What power does it emit?",
-    "a": "4P",
+    "q": "Which process adds water vapour to the atmosphere?",
+    "a": "Evaporation",
     "wrong": [
-      "P",
-      "8P",
-      "16P"
+      "Freezing",
+      "Condensation",
+      "Melting without evaporation"
     ],
-    "explanation": "The ratio is e × (2T/T)⁴ = 0.25 × 16 = 4.",
-    "formula": "P = eσAT⁴",
-    "source": "https://www.scribd.com/document/1046895678/Physics-HL-Paper-1A-TZC",
-    "basis": "May 2026 HL TZ3 (TZC scan) Paper 1A Q10; original application of the tested idea, with new wording and values."
+    "explanation": "Evaporation transfers water molecules from liquid water into the air.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-59",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "Two equal-length, equal-area bars join in series. Their conductivities are 2k and k. The outer ends are at 80 °C and 20 °C. In steady state, what is their junction temperature?",
-    "a": "60 °C",
+    "id": "recall-49",
+    "topic": "B.2 Greenhouse effect",
+    "q": "What does emissivity describe?",
+    "a": "Thermal emission compared with a black body at the same temperature",
     "wrong": [
-      "50 °C",
-      "40 °C",
-      "70 °C"
+      "The fraction of incoming radiation reflected",
+      "The density of a surface",
+      "The rate at which a liquid circulates"
     ],
-    "explanation": "Equal rates give 2k(80 − T) = k(T − 20), so T = 60 °C.",
-    "formula": "Rate magnitude = kAΔT/ℓ; steady-state rates are equal",
-    "source": "https://www.scribd.com/document/1046895678/Physics-HL-Paper-1A-TZC",
-    "basis": "May 2026 HL TZ3 (TZC scan) Paper 1A Q11; original application of the tested idea, with new wording and values."
+    "explanation": "Emissivity compares emitted power per unit area with that of an ideal black body at the same temperature.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   },
   {
-    "id": "paper1a-60",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "Two identical bars connect ends held at 90 °C and 30 °C. Their sides are insulated. What is their steady-state junction temperature?",
-    "a": "60 °C",
+    "id": "recall-50",
+    "topic": "B.2 Greenhouse effect",
+    "q": "What does albedo describe?",
+    "a": "The fraction of incident radiation reflected or scattered",
     "wrong": [
-      "30 °C",
-      "45 °C",
-      "90 °C"
+      "The fraction of black-body power emitted",
+      "The temperature of incoming sunlight",
+      "The total mass of the atmosphere"
     ],
-    "explanation": "Identical bars have equal temperature drops at equal steady-state transfer rates. The junction is midway between 90 and 30.",
-    "formula": "Rate magnitude = kAΔT/ℓ",
-    "source": "https://www.scribd.com/document/1046895678/Physics-HL-Paper-1A-TZC",
-    "basis": "May 2026 HL TZ3 (TZC scan) Paper 1A Q11; original application of the tested idea, with new wording and values."
+    "explanation": "Albedo describes reflection or scattering of incoming radiation.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-51",
+    "topic": "B.2 Greenhouse effect",
+    "q": "Which surface generally has the higher albedo?",
+    "a": "Fresh snow",
+    "wrong": [
+      "Dark ocean water",
+      "Black asphalt",
+      "Dark forest canopy"
+    ],
+    "explanation": "Fresh snow generally reflects a greater fraction of incoming sunlight.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-52",
+    "topic": "B.2 Greenhouse effect",
+    "q": "Why does a dark surface usually have a lower albedo than a pale surface?",
+    "a": "It reflects a smaller fraction of incoming radiation",
+    "wrong": [
+      "It must have zero temperature",
+      "It always emits less infrared",
+      "It contains fewer particles"
+    ],
+    "explanation": "Albedo measures the reflected fraction, so less reflection means lower albedo.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-53",
+    "topic": "B.2 Greenhouse effect",
+    "q": "Why can Earth’s albedo vary from day to day?",
+    "a": "Cloud cover changes",
+    "wrong": [
+      "The speed of light changes each day",
+      "The Stefan–Boltzmann constant changes daily",
+      "Earth’s mass changes rapidly"
+    ],
+    "explanation": "Cloud formations affect the fraction of sunlight reflected.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-54",
+    "topic": "B.2 Greenhouse effect",
+    "q": "Which factor helps explain differences in albedo between Earth’s regions?",
+    "a": "Different surface and cloud conditions",
+    "wrong": [
+      "Different values of the speed of light",
+      "Different definitions of temperature",
+      "Different values of the Stefan–Boltzmann constant"
+    ],
+    "explanation": "Surface cover and cloud conditions vary between regions and influence reflection.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-55",
+    "topic": "B.2 Greenhouse effect",
+    "q": "At equal area and temperature, which surface emits more thermal radiation?",
+    "a": "The surface with greater emissivity",
+    "wrong": [
+      "The surface with lower emissivity",
+      "Both must emit equally",
+      "Neither can emit radiation"
+    ],
+    "explanation": "For the same area and temperature, greater emissivity means greater emitted power.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-56",
+    "topic": "B.2 Greenhouse effect",
+    "q": "Which pairing is correct?",
+    "a": "Albedo: reflection; emissivity: thermal emission",
+    "wrong": [
+      "Albedo: thermal emission; emissivity: reflection",
+      "Albedo: mass; emissivity: volume",
+      "Albedo: temperature; emissivity: distance"
+    ],
+    "explanation": "Albedo and emissivity describe different radiation properties.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-57",
+    "topic": "B.2 Greenhouse effect",
+    "q": "What is the emissivity of an ideal black body?",
+    "a": "One",
+    "wrong": [
+      "Zero",
+      "Negative one",
+      "Greater than one"
+    ],
+    "explanation": "An ideal black body sets the reference for thermal emission and has emissivity one.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-58",
+    "topic": "B.2 Greenhouse effect",
+    "q": "What unit does albedo have?",
+    "a": "No unit",
+    "wrong": [
+      "Watt",
+      "Kelvin",
+      "Joule"
+    ],
+    "explanation": "Albedo is a ratio of powers, so the units cancel.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-59",
+    "topic": "B.2 Greenhouse effect",
+    "q": "At the same temperature, two surfaces emit equal thermal power per unit area. What can we conclude?",
+    "a": "They have equal emissivities",
+    "wrong": [
+      "They must have equal albedos",
+      "They must have equal masses",
+      "They cannot absorb sunlight"
+    ],
+    "explanation": "Emissivity compares emission per unit area at a given temperature. This alone does not determine albedo.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
+  },
+  {
+    "id": "recall-60",
+    "topic": "B.2 Greenhouse effect",
+    "q": "Which description correctly explains how greenhouse gases interact with Earth’s infrared radiation?",
+    "a": "They absorb it and can emit infrared radiation afterwards",
+    "wrong": [
+      "They act only as mirrors reflecting it",
+      "They turn it all into visible light",
+      "They prevent Earth from emitting any radiation"
+    ],
+    "explanation": "The greenhouse mechanism involves absorption and emission, rather than simple reflection.",
+    "source": "./QUESTION-SOURCES.md",
+    "basis": "Knowledge retrieval on reviewed B.1/B.2 concepts; original question."
   }
 ];

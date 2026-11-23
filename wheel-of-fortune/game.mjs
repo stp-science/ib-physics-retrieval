@@ -1,12 +1,12 @@
-import { QUESTIONS } from './questions.mjs?v=expanded-papers-2';
+import { QUESTIONS } from './questions.mjs?v=knowledge-only-1';
 import { DURATION_MS, SEGMENTS, applySegment, shuffle, balancedDeck, remainingMs, timeLabel, targetRotation, pointedSegment } from './core.mjs?v=negative-scores-1';
 import { createMusicPlayer } from './music.mjs?v=quiet-autoplay-2';
 import { assessAnswerPattern, rapidAnswerLimit, RUSH_PENALTY } from './fair-play.mjs';
 
 const $ = id => document.getElementById(id);
 const bank = new Map(QUESTIONS.map(q => [q.id, q]));
-const ACTIVE_KEY = 'talbot-ib-b1-b2-paper1a-round-v2';
-const RECORDS_KEY = 'talbot-ib-b1-b2-records-v1';
+const ACTIVE_KEY = 'talbot-ib-b1-b2-knowledge-round-v1';
+const RECORDS_KEY = 'talbot-ib-b1-b2-knowledge-records-v1';
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const format = n => new Intl.NumberFormat('en-NZ').format(n);
 let state = null, rotation = 0, timerHandle, spinFrame, audio, master;
@@ -90,13 +90,6 @@ function renderQuestion(){
   const q=currentQuestion();if(!q){finish(false);return;}
   $('topic').textContent=q.topic;$('question-number').textContent='QUESTION '+(state.index+1);
   $('question').textContent=q.q;$('answers').replaceChildren();
-  let formula=$('question-formula');
-  if(!formula){
-    formula=document.createElement('p');formula.id='question-formula';
-    formula.style.cssText='font-size:1.05rem;line-height:1.55;color:#ffdc79;background:#ffffff09;border:1px solid #ffdc7955;border-radius:10px;padding:12px 16px;margin:0 0 20px;white-space:pre-line';
-    $('question').after(formula);
-  }
-  formula.hidden=!q.formula;formula.textContent=q.formula?'Formula: '+q.formula:'';
   state.choices.forEach((text,i)=>{
     const b=document.createElement('button');b.className='answer';b.type='button';
     const l=document.createElement('span');l.className='letter';l.textContent='ABCD'[i];
