@@ -1,12 +1,22 @@
-import { QUESTIONS } from './questions.mjs?v=knowledge-only-1';
+import { QUESTIONS as RECALL_QUESTIONS } from './questions.mjs?v=dual-modes-1';
+import { QUESTIONS as CHALLENGE_QUESTIONS } from './challenge-questions.mjs?v=dual-modes-1';
+import { MODE_DETAILS, roundCategory, categoryLabel, changeRoundMode } from './mode-state.mjs?v=dual-modes-1';
+const QUESTION_SETS = { recall: RECALL_QUESTIONS, challenge: CHALLENGE_QUESTIONS };
+const QUESTIONS = [...RECALL_QUESTIONS, ...CHALLENGE_QUESTIONS];
 import { DURATION_MS, SEGMENTS, applySegment, shuffle, balancedDeck, remainingMs, timeLabel, targetRotation, pointedSegment } from './core.mjs?v=negative-scores-1';
 import { createMusicPlayer } from './music.mjs?v=quiet-autoplay-2';
 import { assessAnswerPattern, rapidAnswerLimit, RUSH_PENALTY } from './fair-play.mjs';
 
 const $ = id => document.getElementById(id);
 const bank = new Map(QUESTIONS.map(q => [q.id, q]));
-const ACTIVE_KEY = 'talbot-ib-b1-b2-knowledge-round-v1';
-const RECORDS_KEY = 'talbot-ib-b1-b2-knowledge-records-v1';
+const ACTIVE_KEY = 'talbot-ib-b1-b2-dual-round-v1';
+let selectedMode = 'recall';
+const RECORD_KEYS = {
+  recall: 'talbot-ib-b1-b2-knowledge-records-v1',
+  challenge: 'talbot-ib-b1-b2-exam-records-v1',
+  mixed: 'talbot-ib-b1-b2-mixed-records-v1'
+};
+function recordKey() { return RECORD_KEYS[state ? roundCategory(state) : selectedMode]; }
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const format = n => new Intl.NumberFormat('en-NZ').format(n);
 let state = null, rotation = 0, timerHandle, spinFrame, audio, master;
@@ -14,7 +24,7 @@ let sound = true, nextTick = 0, lastDisplayedTime = '', finishing = false;
 const musicPlayer = createMusicPlayer($('background-music'), $('music'));
 
 function storeRound() { try { sessionStorage.setItem(ACTIVE_KEY, JSON.stringify(state)); } catch {} }
-function readRecords() { try { const r = JSON.parse(localStorage.getItem(RECORDS_KEY) || '[]'); return Array.isArray(r) ? r.filter(x => typeof x.name === 'string' && Number.isFinite(x.score)).slice(0,10) : []; } catch { return []; } }
+function readRecords() { try { const r = JSON.parse(localStorage.getItem(recordKey()) || '[]'); return Array.isArray(r) ? r.filter(x => typeof x.name === 'string' && Number.isFinite(x.score)).slice(0,10) : []; } catch { return []; } }
 function tone(freq, duration = .12, level = .07, type = 'sine', delay = 0) {
   if (!sound || !audio || document.hidden) return;
   const start = audio.currentTime + delay;
@@ -79,10 +89,37 @@ function drawWheel(angle = rotation) {
 function updateScore(){
   $('score').textContent=format(state.score);$('correct-count').textContent=state.correct+' / '+state.attempts;
 }
+function updateModeUI() {
+  if (!state) return;
+  $('current-mode').textContent = MODE_DETAILS[state.mode].label;
+  const target = MODE_DETAILS[state.mode].other;
+  const button = $('switch-mode');
+  const complete = state.modeProgress[target].index >= state.modeProgress[target].deck.length;
+  button.disabled = complete || !['question', 'feedback'].includes(state.phase);
+  button.textContent = complete ? MODE_DETAILS[target].label+' bank completed' : button.disabled ? 'Finish your spin to change mode' : 'Switch to ' + MODE_DETAILS[target].label;
+}
+function selectMode(mode) {
+  if (!MODE_DETAILS[mode]) return;
+  selectedMode = mode;
+  $('bank-count').textContent = QUESTION_SETS[mode].length;
+  $('mode-help').textContent = mode === 'recall'
+    ? 'Recall key ideas from memory. No calculator needed.'
+    : 'Apply your knowledge to exam-style questions. Formula support is included; have a calculator ready.';
+}
+function switchMode() {
+  if (!state || remainingMs(state.deadline, Date.now()) <= 0) { if (state) timeout(); return; }
+  const target = MODE_DETAILS[state.mode].other;
+  if (!changeRoundMode(state, target)) return;
+  if (!state.choices) createChoices();
+  renderQuestion(); updateModeUI();
+  $('wheel-result').textContent = MODE_DETAILS[target].label.toUpperCase();
+  say(target === 'recall' ? 'Back to the key ideas. Your score and clock carry on!' : 'Ready for a challenge? Your score and clock carry on!');
+  storeRound();
+}
 function showGame(){
   $('intro').hidden=true;$('results').hidden=true;$('game').hidden=false;
   document.body.classList.add('playing');$('contestant-name').textContent=state.name;
-  $('site-footer').hidden=true;updateScore();
+  $('site-footer').hidden=true;updateScore();updateModeUI();
 }
 function currentQuestion(){ return bank.get(state.deck[state.index]); }
 function createChoices(){ const q=currentQuestion();state.choices=shuffle([q.a,...q.wrong]); }
@@ -90,6 +127,9 @@ function renderQuestion(){
   const q=currentQuestion();if(!q){finish(false);return;}
   $('topic').textContent=q.topic;$('question-number').textContent='QUESTION '+(state.index+1);
   $('question').textContent=q.q;$('answers').replaceChildren();
+  const formula=$('question-formula');
+  formula.hidden=!q.formula;
+  formula.textContent=q.formula?'Formula: '+q.formula:'';
   state.choices.forEach((text,i)=>{
     const b=document.createElement('button');b.className='answer';b.type='button';
     const l=document.createElement('span');l.className='letter';l.textContent='ABCD'[i];
@@ -132,10 +172,12 @@ function setSpin(ready){
   $('spin').disabled=!ready;$('spin').classList.toggle('ready',ready);
   $('spin-label').innerHTML=ready?'SPIN!':state?.phase==='spinning'?'SPINNING':'ANSWER<br>TO SPIN';
   $('spin-hint').textContent=ready?'PRESS SPACE':state?.phase==='spinning'?'GOOD LUCK!':'EARN YOUR SHOT';
+  updateModeUI();
 }
 function startGame(name){
   clearInterval(timerHandle);cancelAnimationFrame(spinFrame);finishing=false;nextTick=0;
-  state={id:crypto.randomUUID?.()||String(Date.now()),name:name.trim().slice(0,24)||'Contestant',score:0,correct:0,attempts:0,index:0,phase:'question',deadline:Date.now()+DURATION_MS,deck:balancedDeck(QUESTIONS).map(q=>q.id),history:[],rotation:0,pending:null,questionShownAt:null,fairPlay:{warned:false,lastEventAttempt:0,penalties:0}};
+  const modeProgress = Object.fromEntries(Object.entries(QUESTION_SETS).map(([mode, items]) => [mode, { deck: balancedDeck(items).map(q=>q.id), index: 0, choices: null }]));
+  state={mode:selectedMode,modeHistory:[selectedMode],modeProgress,id:crypto.randomUUID?.()||String(Date.now()),name:name.trim().slice(0,24)||'Contestant',score:0,correct:0,attempts:0,index:0,phase:'question',deadline:Date.now()+DURATION_MS,deck:modeProgress[selectedMode].deck,history:[],rotation:0,pending:null,questionShownAt:null,fairPlay:{warned:false,lastEventAttempt:0,penalties:0}};
   rotation=0;createChoices();showGame();renderQuestion();drawWheel();
   $('wheel-result').textContent='THE WHEEL IS WAITING…';say('Welcome, '+state.name+'! Let’s spin some science.');
   musicPlayer.startRound();startAudio();fanfare();storeRound();tick();timerHandle=setInterval(tick,100);
@@ -147,7 +189,7 @@ function answer(index){
   startAudio();const q=currentQuestion(),right=state.choices[index]===q.a;
   state.attempts++;if(right)state.correct++;
   const responseMs=Math.max(0,Date.now()-(state.questionShownAt??Date.now()));
-  const attempt={id:q.id,choice:index,selected:state.choices[index],correct:right,responseMs,rapidLimitMs:rapidAnswerLimit(q)};
+  const attempt={id:q.id,mode:state.mode,choice:index,selected:state.choices[index],correct:right,responseMs,rapidLimitMs:rapidAnswerLimit(q)};
   state.history.push(attempt);
   const checked=assessAnswerPattern(state.history,state.fairPlay);
   state.fairPlay=checked.guard;attempt.rushEvent=checked.event;
@@ -231,9 +273,10 @@ function finish(early=false,exhausted=false){
   musicPlayer.finishRound();
   try{sessionStorage.removeItem(ACTIVE_KEY);}catch{}
   let records=readRecords();
-  if(!early){records=records.filter(r=>r.id!==state.id);records.push({id:state.id,name:state.name,score:state.score,correct:state.correct,attempts:state.attempts,date:state.finishedAt});records.sort((a,b)=>b.score-a.score||b.correct-a.correct);try{localStorage.setItem(RECORDS_KEY,JSON.stringify(records.slice(0,10)));}catch{}}
+  if(!early){records=records.filter(r=>r.id!==state.id);records.push({id:state.id,name:state.name,score:state.score,correct:state.correct,attempts:state.attempts,date:state.finishedAt,mode:roundCategory(state)});records.sort((a,b)=>b.score-a.score||b.correct-a.correct);try{localStorage.setItem(recordKey(),JSON.stringify(records.slice(0,10)));}catch{}}
   $('game').hidden=true;$('intro').hidden=true;$('results').hidden=false;$('site-footer').hidden=false;
   document.body.classList.remove('playing','urgent','last-seconds');
+  $('result-mode').textContent=categoryLabel(roundCategory(state))+' · B.1 & B.2';
   $('result-name').textContent=state.name;$('final-score').textContent=format(state.score);
   $('results').querySelector('h2').textContent=early?'ROUND ENDED':exhausted?'BANK COMPLETE!':'TIME’S UP!';
   $('result-stats').textContent=state.correct+' correct out of '+state.attempts+' answered'+(state.attempts?' · '+Math.round(state.correct/state.attempts*100)+'% accuracy':'')+(early?' · Early finish (unranked)':'');
@@ -246,13 +289,15 @@ function finish(early=false,exhausted=false){
 }
 function renderRecords(el){
   el.replaceChildren();const records=readRecords();
+  const title = el.id === 'dialog-records' ? $('dialog-records-title') : $('records-title');
+  title.textContent='Top '+categoryLabel(state ? roundCategory(state) : selectedMode)+' scores on this device';
   if(!records.length){const p=document.createElement('p');p.className='record-note';p.textContent='Complete a five-minute round to set the first score.';el.append(p);return;}
   records.slice(0,5).forEach((r,i)=>{const li=document.createElement('li'),n=document.createElement('span'),s=document.createElement('strong');n.textContent=(i+1)+'. '+r.name;s.textContent=format(r.score);li.append(n,s);el.append(li);});
 }
 function resume(){
   try{
     const raw=JSON.parse(sessionStorage.getItem(ACTIVE_KEY)||'null');
-    if(!raw||typeof raw.name!=='string'||!Array.isArray(raw.deck)||!raw.deck.every(id=>bank.has(id))||!raw.deck.length||!['question','spinReady','spinning','feedback'].includes(raw.phase)||!Number.isFinite(raw.deadline)||!Array.isArray(raw.history)||!Array.isArray(raw.choices)||raw.choices.length!==4||!Number.isFinite(raw.score))return;
+    if(!raw||!MODE_DETAILS[raw.mode]||!raw.modeProgress||!Array.isArray(raw.modeHistory)||typeof raw.name!=='string'||!Array.isArray(raw.deck)||!raw.deck.every(id=>bank.has(id))||!raw.deck.length||!['question','spinReady','spinning','feedback'].includes(raw.phase)||!Number.isFinite(raw.deadline)||!Array.isArray(raw.history)||!Array.isArray(raw.choices)||raw.choices.length!==4||!Number.isFinite(raw.score))return;
     state=raw;rotation=state.rotation||0;showGame();renderQuestion();drawWheel();say('Welcome back! Your original clock is still running.');
     if(state.phase==='spinning'&&state.pending){settleSpin();}
     if(state.phase==='results')return;
@@ -260,7 +305,11 @@ function resume(){
   }catch{state=null;}
 }
 
-$('bank-count').textContent=QUESTIONS.length;
+selectMode(selectedMode);
+document.querySelectorAll('input[name="game-mode"]').forEach(input => {
+  input.onchange = () => { if (input.checked) selectMode(input.value); };
+});
+$('switch-mode').onclick=switchMode;
 $('start-form').onsubmit=e=>{e.preventDefault();if($('name').value.trim())startGame($('name').value);else $('name').focus();};
 $('spin').onclick=spin;$('next').onclick=nextQuestion;
 $('sound').onclick=()=>{sound=!sound;$('sound').textContent=sound?'Effects on':'Effects off';$('sound').setAttribute('aria-pressed',String(sound));if(sound){startAudio();tone(660);}else if(master)master.gain.value=0;};

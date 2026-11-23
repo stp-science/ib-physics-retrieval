@@ -7,7 +7,7 @@
   <meta name="description" content="Answer Year 12 IB Physics B.1 and B.2 questions, earn a spin and chase the highest score in five minutes. Hosted by cartoon Mr Talbot.">
   <title>Mr Talbot’s Wheel of Fortune · IB Physics B.1 &amp; B.2</title>
   <link rel="icon" href="https://stp-science.github.io/retrieval-starter-builder/wheel-of-fortune/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css?v=dual-modes-1">
 </head>
 <body>
   <div class="spotlight spotlight-one" aria-hidden="true"></div>
@@ -18,7 +18,7 @@
     <div class="top-actions"><span class="on-air"><i></i> ON AIR</span><button id="music" class="icon-button" aria-pressed="false">Play music</button><button id="sound" class="icon-button" aria-pressed="true">Effects on</button><button id="fullscreen" class="icon-button">Full screen</button></div>
   </header>
   <main class="show">
-    <div class="show-heading"><div class="presenter">MR TALBOT’S</div><h1>WHEEL <span>OF</span> FORTUNE</h1><div class="show-subtitle">YEAR 12 IB PHYSICS · KNOWLEDGE RETRIEVAL</div></div>
+    <div class="show-heading"><div class="presenter">MR TALBOT’S</div><h1>WHEEL <span>OF</span> FORTUNE</h1><div class="show-subtitle">YEAR 12 IB PHYSICS · B.1 &amp; B.2</div></div>
     <section id="intro" class="intro-layout" aria-label="Welcome to the show">
       <div class="hero-stage">
         <div class="hero-orbit" aria-hidden="true"></div>
@@ -28,12 +28,18 @@
       </div>
       <div class="welcome marquee">
         <div class="eyebrow">YOUR FIVE MINUTES OF FAME</div>
-        <h2>Know it.<br>Spin it.<br><em>Win it.</em></h2>
-        <p class="intro-copy">Retrieve key ideas from memory to earn a spin. Build the biggest score you can before the five-minute clock runs out.</p>
+        <h2>Choose your<br><em>challenge.</em></h2>
+        <p class="intro-copy">Start with key ideas or try exam-style questions. Correct answers earn spins in your five-minute game.</p>
         <div class="wheel-teasers"><span>+1,500</span><span class="teaser-double">×2</span><span class="teaser-triple">×3</span><span class="teaser-loss">−500</span></div>
-        <form id="start-form"><label for="name">CONTESTANT NAME</label><div class="start-row"><input id="name" autocomplete="off" maxlength="24" placeholder="Your first name or nickname" required><button class="primary" type="submit">LET’S PLAY!</button></div></form>
+        <form id="start-form">
+          <fieldset class="mode-options"><legend>CHOOSE YOUR MODE</legend>
+            <label class="mode-choice"><input type="radio" name="game-mode" value="recall" checked><span class="mode-card"><strong>Knowledge Recall</strong><span>Quick recall of key ideas.<br>No calculations.</span></span></label>
+            <label class="mode-choice"><input type="radio" name="game-mode" value="challenge"><span class="mode-card"><strong>Exam Challenge</strong><span>Apply your knowledge, including calculations. Formulas provided.</span></span></label>
+          </fieldset>
+          <p id="mode-help" class="mode-help" aria-live="polite"></p>
+          <label for="name">CONTESTANT NAME</label><div class="start-row"><input id="name" autocomplete="off" maxlength="24" placeholder="Your first name or nickname" required><button class="primary" type="submit">LET’S PLAY!</button></div></form>
         <p class="fine-print">Correct answer = one spin. Wrong answer = learn it and move on. Repeated rapid guessing can cost points. Highest score in class wins!</p>
-        <details class="how-to"><summary>How to play & question topics</summary><p>Start on 0 points. Answer each question once. A correct answer unlocks the wheel. A wrong answer shows the correct answer. Spin wedges add or subtract points, or multiply your current total. Losses can take your score below 0. Doubles and triples multiply your current total, including negative scores.</p><p>Any spin earned before the timer ends will count. Everyone plays their own five-minute game; compare final score screens to find the class winner. This game does not share scores between devices.</p><p><strong id="bank-count"></strong> knowledge-retrieval multiple-choice questions on the concepts tested in B.1 and B.2: B.1 Thermal energy transfers and B.2 Greenhouse effect. Questions and answer positions are shuffled for each player, with both topics mixed throughout. Planetary energy-balance and S/4 questions are excluded from this class version. Retrieve key ideas from memory. No calculator is needed.</p><p><strong>Read before you answer:</strong> A repeated pattern of very fast answers with mostly incorrect choices triggers a warning. If that pattern continues across another five answers, 500 points are deducted. Each further qualifying pattern can cost another 500 points. Quick, accurate answers are fine.</p><p>Keys: 1–4 or A–D to answer; Space to spin or continue. The game-show music starts automatically. If your browser requires a gesture, it starts on your first click or keypress. Music and sound effects have separate mute buttons.</p><a href="https://stp-science.github.io/ib-physics-retrieval/" target="_blank" rel="noopener">Original retrieval website</a></details>
+        <details class="how-to"><summary>How to play & question topics</summary><p>Start on 0 points. Answer each question once. A correct answer unlocks the wheel. A wrong answer shows the correct answer. Spin wedges add or subtract points, or multiply your current total. Losses can take your score below 0. Doubles and triples multiply your current total, including negative scores.</p><p>Any spin earned before the timer ends will count. Everyone plays their own five-minute game; compare final score screens to find the class winner. This game does not share scores between devices.</p><p><strong id="bank-count"></strong> questions in your selected mode, covering B.1 Thermal energy transfers and B.2 Greenhouse effect. Questions and answer positions are shuffled for each player, with both topics mixed throughout. Planetary energy-balance and S/4 questions are excluded from this class version. Choose Knowledge Recall for key ideas, or Exam Challenge for the previous exam-style questions with calculations and formula support. You can change modes during play; your score and remaining time carry over. Finish any earned spin before switching. Mixed-mode rounds have their own score list.</p><p><strong>Read before you answer:</strong> A repeated pattern of very fast answers with mostly incorrect choices triggers a warning. If that pattern continues across another five answers, 500 points are deducted. Each further qualifying pattern can cost another 500 points. Quick, accurate answers are fine.</p><p>Keys: 1–4 or A–D to answer; Space to spin or continue. The game-show music starts automatically. If your browser requires a gesture, it starts on your first click or keypress. Music and sound effects have separate mute buttons.</p><a href="https://stp-science.github.io/ib-physics-retrieval/" target="_blank" rel="noopener">Original retrieval website</a></details>
         <button id="show-records" class="text-button">Scores on this device</button>
       </div>
     </section>
@@ -44,6 +50,7 @@
         <div class="score-box"><span class="eyebrow">YOUR TOTAL</span><strong id="score">0</strong><span class="points-label">POINTS</span></div>
         <div class="correct-box"><span class="eyebrow">CORRECT</span><strong id="correct-count">0 / 0</strong></div>
       </div>
+      <div class="mode-toolbar"><span class="current-mode" id="current-mode">Knowledge Recall</span><span class="mode-carry-note">Your score and time carry over when you switch.</span><button id="switch-mode" class="secondary">Switch to Exam Challenge</button></div>
       <div class="game-layout">
         <div class="wheel-stage">
           <div class="wheel-assembly"><div class="pointer" aria-hidden="true"></div><canvas id="wheel" width="1000" height="1000" role="img" aria-label="24-section fortune wheel: point values, losses, two doubles and one triple"></canvas><button id="spin" class="spin-button" disabled><span id="spin-label">ANSWER<br>TO SPIN</span><small id="spin-hint">EARN YOUR SHOT</small></button></div>
@@ -52,7 +59,7 @@
         </div>
         <div class="question-stage marquee">
           <div class="question-meta"><span id="topic">IB PHYSICS</span><span id="question-number">QUESTION 1</span></div>
-          <h2 id="question"></h2>
+          <h2 id="question"></h2><p id="question-formula" class="question-formula" hidden></p>
           <div id="answers" class="answers" role="group" aria-label="Choose one answer"></div>
           <div id="fair-play-note" class="fair-play-note" role="status" aria-live="polite" hidden></div>
           <div id="feedback" class="feedback" aria-live="polite"></div>
@@ -64,14 +71,14 @@
     </section>
     <section id="results" class="results-layout" hidden aria-label="Final score">
       <div class="results-host"><img src="https://stp-science.github.io/retrieval-starter-builder/wheel-of-fortune/assets/mr-talbot.webp" alt="Mr Talbot presenting your final score"><p>“That’s a wrap!<br>Show me your score!”</p></div>
-      <div class="result-panel marquee"><div class="eyebrow">THE FINAL REVEAL</div><h2>TIME’S UP!</h2><p id="result-name"></p><div id="final-score" class="final-score">0</div><div class="points-label">POINTS ON THE BOARD</div><p id="result-stats"></p><p class="compare-note">Keep this screen open for Mr Talbot.<br>The highest final score in class wins!</p><div class="result-actions"><button id="again" class="primary">PLAY AGAIN</button><button id="review-toggle" class="secondary">REVIEW ANSWERS</button></div><div id="review" class="review" hidden></div><div class="local-records"><h3>TOP SCORES ON THIS DEVICE</h3><ol id="records"></ol></div></div>
+      <div class="result-panel marquee"><div class="eyebrow">THE FINAL REVEAL</div><h2>TIME’S UP!</h2><p id="result-mode" class="result-mode"></p><p id="result-name"></p><div id="final-score" class="final-score">0</div><div class="points-label">POINTS ON THE BOARD</div><p id="result-stats"></p><p class="compare-note">Keep this screen open for Mr Talbot.<br>The highest final score in class wins!</p><div class="result-actions"><button id="again" class="primary">PLAY AGAIN</button><button id="review-toggle" class="secondary">REVIEW ANSWERS</button></div><div id="review" class="review" hidden></div><div class="local-records"><h3 id="records-title">TOP SCORES FOR THIS MODE</h3><ol id="records"></ol></div></div>
     </section>
-    <dialog id="records-dialog"><button id="close-records" class="secondary">Close</button><h2>Scores on this device</h2><p>For class results, compare everyone’s final score screen.</p><ol id="dialog-records"></ol></dialog>
+    <dialog id="records-dialog"><button id="close-records" class="secondary">Close</button><h2 id="dialog-records-title">Scores on this device</h2><p>For class results, compare everyone’s final score screen.</p><ol id="dialog-records"></ol></dialog>
     <dialog id="end-dialog"><h2>Finish this round?</h2><p>Your current score will be saved as an early finish. It won’t count as a completed five-minute round.</p><div class="result-actions"><button id="keep-playing" class="primary">KEEP PLAYING</button><button id="confirm-end" class="secondary">END ROUND</button></div></dialog>
   </main>
   <footer id="site-footer">MR TALBOT’S WHEEL OF FORTUNE <span>B.1 &amp; B.2 RETRIEVAL · FIVE MINUTES · ONE BIG SCORE</span></footer>
   <div id="celebration" class="celebration" aria-hidden="true"></div>
   <audio id="background-music" src="https://stp-science.github.io/retrieval-starter-builder/wheel-of-fortune/assets/gameshow-theme.mp3?v=1" preload="auto" loop hidden></audio>
-  <script type="module" src="./game.mjs?v=ib-b1-b2-knowledge-only-1"></script>
+  <script type="module" src="./game.mjs?v=ib-b1-b2-dual-modes-1"></script>
 </body>
 </html>

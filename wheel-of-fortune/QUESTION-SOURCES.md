@@ -1,3 +1,13 @@
+# Current version: two selectable modes
+
+Updated 24 November 2026. Knowledge Recall uses the current 60 conceptual questions. Exam Challenge restores the exact 60-question bank from commit 6d88f2077525898f1838b0ecec43d39b297e70a9, including its formula support. These challenge questions are original exam-style adaptations, rather than verbatim IB examination questions.
+
+Students choose a mode on the welcome screen and can switch during a round. The original score, five-minute deadline and answer history carry over. An earned spin must be completed before switching. Answered questions are not offered again when returning to a mode, and unanswered questions retain their options. Recall-only, challenge-only and mixed rounds use separate local score lists.
+
+Validation: 10 automated checks cover bank integrity, switching, preservation of scores/time/history, unanswered-question restoration, prevention of answered-question replay, protected spin phases, exhausted banks and persisted mixed-mode classification.
+
+## Historical content reviews
+
 # Current version: knowledge retrieval
 
 Updated 24 November 2026. The current bank has 60 original conceptual multiple-choice questions (36 B.1 and 24 B.2). Questions test definitions, particle explanations, mechanisms, qualitative relationships and equation recognition. None requires arithmetic, substitution, numerical scaling or rearrangement. Formula hints and calculator instructions have been removed.
