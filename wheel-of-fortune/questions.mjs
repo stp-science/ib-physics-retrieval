@@ -450,5 +450,434 @@ export const QUESTIONS = [
     "explanation": "For the same star, apparent brightness is inversely proportional to distance squared. Tripling the distance divides brightness by nine.",
     "source": "../b1-past-questions/#m2",
     "basis": "Original inverse-square application of the luminosity/apparent-brightness distinction in B.1 past-question bank m2."
+  },
+  {
+    "id": "paper1a-32",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Water releases 4200 J as it cools to 0 °C. All this energy melts ice already at 0 °C. For ice, L = 3.0 × 10⁵ J kg⁻¹. What mass melts?",
+    "a": "0.014 kg",
+    "wrong": [
+      "0.14 kg",
+      "14 kg",
+      "0.0014 kg"
+    ],
+    "explanation": "m = Q/L = 4200/(3.0 × 10⁵) = 0.014 kg.",
+    "formula": "Q = mL",
+    "source": "https://www.scribd.com/document/994186055/Physics-Paper-1A-TZ1-SL-2",
+    "basis": "May 2025 SL TZ1 Paper 1A Q7; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-33",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Water of mass 0.10 kg cools from 30 °C to 0 °C. What energy can it transfer to ice? Use c = 4200 J kg⁻¹ K⁻¹.",
+    "a": "12,600 J",
+    "wrong": [
+      "1260 J",
+      "42,000 J",
+      "126,000 J"
+    ],
+    "explanation": "Q = mcΔT = 0.10 × 4200 × 30 = 12,600 J.",
+    "formula": "Q = mcΔT",
+    "source": "https://www.scribd.com/document/994186055/Physics-Paper-1A-TZ1-SL-2",
+    "basis": "May 2025 SL TZ1 Paper 1A Q7; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-34",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A metal releases 6000 J while cooling. This melts 0.030 kg of a solid already at its melting point. What is the solid’s latent heat of fusion?",
+    "a": "2.0 × 10⁵ J kg⁻¹",
+    "wrong": [
+      "180 J kg⁻¹",
+      "2.0 × 10³ J kg⁻¹",
+      "5.0 × 10⁻⁶ J kg⁻¹"
+    ],
+    "explanation": "L = Q/m = 6000/0.030 = 2.0 × 10⁵ J kg⁻¹.",
+    "formula": "Q = mL",
+    "source": "https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/subject-guides-documents/hl-sample-exam-paper-1a--physics.pdf",
+    "basis": "May 2025 HL TZ1 Paper 1A Q10; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-35",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Ice at its melting point receives energy from warm water. Ignoring losses, what connects their energy changes?",
+    "a": "Energy lost by water = energy gained by ice",
+    "wrong": [
+      "Water and ice must have equal masses",
+      "Their temperature changes must be equal",
+      "Ice gains more energy than water loses"
+    ],
+    "explanation": "Energy is conserved: the water’s lost thermal energy supplies the ice’s latent heat.",
+    "source": "https://www.ibo.org/globalassets/new-structure/university-admission/pdfs/subject-guides-documents/hl-sample-exam-paper-1a--physics.pdf",
+    "basis": "May 2025 HL TZ1 Paper 1A Q10; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-36",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Star Y has 16 times the luminosity and twice the temperature of star X. Both are black bodies. What is RY/RX?",
+    "a": "1",
+    "wrong": [
+      "2",
+      "4",
+      "16"
+    ],
+    "explanation": "R² ∝ L/T⁴, so (RY/RX)² = 16/16 = 1.",
+    "formula": "L = 4πR²σT⁴",
+    "source": "https://www.scribd.com/document/937796602/Paper-1a-May-2025-Questions",
+    "basis": "May 2025 SL TZ2 Paper 1A Q6; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-37",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Two black-body stars have the same temperature. Y emits nine times as much power as X. What is RY/RX?",
+    "a": "3",
+    "wrong": [
+      "9",
+      "81",
+      "1/3"
+    ],
+    "explanation": "At equal temperature, L ∝ R². The radius ratio is √9 = 3.",
+    "formula": "L = 4πR²σT⁴",
+    "source": "https://www.scribd.com/document/937796602/Paper-1a-May-2025-Questions",
+    "basis": "May 2025 SL TZ2 Paper 1A Q6; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-38",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Star Y has half the radius and twice the temperature of star X. Both are black bodies. What is LY/LX?",
+    "a": "4",
+    "wrong": [
+      "1",
+      "8",
+      "16"
+    ],
+    "explanation": "LY/LX = (1/2)² × 2⁴ = 4.",
+    "formula": "L = 4πR²σT⁴",
+    "source": "https://www.scribd.com/document/1028850580/Physics-Paper-1A-TZ2-HL",
+    "basis": "May 2025 HL TZ2 Paper 1A Q9; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-39",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A black-body star’s luminosity stays unchanged while its radius doubles. What happens to its temperature?",
+    "a": "It becomes T/√2",
+    "wrong": [
+      "It becomes T/2",
+      "It becomes 2T",
+      "It stays T"
+    ],
+    "explanation": "Fixed L requires R²T⁴ to stay constant. Temperature changes by 4⁻¹/⁴ = 1/√2.",
+    "formula": "L = 4πR²σT⁴",
+    "source": "https://www.scribd.com/document/1028850580/Physics-Paper-1A-TZ2-HL",
+    "basis": "May 2025 HL TZ2 Paper 1A Q9; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-40",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A liquid warms at 0.20 K s⁻¹. The same constant heater then vaporises all of it in 500 s at its boiling point. Ignore losses. What is L/c?",
+    "a": "100 K",
+    "wrong": [
+      "2500 K",
+      "0.0004 K",
+      "2.5 K"
+    ],
+    "explanation": "Equating mc × 0.20 and mL/500 gives L/c = 100 K.",
+    "formula": "P = mc(ΔT/Δt); Pt = mL",
+    "source": "https://www.scribd.com/document/1057770882/Physics-Paper-1A-TZ3-SL",
+    "basis": "May 2025 SL TZ3 Paper 1A Q7; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-41",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A black-body star has twice the radius but the same temperature as another star. What is its luminosity ratio?",
+    "a": "4",
+    "wrong": [
+      "2",
+      "8",
+      "16"
+    ],
+    "explanation": "The surface area, and hence luminosity at fixed temperature, increases by 2² = 4.",
+    "formula": "L = 4πR²σT⁴",
+    "source": "https://www.scribd.com/document/1057770882/Physics-Paper-1A-TZ3-SL",
+    "basis": "May 2025 SL TZ3 Paper 1A Q8; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-42",
+    "topic": "B.2 Greenhouse effect",
+    "q": "Which change can alter the fraction of sunlight reflected by a region from one day to the next?",
+    "a": "Changing cloud cover",
+    "wrong": [
+      "Changing the numerical value of σ",
+      "Changing the speed of light",
+      "Changing the definition of a watt"
+    ],
+    "explanation": "Cloud cover changes reflection, so albedo need not stay constant.",
+    "source": "https://www.scribd.com/document/1057770882/Physics-Paper-1A-TZ3-SL",
+    "basis": "May 2025 SL TZ3 Paper 1A Q9; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-43",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A heater raises a liquid’s temperature at 0.40 K s⁻¹, then boils away one quarter of it in 200 s. Ignore losses. What is L/c?",
+    "a": "320 K",
+    "wrong": [
+      "80 K",
+      "20 K",
+      "2000 K"
+    ],
+    "explanation": "P = 0.40mc and 200P = mL/4, giving L/c = 320 K.",
+    "formula": "P = mc(ΔT/Δt); Pt = mL",
+    "source": "https://www.scribd.com/document/963367980/Physics-Paper-1A-TZ3-HL",
+    "basis": "May 2025 HL TZ3 Paper 1A Q10; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-44",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "The spectrum of X peaks at 400 nm; Y peaks at 600 nm. What is TX/TY?",
+    "a": "1.5",
+    "wrong": [
+      "2/3",
+      "2.25",
+      "1"
+    ],
+    "explanation": "T ∝ 1/λmax, so TX/TY = 600/400 = 1.5.",
+    "formula": "λₘₐₓT = constant",
+    "source": "https://www.scribd.com/document/963367980/Physics-Paper-1A-TZ3-HL",
+    "basis": "May 2025 HL TZ3 Paper 1A Q12; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-45",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A black body’s emission peak moves from 500 nm to 250 nm. Its area is unchanged. What happens to its total emitted power?",
+    "a": "It increases by a factor of 16",
+    "wrong": [
+      "It increases by a factor of 2",
+      "It increases by a factor of 4",
+      "It halves"
+    ],
+    "explanation": "Halving peak wavelength doubles T. Power then rises by 2⁴ = 16.",
+    "formula": "λₘₐₓT = constant; P = σAT⁴",
+    "source": "https://www.scribd.com/document/963367980/Physics-Paper-1A-TZ3-HL",
+    "basis": "May 2025 HL TZ3 Paper 1A Q12; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-46",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Equal-mass blocks exchange energy without losses. X warms by 6 K; Y cools by 18 K. What is cX/cY?",
+    "a": "3",
+    "wrong": [
+      "1/3",
+      "9",
+      "1"
+    ],
+    "explanation": "Equal energy changes give cX × 6 = cY × 18, so cX/cY = 3.",
+    "formula": "Q = mcΔT; energy gained = energy lost",
+    "source": "https://www.scribd.com/document/1069624002/N25-Physics-Paper-1A-TZ1-SL",
+    "basis": "November 2025 SL TZ1 Paper 1A Q7; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-47",
+    "topic": "B.2 Greenhouse effect",
+    "q": "X and Y are equally hot. Both receive 800 W m⁻². X reflects 200 and emits 300 W m⁻²; Y reflects 320 and emits 250 W m⁻². Which has greater albedo and emissivity?",
+    "a": "Albedo: Y; emissivity: X",
+    "wrong": [
+      "Albedo: X; emissivity: X",
+      "Albedo: X; emissivity: Y",
+      "Albedo: Y; emissivity: Y"
+    ],
+    "explanation": "Y reflects a greater fraction. At equal temperature, X’s greater emission means greater emissivity.",
+    "formula": "a = reflected / incident intensity; e = emitted intensity / (σT⁴)",
+    "source": "https://www.scribd.com/document/1069624002/N25-Physics-Paper-1A-TZ1-SL",
+    "basis": "November 2025 SL TZ1 Paper 1A Q8; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-48",
+    "topic": "B.2 Greenhouse effect",
+    "q": "Which description best explains the atmospheric greenhouse effect?",
+    "a": "Absorption of Earth’s infrared emission, followed by infrared re-emission",
+    "wrong": [
+      "Reflection of all incoming sunlight",
+      "Absorption of all incoming ultraviolet radiation",
+      "Reflection of Earth’s infrared radiation by gas molecules"
+    ],
+    "explanation": "Greenhouse gases absorb outgoing infrared radiation and can emit infrared radiation in all directions.",
+    "source": "https://www.scribd.com/document/1069624002/N25-Physics-Paper-1A-TZ1-SL",
+    "basis": "November 2025 SL TZ1 Paper 1A Q9; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-49",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Two insulated blocks exchange energy and reach the same temperature. No work is done. How do their changes in internal energy compare?",
+    "a": "Equal magnitude, opposite sign",
+    "wrong": [
+      "Both positive",
+      "Both zero",
+      "The hotter block always loses more than the colder block gains"
+    ],
+    "explanation": "With no energy exchange outside the pair, one block gains exactly what the other loses.",
+    "source": "https://www.scribd.com/document/994186055/Physics-Paper-1A-TZ1-SL-2",
+    "basis": "May 2025 SL TZ1 Paper 1A Q7; original application of energy conservation during thermal exchange."
+  },
+  {
+    "id": "paper1a-50",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A wall’s thickness is tripled. Its material, area and face temperatures stay unchanged. What happens to its conduction rate?",
+    "a": "It becomes one third as large",
+    "wrong": [
+      "It triples",
+      "It becomes nine times as large",
+      "It stays unchanged"
+    ],
+    "explanation": "For fixed k, A and ΔT, rate ∝ 1/thickness.",
+    "formula": "Rate magnitude = kAΔT/ℓ",
+    "source": "https://www.scribd.com/document/1031383301/Physics-Paper-1A-TZ1-HL-2",
+    "basis": "November 2025 HL TZ1 Paper 1A Q10; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-51",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A pane initially has a temperature gradient of 300 K m⁻¹. Its thickness is doubled with the same face temperatures. What is the new gradient magnitude?",
+    "a": "150 K m⁻¹",
+    "wrong": [
+      "600 K m⁻¹",
+      "75 K m⁻¹",
+      "300 K m⁻¹"
+    ],
+    "explanation": "Gradient magnitude = ΔT/ℓ. Doubling ℓ halves it.",
+    "formula": "Gradient magnitude = ΔT/ℓ",
+    "source": "https://www.scribd.com/document/1031383301/Physics-Paper-1A-TZ1-HL-2",
+    "basis": "November 2025 HL TZ1 Paper 1A Q10; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-52",
+    "topic": "B.2 Greenhouse effect",
+    "q": "Two equally hot surfaces emit the same power per unit area. X reflects 30% of incident sunlight and Y reflects 50%. Which statement is correct?",
+    "a": "Y has greater albedo; their emissivities are equal",
+    "wrong": [
+      "X has greater albedo; their emissivities are equal",
+      "Y has greater albedo and greater emissivity",
+      "X has greater emissivity"
+    ],
+    "explanation": "Y reflects a larger fraction. Equal thermal emission at equal temperature means equal emissivity.",
+    "source": "https://www.scribd.com/document/1031383301/Physics-Paper-1A-TZ1-HL-2",
+    "basis": "November 2025 HL TZ1 Paper 1A Q11; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-53",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A 150 W heater warms 0.20 kg of liquid by 30 K in 40 s. Ignore losses. What is its specific heat capacity?",
+    "a": "1000 J kg⁻¹ K⁻¹",
+    "wrong": [
+      "250 J kg⁻¹ K⁻¹",
+      "4000 J kg⁻¹ K⁻¹",
+      "25 J kg⁻¹ K⁻¹"
+    ],
+    "explanation": "c = Pt/(mΔT) = (150 × 40)/(0.20 × 30) = 1000 J kg⁻¹ K⁻¹.",
+    "formula": "Pt = mcΔT",
+    "source": "https://www.scribd.com/document/1042751687/Ib-%E6%9F%A5%E7%9C%8B%E7%89%A9%E7%90%86qp-202510-Physics-p1a-Tz3-Sl-Ib%E9%A2%98%E5%BA%93%E5%A4%A7%E5%85%A8%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+    "basis": "November 2025 SL TZ3 Paper 1A Q7; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-54",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Two rods have the same material, length and end temperatures. Y’s diameter is three times X’s. What is conduction rate Y / rate X?",
+    "a": "9",
+    "wrong": [
+      "3",
+      "27",
+      "1/9"
+    ],
+    "explanation": "Rate ∝ area ∝ diameter², so the ratio is 3² = 9.",
+    "formula": "Rate magnitude = kAΔT/ℓ; A = πd²/4",
+    "source": "https://www.scribd.com/document/1042751687/Ib-%E6%9F%A5%E7%9C%8B%E7%89%A9%E7%90%86qp-202510-Physics-p1a-Tz3-Sl-Ib%E9%A2%98%E5%BA%93%E5%A4%A7%E5%85%A8%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+    "basis": "November 2025 SL TZ3 Paper 1A Q6; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-55",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A rod’s diameter doubles and its length doubles. Material and end temperatures stay fixed. What happens to the conduction rate?",
+    "a": "It doubles",
+    "wrong": [
+      "It quadruples",
+      "It halves",
+      "It stays unchanged"
+    ],
+    "explanation": "Area increases fourfold; length doubles. The rate changes by 4/2 = 2.",
+    "formula": "Rate magnitude = kAΔT/ℓ; A = πd²/4",
+    "source": "https://www.scribd.com/document/1031383307/Physics-Paper-1A-TZ3-HL-2",
+    "basis": "November 2025 HL TZ3 Paper 1A Q10; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-56",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A liquid receives 9000 J and warms by 25 K. Its mass is 300 g. What is its specific heat capacity?",
+    "a": "1200 J kg⁻¹ K⁻¹",
+    "wrong": [
+      "1.2 J kg⁻¹ K⁻¹",
+      "120 J kg⁻¹ K⁻¹",
+      "12,000 J kg⁻¹ K⁻¹"
+    ],
+    "explanation": "Convert 300 g to 0.300 kg. c = 9000/(0.300 × 25) = 1200.",
+    "formula": "c = Q/(mΔT)",
+    "source": "https://www.scribd.com/document/1031383307/Physics-Paper-1A-TZ3-HL-2",
+    "basis": "November 2025 HL TZ3 Paper 1A Q11; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-57",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A pure liquid freezes at constant temperature. What happens to the total energy stored in its particles?",
+    "a": "It decreases as intermolecular potential energy falls",
+    "wrong": [
+      "It stays constant because temperature is unchanged",
+      "It increases because particles pack closer",
+      "It decreases because mean random kinetic energy falls"
+    ],
+    "explanation": "Freezing releases energy. Constant temperature means unchanged mean random kinetic energy.",
+    "source": "https://www.scribd.com/document/1031383307/Physics-Paper-1A-TZ3-HL-2",
+    "basis": "November 2025 HL TZ3 Paper 1A Q14; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-58",
+    "topic": "B.2 Greenhouse effect",
+    "q": "A black body at temperature T emits power P. Another object has the same area, temperature 2T and emissivity 0.25. What power does it emit?",
+    "a": "4P",
+    "wrong": [
+      "P",
+      "8P",
+      "16P"
+    ],
+    "explanation": "The ratio is e × (2T/T)⁴ = 0.25 × 16 = 4.",
+    "formula": "P = eσAT⁴",
+    "source": "https://www.scribd.com/document/1046895678/Physics-HL-Paper-1A-TZC",
+    "basis": "May 2026 HL TZ3 (TZC scan) Paper 1A Q10; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-59",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Two equal-length, equal-area bars join in series. Their conductivities are 2k and k. The outer ends are at 80 °C and 20 °C. In steady state, what is their junction temperature?",
+    "a": "60 °C",
+    "wrong": [
+      "50 °C",
+      "40 °C",
+      "70 °C"
+    ],
+    "explanation": "Equal rates give 2k(80 − T) = k(T − 20), so T = 60 °C.",
+    "formula": "Rate magnitude = kAΔT/ℓ; steady-state rates are equal",
+    "source": "https://www.scribd.com/document/1046895678/Physics-HL-Paper-1A-TZC",
+    "basis": "May 2026 HL TZ3 (TZC scan) Paper 1A Q11; original application of the tested idea, with new wording and values."
+  },
+  {
+    "id": "paper1a-60",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "Two identical bars connect ends held at 90 °C and 30 °C. Their sides are insulated. What is their steady-state junction temperature?",
+    "a": "60 °C",
+    "wrong": [
+      "30 °C",
+      "45 °C",
+      "90 °C"
+    ],
+    "explanation": "Identical bars have equal temperature drops at equal steady-state transfer rates. The junction is midway between 90 and 30.",
+    "formula": "Rate magnitude = kAΔT/ℓ",
+    "source": "https://www.scribd.com/document/1046895678/Physics-HL-Paper-1A-TZC",
+    "basis": "May 2026 HL TZ3 (TZC scan) Paper 1A Q11; original application of the tested idea, with new wording and values."
   }
 ];
