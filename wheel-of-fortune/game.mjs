@@ -1,11 +1,11 @@
-import { QUESTIONS } from './questions.mjs?v=formulas-1';
+import { QUESTIONS } from './questions.mjs?v=taught-content-1';
 import { DURATION_MS, SEGMENTS, applySegment, shuffle, balancedDeck, remainingMs, timeLabel, targetRotation, pointedSegment } from './core.mjs?v=negative-scores-1';
 import { createMusicPlayer } from './music.mjs?v=quiet-autoplay-2';
 import { assessAnswerPattern, rapidAnswerLimit, RUSH_PENALTY } from './fair-play.mjs';
 
 const $ = id => document.getElementById(id);
 const bank = new Map(QUESTIONS.map(q => [q.id, q]));
-const ACTIVE_KEY = 'talbot-ib-b1-b2-round-v1';
+const ACTIVE_KEY = 'talbot-ib-b1-b2-taught-round-v1';
 const RECORDS_KEY = 'talbot-ib-b1-b2-records-v1';
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const format = n => new Intl.NumberFormat('en-NZ').format(n);
