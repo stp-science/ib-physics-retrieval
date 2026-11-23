@@ -1,439 +1,454 @@
 export const QUESTIONS = [
   {
-    "id": "ib-0217",
+    "id": "paper1a-01",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Compare the particle arrangements in solids, liquids and gases.",
-    "a": "Solid: fixed positions; liquid: close and mobile; gas: widely separated",
+    "q": "A freezer is at −23 °C. What is its temperature in kelvin, to the nearest kelvin?",
+    "a": "250 K",
     "wrong": [
-      "Solid: widely separated; liquid: fixed; gas: close",
-      "All three have particles fixed in position",
-      "Solid and liquid: stationary particles; gas: moving particles"
+      "296 K",
+      "−250 K",
+      "23 K"
     ],
-    "explanation": "Solids have closely packed particles in fixed relative positions; liquids are close but mobile; gases are widely separated and move freely.",
-    "source": "../questions.js#ib-0217"
+    "explanation": "T = −23 + 273.15 = 250.15 K, which rounds to 250 K.",
+    "formula": "T (K) = θ (°C) + 273.15",
+    "source": "../b1-past-questions/#m1",
+    "basis": "Original practice based on B.1 past-question bank m1; rewritten wording and values."
   },
   {
-    "id": "ib-0218",
+    "id": "paper1a-02",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Define density.",
-    "a": "Mass per unit volume",
+    "q": "Which quantity describes all the energy a star emits each second?",
+    "a": "Luminosity",
     "wrong": [
-      "Volume per unit mass",
-      "Weight per unit area",
-      "Mass multiplied by volume"
+      "Apparent brightness",
+      "Albedo",
+      "Peak wavelength"
     ],
-    "explanation": "Mass per unit volume: ρ = m/V.",
-    "source": "../questions.js#ib-0218"
+    "explanation": "Luminosity is total emitted power, measured in watts. Apparent brightness is received power per unit area.",
+    "source": "../b1-past-questions/#m2",
+    "basis": "Original practice based on B.1 past-question bank m2; rewritten wording and values."
   },
   {
-    "id": "ib-0219",
+    "id": "paper1a-03",
     "topic": "B.1 Thermal energy transfers",
-    "q": "How are temperature changes in kelvin and degrees Celsius related?",
-    "a": "A rise of 1 K equals a rise of 1 °C",
+    "q": "A 0.40 kg solid is already at its melting point. Its latent heat of fusion is 2.5 × 10⁵ J kg⁻¹. How much energy melts it completely?",
+    "a": "1.0 × 10⁵ J",
     "wrong": [
-      "A rise of 1 K equals a rise of 273 °C",
-      "A rise of 1 K equals a rise of 0 °C",
-      "A rise of 1 K equals a rise of 100 °C"
+      "6.25 × 10⁵ J",
+      "1.0 × 10⁶ J",
+      "2.5 × 10⁵ J"
     ],
-    "explanation": "A change of 1 K is the same size as a change of 1 °C.",
-    "source": "../questions.js#ib-0219"
+    "explanation": "Q = mL = 0.40 × 2.5 × 10⁵ = 1.0 × 10⁵ J.",
+    "formula": "Q = mL",
+    "source": "../b1-past-questions/#m3",
+    "basis": "Original practice based on B.1 past-question bank m3; rewritten wording and values."
   },
   {
-    "id": "ib-0220",
+    "id": "paper1a-04",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Convert a Celsius temperature θ to kelvin.",
-    "a": "T = θ + 273.15",
+    "q": "A warm object hangs in a vacuum without touching anything. How can it transfer thermal energy to its surroundings?",
+    "a": "Thermal radiation",
     "wrong": [
-      "T = θ − 273.15",
-      "T = 273.15θ",
-      "T = θ/273.15"
+      "Convection",
+      "Conduction through the vacuum",
+      "Conduction and convection"
     ],
-    "explanation": "T = θ + 273.15.",
-    "source": "../questions.js#ib-0220"
+    "explanation": "Radiation travels through a vacuum. Conduction and convection require matter. Mechanical supports are excluded here.",
+    "source": "../b1-past-questions/#m8",
+    "basis": "Original practice based on B.1 past-question bank m8; rewritten wording and values."
   },
   {
-    "id": "ib-0222",
+    "id": "paper1a-05",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Define internal energy.",
-    "a": "Total random kinetic energy plus intermolecular potential energy",
+    "q": "A pure liquid freezes at constant temperature. Which change occurs in its particles?",
+    "a": "Potential energy decreases; mean kinetic energy stays constant",
     "wrong": [
-      "Only the random kinetic energy of the particles",
-      "Only the intermolecular potential energy",
-      "The kinetic energy of the whole object moving"
+      "Potential energy increases; mean kinetic energy stays constant",
+      "Potential energy stays constant; mean kinetic energy decreases",
+      "Potential energy and mean kinetic energy both decrease"
     ],
-    "explanation": "The total random kinetic energy plus intermolecular potential energy of the particles.",
-    "source": "../questions.js#ib-0222"
+    "explanation": "During freezing, energy is released and intermolecular potential energy falls. Constant temperature means unchanged mean random kinetic energy.",
+    "source": "../b1-past-questions/#m5",
+    "basis": "Original practice based on B.1 past-question bank m5; rewritten wording and values."
   },
   {
-    "id": "ib-0223",
+    "id": "paper1a-06",
     "topic": "B.1 Thermal energy transfers",
-    "q": "What determines the direction of resultant thermal energy transfer?",
-    "a": "Temperature difference: from hotter to colder",
+    "q": "Object X has mass m and volume V. Object Y has mass 3m and volume V/2. If X has density ρ, what is the density of Y?",
+    "a": "6ρ",
     "wrong": [
-      "Mass difference: from heavier to lighter",
-      "Volume difference: from larger to smaller",
-      "Internal energy difference: always towards lower total energy"
+      "3ρ/2",
+      "2ρ/3",
+      "ρ/6"
     ],
-    "explanation": "Temperature difference; energy transfers from higher to lower temperature.",
-    "source": "../questions.js#ib-0223"
+    "explanation": "ρY = 3m/(V/2) = 6m/V = 6ρ.",
+    "formula": "ρ = m/V",
+    "source": "../b1-past-questions/#m6",
+    "basis": "Original practice based on B.1 past-question bank m6; rewritten wording and values."
   },
   {
-    "id": "ib-0224",
+    "id": "paper1a-07",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A pure substance melts at constant pressure while thermal energy is supplied. Explain why its temperature remains constant during melting.",
-    "a": "Potential energy rises; mean random kinetic energy stays constant",
+    "q": "A sample of gas condenses at constant temperature. What happens to its internal energy?",
+    "a": "It decreases because intermolecular potential energy decreases",
     "wrong": [
-      "Kinetic energy rises; potential energy stays constant",
-      "All supplied energy leaves the substance immediately",
-      "Both kinetic and potential energy stay constant"
+      "It stays constant because temperature stays constant",
+      "It increases because molecules come closer together",
+      "It decreases because mean molecular kinetic energy decreases"
     ],
-    "explanation": "The supplied energy increases intermolecular potential energy as the arrangement changes. Mean random kinetic energy remains constant, so the temperature remains constant.",
-    "source": "../questions.js#ib-0224"
+    "explanation": "Condensation releases energy. The mean random kinetic energy remains constant while intermolecular potential energy decreases.",
+    "source": "../b1-past-questions/#m13",
+    "basis": "Original practice based on B.1 past-question bank m13; rewritten wording and values."
   },
   {
-    "id": "ib-0225",
+    "id": "paper1a-08",
     "topic": "B.1 Thermal energy transfers",
-    "q": "State the specific heat-capacity equation.",
-    "a": "Q = mcΔT",
+    "q": "A liquid absorbs 18,000 J and warms by 15 K. Its specific heat capacity is 2000 J kg⁻¹ K⁻¹. What is its mass?",
+    "a": "0.60 kg",
     "wrong": [
-      "Q = mL",
-      "Q = mc/ΔT",
-      "Q = cΔT/m"
+      "0.15 kg",
+      "6.0 kg",
+      "1.7 kg"
     ],
-    "explanation": "Q = mcΔT.",
-    "source": "../questions.js#ib-0225"
+    "explanation": "m = Q/(cΔT) = 18,000/(2000 × 15) = 0.60 kg.",
+    "formula": "Q = mcΔT, so m = Q/(cΔT)",
+    "source": "../b1-past-questions/#m9",
+    "basis": "Original practice based on B.1 past-question bank m9; rewritten wording and values."
   },
   {
-    "id": "ib-0226",
+    "id": "paper1a-09",
     "topic": "B.1 Thermal energy transfers",
-    "q": "State the specific latent-heat equation.",
-    "a": "Q = mL",
+    "q": "A pure solid is at its melting point. While it melts at constant pressure, which graph describes temperature against energy supplied?",
+    "a": "A horizontal line",
     "wrong": [
-      "Q = mcΔT",
-      "Q = L/m",
-      "Q = m/L"
+      "A straight line rising from the starting temperature",
+      "A straight line falling from the starting temperature",
+      "A curve rising more steeply as energy is supplied"
     ],
-    "explanation": "Q = mL.",
-    "source": "../questions.js#ib-0226"
+    "explanation": "During melting, the energy changes the particle arrangement rather than raising the temperature.",
+    "source": "../b1-past-questions/#m10",
+    "basis": "Original practice based on B.1 past-question bank m10; rewritten wording and values."
   },
   {
-    "id": "ib-0227",
+    "id": "paper1a-10",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Explain thermal conduction in a metal rod heated at one end.",
-    "a": "Interactions between particles and energy transfer by mobile electrons",
+    "q": "The absolute temperature of a black body increases to three times its original value. What happens to its peak wavelength?",
+    "a": "It becomes one third as large",
     "wrong": [
-      "Bulk circulation of the metal from hot to cold",
-      "Only infrared radiation travelling inside the rod",
-      "Protons flowing freely along the rod"
+      "It becomes three times as large",
+      "It becomes nine times as large",
+      "It stays the same"
     ],
-    "explanation": "Particles at the hot end have greater mean random kinetic energy. Energy is transferred through interactions between neighbouring particles and by mobile electrons moving through the metal, without bulk movement of the rod.",
-    "source": "../questions.js#ib-0227"
+    "explanation": "Wien’s law gives λmax ∝ 1/T. Tripling T divides the peak wavelength by three.",
+    "formula": "λₘₐₓT = 2.9 × 10⁻³ m K",
+    "source": "../b1-past-questions/#m11",
+    "basis": "Original practice based on B.1 past-question bank m11; rewritten wording and values."
   },
   {
-    "id": "ib-0228",
+    "id": "paper1a-11",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A slab of thickness L and area A has thermal conductivity k. Its faces are held at temperatures Tₕ and T꜀, where Th > Tc. State the rate of thermal energy transfer from the hot face to the cold face in steady state.",
-    "a": "Rate = kA(Th − Tc)/L",
+    "q": "Which statement applies to an ideal black body?",
+    "a": "It absorbs all incident electromagnetic radiation",
     "wrong": [
-      "Rate = kL(Th − Tc)/A",
-      "Rate = kAL/(Th − Tc)",
-      "Rate = A(Th − Tc)/(kL)"
+      "It reflects all visible light",
+      "It emits radiation only when it glows visibly",
+      "It has an emissivity of zero"
     ],
-    "explanation": "The rate magnitude is kA(Th − Tc)/L, using the positive temperature difference between the hot and cold faces.",
-    "source": "../questions.js#ib-0228"
+    "explanation": "A black body absorbs all radiation incident on it and is an ideal thermal emitter. It can emit invisible infrared radiation.",
+    "source": "../b1-past-questions/#m15",
+    "basis": "Original practice based on B.1 past-question bank m15; rewritten wording and values."
   },
   {
-    "id": "ib-0229",
+    "id": "paper1a-12",
     "topic": "B.1 Thermal energy transfers",
-    "q": "In the conduction equation ΔQ/Δt = −kA(ΔT/Δx), what does the minus sign show?",
-    "a": "Energy flows opposite to the temperature gradient",
+    "q": "A rod conducts thermal energy at 120 W. Its length is 0.20 m, its cross-sectional area is 0.0030 m², and its end temperatures differ by 40 K. What is its thermal conductivity?",
+    "a": "200 W m⁻¹ K⁻¹",
     "wrong": [
-      "Thermal conductivity must be negative",
-      "The rod must have a temperature below 0 K",
-      "Thermal energy is destroyed during conduction"
+      "20 W m⁻¹ K⁻¹",
+      "800 W m⁻¹ K⁻¹",
+      "1800 W m⁻¹ K⁻¹"
     ],
-    "explanation": "The thermal energy transfer is in the direction of decreasing temperature, opposite to the temperature gradient.",
-    "source": "../questions.js#ib-0229"
+    "explanation": "k = (ΔQ/Δt)ℓ/(AΔT) = (120 × 0.20)/(0.0030 × 40) = 200 W m⁻¹ K⁻¹. Here ΔT is the positive hot-to-cold difference.",
+    "formula": "Rate magnitude = kAΔT/ℓ, so k = (rate × ℓ)/(AΔT)",
+    "source": "../b1-past-questions/#m16",
+    "basis": "Original practice based on B.1 past-question bank m16; rewritten wording and values."
   },
   {
-    "id": "ib-0230",
+    "id": "paper1a-13",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Explain how natural convection transfers thermal energy in a fluid heated from below.",
-    "a": "Warm fluid expands, becomes less dense and rises",
+    "q": "Two spherical stars are modelled as black bodies. They have equal luminosities, but X has twice the surface temperature of Y. What is radius X / radius Y?",
+    "a": "1/4",
     "wrong": [
-      "Warm fluid contracts, becomes denser and rises",
-      "Warm fluid expands, becomes denser and sinks",
-      "Particles stop moving at the hot end"
+      "1/2",
+      "2",
+      "4"
     ],
-    "explanation": "The heated fluid expands and becomes less dense, so buoyancy causes it to rise. Cooler, denser fluid moves down to replace it, establishing bulk circulation that transfers thermal energy.",
-    "source": "../questions.js#ib-0230"
+    "explanation": "L ∝ R²T⁴. Equal luminosities give (RX/RY)² × 2⁴ = 1, so RX/RY = 1/4.",
+    "formula": "L = σAT⁴; A = 4πR²",
+    "source": "../b1-past-questions/#m19",
+    "basis": "Original practice based on B.1 past-question bank m19; rewritten wording and values."
   },
   {
-    "id": "ib-0231",
+    "id": "paper1a-14",
     "topic": "B.1 Thermal energy transfers",
-    "q": "The absolute temperature of a black body doubles while its surface area remains constant. State the factors by which its total emitted power and peak wavelength change.",
-    "a": "Power ×16; peak wavelength ×½",
+    "q": "A black body is at 5000 K. What wavelength is at the peak of its emission spectrum?",
+    "a": "5.8 × 10⁻⁷ m",
     "wrong": [
-      "Power ×2; peak wavelength ×2",
-      "Power ×4; peak wavelength ×½",
-      "Power ×16; peak wavelength ×2"
+      "5.8 × 10⁻⁶ m",
+      "1.45 × 10¹ m",
+      "1.7 × 10⁶ m"
     ],
-    "explanation": "From P = σAT⁴, emitted power increases by a factor of 16. From λmaxT = constant, the peak wavelength halves.",
-    "source": "../questions.js#ib-0231",
-    "formula": "P = σAT⁴; λₘₐₓT = 2.9 × 10⁻³ m K"
+    "explanation": "λmax = (2.9 × 10⁻³)/5000 = 5.8 × 10⁻⁷ m.",
+    "formula": "λₘₐₓT = 2.9 × 10⁻³ m K",
+    "source": "../b1-past-questions/#m20",
+    "basis": "Original practice based on B.1 past-question bank m20; rewritten wording and values."
   },
   {
-    "id": "ib-0232",
+    "id": "paper1a-15",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Define apparent brightness.",
-    "a": "Received power per unit area",
+    "q": "A 250 W heater warms a 0.50 kg liquid through 20 K. The liquid has c = 3000 J kg⁻¹ K⁻¹. Ignore energy losses and the container. How long does heating take?",
+    "a": "120 s",
     "wrong": [
-      "Total power emitted by the source",
-      "Energy emitted per unit mass",
-      "Received energy multiplied by area"
+      "12 s",
+      "60 s",
+      "240 s"
     ],
-    "explanation": "Received power per unit area from a source.",
-    "source": "../questions.js#ib-0232"
+    "explanation": "Q = 0.50 × 3000 × 20 = 30,000 J. Time = Q/P = 30,000/250 = 120 s.",
+    "formula": "Q = mcΔT; Q = Pt",
+    "source": "../b1-past-questions/#m21",
+    "basis": "Original practice based on B.1 past-question bank m21; rewritten wording and values."
   },
   {
-    "id": "ib-0233",
+    "id": "paper1a-16",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Relate luminosity, apparent brightness and distance.",
-    "a": "b = L/(4πd²)",
+    "q": "Equal masses of liquids X and Y are cooled by removing energy at the same constant rate. X cools twice as fast as Y. What is cX / cY?",
+    "a": "1/2",
     "wrong": [
-      "b = L/(4πd)",
-      "b = 4πd²L",
-      "b = Ld²/(4π)"
+      "2",
+      "4",
+      "1"
     ],
-    "explanation": "b = L/(4πd²).",
-    "source": "../questions.js#ib-0233"
+    "explanation": "For fixed mass and removal rate, |ΔT/Δt| = P/(mc). Twice the cooling rate means half the specific heat capacity.",
+    "formula": "Rate magnitude = mc × |ΔT/Δt|",
+    "source": "../b1-past-questions/#m14",
+    "basis": "Original practice based on B.1 past-question bank m14; rewritten wording and values."
   },
   {
-    "id": "ib-0234",
+    "id": "paper1a-17",
     "topic": "B.1 Thermal energy transfers",
-    "q": "State Wien's displacement law.",
-    "a": "λmaxT = 2.9 × 10⁻³ m K",
+    "q": "Equal masses of two pure substances freeze while losing energy at the same constant rate. X takes three times as long to freeze as Y. What is LX / LY?",
+    "a": "3",
     "wrong": [
-      "λmax/T = 2.9 × 10⁻³ m K",
-      "λmaxT² = 2.9 × 10⁻³ m K",
-      "λmaxT = 2.9 × 10³ m K"
+      "1/3",
+      "9",
+      "1"
     ],
-    "explanation": "λmaxT = 2.9 × 10⁻³ m K.",
-    "source": "../questions.js#ib-0234"
+    "explanation": "During the phase change, mL = Pt. With the same mass and power, latent heat is proportional to freezing time.",
+    "formula": "Q = mL; Q = Pt",
+    "source": "../b1-past-questions/#m14",
+    "basis": "Original practice based on B.1 past-question bank m14; rewritten wording and values."
   },
   {
-    "id": "ib-0235",
+    "id": "paper1a-18",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A material sample has density 7800 kg m⁻³ and volume 0.002 m³. Calculate the mass of the sample.",
-    "a": "15.6 kg",
+    "q": "A hot metal block is placed in cooler water. Which statement determines the initial direction of net thermal energy transfer?",
+    "a": "Energy moves from the hotter block to the cooler water",
     "wrong": [
-      "3.90 × 10⁶ kg",
-      "0.0641 kg",
-      "156 kg"
+      "Energy moves towards the object with greater mass",
+      "Energy moves towards the object with greater total internal energy",
+      "Energy always moves from water to metal"
     ],
-    "explanation": "m = ρV = 15.6 kg.",
-    "source": "../questions.js#ib-0235",
-    "formula": "ρ = m/V, so m = ρV"
+    "explanation": "Temperature difference determines the direction of net thermal transfer. Mass alone does not determine the direction.",
+    "source": "../b1-past-questions/#m12",
+    "basis": "Original practice based on B.1 past-question bank m12; rewritten wording and values."
   },
   {
-    "id": "ib-0238",
+    "id": "paper1a-19",
     "topic": "B.1 Thermal energy transfers",
-    "q": "Convert 20 °C to kelvin.",
-    "a": "293.15 K",
+    "q": "A heater supplies 80 W to a 0.40 kg sample with c = 1000 J kg⁻¹ K⁻¹. Ignore energy losses. How fast does its temperature rise?",
+    "a": "0.20 K s⁻¹",
     "wrong": [
-      "253.15 K",
-      "20 K",
-      "5463 K"
+      "2.0 K s⁻¹",
+      "5.0 K s⁻¹",
+      "0.020 K s⁻¹"
     ],
-    "explanation": "T = θ + 273.15 = 293.15 K.",
-    "source": "../questions.js#ib-0238",
-    "formula": "T (K) = θ (°C) + 273.15"
+    "explanation": "ΔT/Δt = P/(mc) = 80/(0.40 × 1000) = 0.20 K s⁻¹.",
+    "formula": "P = mc(ΔT/Δt)",
+    "source": "../b1-past-questions/#m17",
+    "basis": "Original practice based on B.1 past-question bank m17; rewritten wording and values."
   },
   {
-    "id": "ib-0240",
+    "id": "paper1a-20",
     "topic": "B.1 Thermal energy transfers",
-    "q": "A 1 kg sample has specific heat capacity 4200 J kg⁻¹ K⁻¹. Calculate the energy needed to raise its temperature by 5 °C without changing state.",
-    "a": "21,000 J",
+    "q": "A black body’s surface area stays constant while its absolute temperature doubles. By what factor does its emitted power change?",
+    "a": "16",
     "wrong": [
-      "840 J",
-      "4200 J",
-      "105,000 J"
+      "2",
+      "4",
+      "8"
     ],
-    "explanation": "Q = mcΔT = 1 × 4200 × 5 = 21,000 J. A rise of 5 °C equals a rise of 5 K.",
-    "source": "../questions.js#ib-0240",
-    "formula": "Q = mcΔT"
+    "explanation": "P ∝ T⁴. Doubling the absolute temperature multiplies the emitted power by 2⁴ = 16.",
+    "formula": "P = σAT⁴",
+    "source": "../b1-past-questions/#m19",
+    "basis": "Original practice based on B.1 past-question bank m19; rewritten wording and values."
   },
   {
-    "id": "ib-0243",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "Calculate the energy needed to melt 0.20 kg of ice at 0 °C. Its specific latent heat of fusion is 3.34 × 10⁵ J kg⁻¹.",
-    "a": "66,800 J",
-    "wrong": [
-      "16,700 J",
-      "1,670,000 J",
-      "668 J"
-    ],
-    "explanation": "Q = mL = 0.20 × 3.34 × 10⁵ = 66,800 J. The ice is already at its melting point.",
-    "source": "../questions.js#ib-0243",
-    "formula": "Q = mL"
-  },
-  {
-    "id": "ib-0249",
-    "topic": "B.1 Thermal energy transfers",
-    "q": "A black body is at 5800 K. Calculate its peak wavelength using Wien's law.",
-    "a": "5.00 × 10⁻⁷ m",
-    "wrong": [
-      "5.00 × 10⁻⁵ m",
-      "1.68 × 10¹ m",
-      "2.00 × 10⁶ m"
-    ],
-    "explanation": "λmax = 2.9 × 10⁻³/T = 5.00 × 10⁻⁷ m.",
-    "source": "../questions.js#ib-0249",
-    "formula": "λₘₐₓT = 2.9 × 10⁻³ m K"
-  },
-  {
-    "id": "ib-0251",
+    "id": "paper1a-21",
     "topic": "B.2 Greenhouse effect",
-    "q": "Define emissivity.",
-    "a": "Emitted power / black-body power at the same area and temperature",
+    "q": "Which gas is normally excluded from the main greenhouse gases?",
+    "a": "Nitrogen, N₂",
     "wrong": [
-      "Scattered power / incident power",
-      "Absorbed power / surface temperature",
-      "Black-body power / emitted power at the same area and temperature"
+      "Water vapour, H₂O",
+      "Methane, CH₄",
+      "Nitrous oxide, N₂O"
     ],
-    "explanation": "Power radiated per unit area divided by σT⁴ for a black surface at the same temperature.",
-    "source": "../questions.js#ib-0251"
+    "explanation": "Nitrogen does not significantly absorb the infrared radiation responsible for the atmospheric greenhouse effect. The other three are greenhouse gases.",
+    "source": "../b2-past-questions/#m2",
+    "basis": "Original practice based on B.2 past-question bank m2; rewritten wording and values."
   },
   {
-    "id": "ib-0252",
+    "id": "paper1a-22",
     "topic": "B.2 Greenhouse effect",
-    "q": "Define albedo.",
-    "a": "Scattered power / incident power",
+    "q": "What does an albedo of 0.60 tell you about a surface?",
+    "a": "It reflects 60% of the incoming radiation",
     "wrong": [
-      "Absorbed power / incident power",
-      "Emitted power / absorbed power",
-      "Incident power / scattered power"
+      "It emits 60% of a black body’s power",
+      "It absorbs 60% of the incoming radiation",
+      "Its temperature is 60% of the surrounding temperature"
     ],
-    "explanation": "Total scattered power divided by total incident power.",
-    "source": "../questions.js#ib-0252"
+    "explanation": "Albedo measures the fraction of incident radiation that is reflected or scattered.",
+    "source": "../b2-past-questions/#m5",
+    "basis": "Original practice based on B.2 past-question bank m5; rewritten wording and values."
   },
   {
-    "id": "ib-0256",
+    "id": "paper1a-23",
     "topic": "B.2 Greenhouse effect",
-    "q": "State four greenhouse gases.",
-    "a": "Water vapour, carbon dioxide, methane, nitrous oxide",
+    "q": "Over a fixed time, 800 J of radiation reaches an opaque surface. It absorbs 200 J and reflects the remainder. What is its albedo?",
+    "a": "0.75",
     "wrong": [
-      "Nitrogen, oxygen, argon, helium",
-      "Carbon dioxide, oxygen, nitrogen, helium",
-      "Methane, oxygen, argon, nitrogen"
+      "0.25",
+      "0.40",
+      "4.0"
     ],
-    "explanation": "Water vapour, carbon dioxide, methane and nitrous oxide.",
-    "source": "../questions.js#ib-0256"
+    "explanation": "Reflected energy = 800 − 200 = 600 J. Albedo = 600/800 = 0.75.",
+    "formula": "Albedo = reflected energy / incident energy (over the same time)",
+    "source": "../b2-past-questions/#m4",
+    "basis": "Original practice based on B.2 past-question bank m4; rewritten wording and values."
   },
   {
-    "id": "ib-0257",
+    "id": "paper1a-24",
     "topic": "B.2 Greenhouse effect",
-    "q": "State one natural source and one human activity that increases atmospheric carbon dioxide.",
-    "a": "Natural: respiration; human: burning fossil fuels",
-    "wrong": [
-      "Natural: photosynthesis; human: burning fossil fuels",
-      "Natural: respiration; human: planting growing forests",
-      "Natural: photosynthesis; human: planting growing forests"
-    ],
-    "explanation": "For example, natural source: respiration or volcanic activity. Human activity: burning fossil fuels or deforestation.",
-    "source": "../questions.js#ib-0257"
-  },
-  {
-    "id": "ib-0258",
-    "topic": "B.2 Greenhouse effect",
-    "q": "Why do greenhouse gases absorb selected infrared wavelengths?",
-    "a": "Photon energies match allowed molecular energy transitions",
+    "q": "Why can a greenhouse-gas molecule absorb particular infrared photons?",
+    "a": "Their energies match allowed changes in molecular vibrational energy",
     "wrong": [
       "All infrared photons have the same energy",
-      "The gases reflect every wavelength equally",
-      "Infrared photons are too heavy to pass through"
+      "Infrared photons are stopped by the mass of the molecule",
+      "The molecule reflects every wavelength equally"
     ],
-    "explanation": "Their molecular energy-level spacings match the photon energies.",
-    "source": "../questions.js#ib-0258"
+    "explanation": "Absorption occurs when photon energy matches an allowed molecular energy transition. It is selective, rather than equal at all wavelengths.",
+    "source": "../b2-past-questions/#m6",
+    "basis": "Original practice based on B.2 past-question bank m6; rewritten wording and values."
   },
   {
-    "id": "ib-0259",
+    "id": "paper1a-25",
     "topic": "B.2 Greenhouse effect",
-    "q": "Outline two ways in which energy absorbed from an infrared photon by a greenhouse-gas molecule can be transferred.",
-    "a": "Collisions with other molecules and infrared emission in different directions",
+    "q": "Which change would increase the enhanced greenhouse effect if other factors stay the same?",
+    "a": "Greater use of fossil fuels for electricity generation",
     "wrong": [
-      "Only reflection directly towards the Sun",
-      "Only permanent storage inside the molecule",
-      "Only visible-light emission towards the surface"
+      "Replacing fossil-fuel generation with wind power",
+      "Expanding growing forests",
+      "Reducing fossil-fuel consumption"
     ],
-    "explanation": "The molecule can transfer energy to other molecules in collisions. It can also emit infrared radiation, with emission occurring in different directions, including towards the surface.",
-    "source": "../questions.js#ib-0259"
+    "explanation": "Burning more fossil fuels releases additional CO₂, increasing absorption of outgoing infrared radiation.",
+    "source": "../b2-past-questions/#m1",
+    "basis": "Original practice based on B.2 past-question bank m1; rewritten wording and values."
   },
   {
-    "id": "ib-0261",
+    "id": "paper1a-26",
     "topic": "B.2 Greenhouse effect",
-    "q": "Define the enhanced greenhouse effect.",
-    "a": "An increase in the greenhouse effect caused by human activities",
+    "q": "Surface X emits 360 W m⁻². A black body at the same temperature emits 600 W m⁻². What is the emissivity of X?",
+    "a": "0.60",
     "wrong": [
-      "The natural greenhouse effect before human activity",
-      "An increase in the solar constant caused by greenhouse gases",
-      "A decrease in atmospheric infrared absorption"
+      "0.40",
+      "1.67",
+      "240"
     ],
-    "explanation": "The increase in the greenhouse effect caused by human activities.",
-    "source": "../questions.js#ib-0261"
+    "explanation": "e = 360/600 = 0.60. Emissivity compares emission at the same temperature.",
+    "formula": "e = emitted intensity / black-body intensity at the same temperature",
+    "source": "../b2-past-questions/#m8",
+    "basis": "Original practice based on B.2 past-question bank m8; rewritten wording and values."
   },
   {
-    "id": "ib-0262",
+    "id": "paper1a-27",
     "topic": "B.2 Greenhouse effect",
-    "q": "Why does the greenhouse effect warm Earth's surface?",
-    "a": "Downward infrared emission reduces net energy loss from the surface",
+    "q": "Two surfaces have equal areas and temperatures. X has emissivity 0.30 and Y has emissivity 0.90. What is emitted power X / emitted power Y?",
+    "a": "1/3",
     "wrong": [
-      "Greenhouse gases create energy from nothing",
-      "The atmosphere stops all energy escaping to space",
-      "Greenhouse gases increase the power emitted by the Sun"
+      "3",
+      "1/9",
+      "1"
     ],
-    "explanation": "Downward re-emission by the atmosphere reduces the net rate of energy loss from the surface.",
-    "source": "../questions.js#ib-0262"
+    "explanation": "P = eσAT⁴. Equal areas and temperatures leave PX/PY = eX/eY = 0.30/0.90 = 1/3.",
+    "formula": "P = eσAT⁴",
+    "source": "../b2-past-questions/#m7",
+    "basis": "Original practice based on B.2 past-question bank m7; rewritten wording and values."
   },
   {
-    "id": "ib-0265",
+    "id": "paper1a-28",
     "topic": "B.2 Greenhouse effect",
-    "q": "How does increasing emissivity affect emitted power at fixed temperature?",
-    "a": "Emitted power increases in direct proportion",
+    "q": "Which pair of properties belongs to an ideal black body?",
+    "a": "Emissivity 1; all incident radiation absorbed",
     "wrong": [
-      "Emitted power decreases in direct proportion",
-      "Emitted power increases with emissivity to the fourth power",
-      "Emitted power stays unchanged"
+      "Emissivity 0; all incident radiation absorbed",
+      "Emissivity 1; all incident radiation reflected",
+      "Emissivity 0; all incident radiation reflected"
     ],
-    "explanation": "It increases emitted power in direct proportion to emissivity.",
-    "source": "../questions.js#ib-0265"
+    "explanation": "An ideal black body is a perfect absorber and has emissivity 1.",
+    "source": "../b2-past-questions/#m8",
+    "basis": "Original practice based on B.2 past-question bank m8; rewritten wording and values."
   },
   {
-    "id": "ib-0266",
+    "id": "paper1a-29",
     "topic": "B.2 Greenhouse effect",
-    "q": "A surface radiates 400 W m⁻²; a black body at the same temperature radiates 500 W m⁻². Calculate the emissivity of the surface.",
-    "a": "0.80",
+    "q": "Two spherical emitters have the same temperature and emissivity. The radius of X is three times the radius of Y. What is emitted power X / emitted power Y?",
+    "a": "9",
     "wrong": [
-      "1.25",
-      "0.20",
-      "100"
+      "3",
+      "27",
+      "81"
     ],
-    "explanation": "e = emitted intensity / black-body intensity = 400/500 = 0.80.",
-    "source": "../questions.js#ib-0266",
-    "formula": "e = emitted intensity / black-body intensity at the same temperature"
+    "explanation": "P ∝ A and a sphere’s area is proportional to radius squared. The ratio is 3² = 9.",
+    "formula": "P = eσAT⁴; A = 4πR²",
+    "source": "../b2-past-questions/#m7",
+    "basis": "Original practice based on B.2 past-question bank m7; rewritten wording and values."
   },
   {
-    "id": "ib-0269",
+    "id": "paper1a-30",
     "topic": "B.2 Greenhouse effect",
-    "q": "A planet scatters 30 W of the 120 W of radiation incident on it. Calculate the planet's albedo.",
-    "a": "0.25",
+    "q": "After greenhouse gases absorb infrared radiation, in which directions can they emit infrared radiation?",
+    "a": "In all directions, including towards Earth’s surface",
     "wrong": [
-      "0.75",
-      "4.0",
-      "0.40"
+      "Only away from Earth",
+      "Only towards Earth’s surface",
+      "Only towards the Sun"
     ],
-    "explanation": "Albedo = scattered/incident = 0.250.",
-    "source": "../questions.js#ib-0269",
-    "formula": "Albedo = scattered power / incident power"
+    "explanation": "Infrared emission can occur in all directions. Downward emission reduces the net thermal energy loss from the surface.",
+    "source": "../b2-past-questions/#m6",
+    "basis": "Original practice based on B.2 past-question bank m6; rewritten wording and values."
+  },
+  {
+    "id": "paper1a-31",
+    "topic": "B.1 Thermal energy transfers",
+    "q": "A star is observed from distance d with apparent brightness b. What brightness would an observer at distance 3d measure, ignoring absorption?",
+    "a": "b/9",
+    "wrong": [
+      "b/3",
+      "3b",
+      "9b"
+    ],
+    "formula": "b = L/(4πd²)",
+    "explanation": "For the same star, apparent brightness is inversely proportional to distance squared. Tripling the distance divides brightness by nine.",
+    "source": "../b1-past-questions/#m2",
+    "basis": "Original inverse-square application of the luminosity/apparent-brightness distinction in B.1 past-question bank m2."
   }
 ];
