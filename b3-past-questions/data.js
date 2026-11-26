@@ -9,12 +9,12 @@ const MC = [
 {id:'m23',number:23,title:'Joining two gas samples',topic:'Conservation of particles',answer:1,hint:'At unchanged temperature, add the initial pV values because the total number of particles is conserved.',result:'B — 100 m³.',work:'Each sample contributes particles in proportion to pV. Therefore p(final)V(final) = p(A)V(A) + p(B)V(B) = 4.0 × 50 + 10 × 40 = 600 Pa m³. Divide by the final pressure, 6.0 Pa, to obtain 100 m³. Flexible balloons can change volume.',anchor:'Balloon A and balloon B contain atoms'}
 ];
 const PAPERS = [
-{id:'p1',number:1,title:'Particles and compression',topic:'Boltzmann equation and Boyle’s law',intro:'Complete parts b–d of PaperPlainz Paper 2 question 1. Read the full setup on PaperPlainz before answering.',anchor:'A container is filled with an ideal, monatomic gas',parts:[
+{id:'p1',number:1,title:'Particles and compression',topic:'Boltzmann equation and Boyle’s law',intro:'Complete parts b–d of the linked question. Read the full setup before answering.',anchor:'A container is filled with an ideal, monatomic gas',parts:[
 {id:'p1b',label:'b',title:'Count the gas atoms',marks:2,hint:'Convert the initial temperature to kelvin. Rearrange pV = NkBT.',result:'N ≈ 6.4 × 10²¹ atoms.',work:'T = 28 + 273 = 301 K. N = pV/(kBT) = (7.2 × 3.7)/[(1.38 × 10⁻²³) × 301] = 6.41 × 10²¹. Round to two significant figures.',check:'Use kelvin; choose the molecule-count equation; include atoms in the final answer.'},
 {id:'p1c',label:'c',title:'Find the compressed pressure',marks:1,hint:'A decrease of 67% leaves 33% of the original volume.',result:'p₂ ≈ 22 Pa.',work:'Temperature and particle number are constant, so p₁V₁ = p₂V₂. With V₂ = 0.33V₁, p₂ = p₁/0.33 = 7.2/0.33 ≈ 21.8 Pa.',check:'Use the remaining volume fraction, rather than the percentage decrease.'},
 {id:'p1d',label:'d',title:'Explain the pressure change',marks:2,hint:'The temperature is unchanged. Think about how often particles reach a wall.',result:'More frequent wall collisions increase the force per unit area.',work:'Constant temperature means unchanged mean random kinetic energy and the same speed distribution. In the smaller volume, particles collide with the walls more frequently. The rate of momentum transfer per unit area increases, so pressure increases.',check:'Link smaller volume to collision frequency and pressure. Do not claim that temperature or average particle speed increases.'}
 ]},
-{id:'p4',number:4,title:'Krypton: gas volume and heating',topic:'Ideal gas equation and thermal energy',intro:'Complete parts a, b(i), b(ii) and d of PaperPlainz Paper 2 question 4. Read the full setup on PaperPlainz. The molar mass is 84 g mol⁻¹.',anchor:'A cylinder, sealed by a freely moving piston',parts:[
+{id:'p4',number:4,title:'Krypton: gas volume and heating',topic:'Ideal gas equation and thermal energy',intro:'Complete parts a, b(i), b(ii) and d of the linked question. The molar mass is 84 g mol⁻¹.',anchor:'A cylinder, sealed by a freely moving piston',parts:[
 {id:'p4a',label:'a',title:'Calculate the volume',marks:2,hint:'The amount is already in moles, so use pV = nRT.',result:'V = 7.19 × 10⁻³ m³.',work:'V = nRT/p = (0.820 × 8.31 × 285)/(2.70 × 10⁵) = 0.0071929 m³. The inputs for this calculation have three significant figures, so give 7.19 × 10⁻³ m³.',check:'Rearrange correctly and use m³ for volume.'},
 {id:'p4bi',label:'b(i)',title:'Find the gas mass',marks:1,hint:'Use mass = amount × molar mass. Convert grams to kilograms.',result:'m = 0.06888 kg ≈ 0.069 kg.',work:'m = nM = 0.820 × 84 = 68.88 g = 0.06888 kg. Keep the unrounded mass for the next calculation.',check:'Include the conversion from grams to kilograms.'},
 {id:'p4bii',label:'b(ii)',title:'Estimate specific heat capacity',marks:3,hint:'Only the stated fraction of the heater’s input energy reaches the gas. Then use Q = mcΔT.',result:'c ≈ 2.5 × 10² J kg⁻¹ K⁻¹.',work:'Time = 2 × 60 = 120 s. Input energy = Pt = 50 × 120 = 6000 J. Energy transferred to the gas = 0.18 × 6000 = 1080 J. Temperature change = 348 − 285 = 63 K. c = 1080/(0.06888 × 63) ≈ 249 J kg⁻¹ K⁻¹.',check:'Apply efficiency, convert time to seconds, use the temperature change, and retain the unrounded mass.'},
@@ -22,48 +22,6 @@ const PAPERS = [
 ]}
 ];
 
-/* Complete source index. Full prompts, answers and video players remain on PaperPlainz. */
-const extraMC = [
-[4,'Ideal-gas conditions','Under what conditions of density and temperature'],
-[5,'Internal energy and temperature','The total internal energy of two moles'],
-[6,'Changing temperature and pressure','The temperature and the pressure of an ideal gas'],
-[7,'Kinetic-model assumptions','Which one of the following is not an assumption'],
-[8,'Pressure and RMS speed','The pressure of an ideal gas is proportional'],
-[9,'Testing model assumptions','Which of the following is not an assumption of'],
-[10,'Counting atoms','A container has 36 g of Carbon-12'],
-[12,'Comparing particle speeds','A sealed cylinder contains neon'],
-[13,'Temperature and speed','The temperature of a fixed mass'],
-[14,'Oxygen in a sealed container','A sealed container contains'],
-[15,'Piston and particle energy','molecules of an ideal gas are contained in'],
-[16,'Density, speed and internal energy','A sealed container holds a fixed mass'],
-[17,'Interpreting a pressure graph','The graph shows how the pressure'],
-[18,'Percentage changes in pressure','The temperature of an ideal gas in a closed'],
-[20,'Combining RMS and gas equations','A sealed cylinder of volume'],
-[22,'Moving gas containers','A thermally isolated, sealed container'],
-[24,'Comparing molar masses','Gas A is at a temperature'],
-[25,'Connected gas containers','A balloon and a glass jar'],
-[26,'Releasing gas particles','A cylinder sealed by a movable piston']
-];
-for(const [number,title,anchor] of extraMC) MC.push({
-id:'m'+number,number,title,anchor,topic:'Gas laws practice',
-hint:'Read the full question and options on PaperPlainz. Identify the relevant model or equation; use SI units in calculations.'
-});
-MC.sort((a,b)=>a.number-b.number);
-const sourcePart=(number,label,existing)=>existing||{
-id:'p'+number+label.replace(/[()]/g,''),label,title:'Your response',
-hint:'Work from the complete question on PaperPlainz. Write down the known quantities and the model or equation that connects them.'
-};
-const p1=PAPERS.find(q=>q.number===1);
-p1.intro='Complete all parts of PaperPlainz Paper 2 question 1. Open the full question below.';
-p1.parts=['a','b','c','d'].map(label=>sourcePart(1,label,p1.parts.find(p=>p.label===label)));
-const p4=PAPERS.find(q=>q.number===4);
-p4.intro='Complete all parts of PaperPlainz Paper 2 question 4. Open the full question below.';
-p4.parts=['a','b(i)','b(ii)','b(iii)','c','d'].map(label=>sourcePart(4,label,p4.parts.find(p=>p.label===label)));
-for(const [number,title,anchor,labels] of [
-[2,'Monatomic gas in a box','A sealed box contains',['a(i)','a(ii)','b','c(i)','c(ii)','d','e']],
-[3,'Gas under a lead block','The dimensions of a lead block',['a','b','c','d']],
-[5,'Argon balloon','An expandable balloon is filled',['a','b','c']]
-])PAPERS.push({id:'p'+number,number,title,anchor,topic:'Gas laws practice',
-intro:'Complete all parts of PaperPlainz Paper 2 question '+number+'. Open the full question below.',
-parts:labels.map(label=>sourcePart(number,label))});
-PAPERS.sort((a,b)=>a.number-b.number);
+// Student-facing numbering is independent of the source question IDs.
+MC.forEach((q,i)=>q.displayNumber=i+1);
+PAPERS.forEach((q,i)=>q.displayNumber=i+1);
