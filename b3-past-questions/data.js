@@ -21,3 +21,49 @@ const PAPERS = [
 {id:'p4d',label:'d',title:'Why use a scientific model?',marks:1,hint:'Think about what a simplified model lets scientists explain or predict.',result:'Models simplify complex systems so that their behaviour can be explained and predicted.',work:'For example, treating a gas as particles with negligible volume and intermolecular forces lets us predict relationships between pressure, volume and temperature. A model is useful within the conditions where its assumptions are reasonable.',check:'State a useful purpose of models, such as making testable predictions.'}
 ]}
 ];
+
+/* Complete source index. Full prompts, answers and video players remain on PaperPlainz. */
+const extraMC = [
+[4,'Ideal-gas conditions','Under what conditions of density and temperature'],
+[5,'Internal energy and temperature','The total internal energy of two moles'],
+[6,'Changing temperature and pressure','The temperature and the pressure of an ideal gas'],
+[7,'Kinetic-model assumptions','Which one of the following is not an assumption'],
+[8,'Pressure and RMS speed','The pressure of an ideal gas is proportional'],
+[9,'Testing model assumptions','Which of the following is not an assumption of'],
+[10,'Counting atoms','A container has 36 g of Carbon-12'],
+[12,'Comparing particle speeds','A sealed cylinder contains neon'],
+[13,'Temperature and speed','The temperature of a fixed mass'],
+[14,'Oxygen in a sealed container','A sealed container contains'],
+[15,'Piston and particle energy','molecules of an ideal gas are contained in'],
+[16,'Density, speed and internal energy','A sealed container holds a fixed mass'],
+[17,'Interpreting a pressure graph','The graph shows how the pressure'],
+[18,'Percentage changes in pressure','The temperature of an ideal gas in a closed'],
+[20,'Combining RMS and gas equations','A sealed cylinder of volume'],
+[22,'Moving gas containers','A thermally isolated, sealed container'],
+[24,'Comparing molar masses','Gas A is at a temperature'],
+[25,'Connected gas containers','A balloon and a glass jar'],
+[26,'Releasing gas particles','A cylinder sealed by a movable piston']
+];
+for(const [number,title,anchor] of extraMC) MC.push({
+id:'m'+number,number,title,anchor,topic:'Gas laws practice',
+hint:'Read the full question and options on PaperPlainz. Identify the relevant model or equation; use SI units in calculations.'
+});
+MC.sort((a,b)=>a.number-b.number);
+const sourcePart=(number,label,existing)=>existing||{
+id:'p'+number+label.replace(/[()]/g,''),label,title:'Your response',
+hint:'Work from the complete question on PaperPlainz. Write down the known quantities and the model or equation that connects them.'
+};
+const p1=PAPERS.find(q=>q.number===1);
+p1.intro='Complete all parts of PaperPlainz Paper 2 question 1. Open the full question below.';
+p1.parts=['a','b','c','d'].map(label=>sourcePart(1,label,p1.parts.find(p=>p.label===label)));
+const p4=PAPERS.find(q=>q.number===4);
+p4.intro='Complete all parts of PaperPlainz Paper 2 question 4. Open the full question below.';
+p4.parts=['a','b(i)','b(ii)','b(iii)','c','d'].map(label=>sourcePart(4,label,p4.parts.find(p=>p.label===label)));
+for(const [number,title,anchor,labels] of [
+[2,'Monatomic gas in a box','A sealed box contains',['a(i)','a(ii)','b','c(i)','c(ii)','d','e']],
+[3,'Gas under a lead block','The dimensions of a lead block',['a','b','c','d']],
+[5,'Argon balloon','An expandable balloon is filled',['a','b','c']]
+])PAPERS.push({id:'p'+number,number,title,anchor,topic:'Gas laws practice',
+intro:'Complete all parts of PaperPlainz Paper 2 question '+number+'. Open the full question below.',
+parts:labels.map(label=>sourcePart(number,label))});
+PAPERS.sort((a,b)=>a.number-b.number);
